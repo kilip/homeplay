@@ -1,0 +1,44 @@
+---
+- name: Ensure suspend on lid close disabled
+  ansible.builtin.lineinfile:
+    path: /etc/systemd/logind.conf
+    state: present
+    regexp: "^HandleLidSwitch="
+    line: "HandleLidSwitch=ignore"
+  notify: Restart logind
+
+- name: Ensure laptop shutdown on ac power unplugged
+  ansible.builtin.copy:
+    content: |
+      SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="0", RUN+="/usr/sbin/poweroff"
+    dest: /etc/udev/rules.d/50-ac-unplugged.rules
+    owner: root
+    mode: "u+rw,g+r,o+r"
+  notify: Reload udevadm
+
+- name: Ensure laptop screen turn off
+  ansible.builtin.copy:
+    content: |
+      [Unit]
+      Description=Enable screen saver
+
+      [Service]
+      Type=oneshot
+      Environment=TERM=linux
+      StandardOutput=tty
+      TTYPath=/dev/console
+      ExecStart=/usr/bin/setterm -blank 1
+
+      [Install]
+      WantedBy=multi-user.target
+    dest: /etc/systemd/system/screen-saver.service
+    owner: root
+    mode: "u+rw,g+r,o+r"
+  notify: Restart screen-saver
+
+- name: Ensure screen-saver service started
+  ansible.builtin.service:
+    name: screen-saver
+    enabled: true
+    state: started
+  when: not ansible_check_mode

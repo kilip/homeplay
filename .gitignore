@@ -1,0 +1,5 @@
+.venv
+.env
+inventory/hosts
+ansible.cfg
+age.key

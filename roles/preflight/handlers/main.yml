@@ -1,0 +1,16 @@
+---
+- name: Restart logind
+  ansible.builtin.service:
+    name: systemd-logind
+    state: restarted
+
+- name: Reload udevadm
+  ansible.builtin.command:
+    cmd: udevadm control --reload
+  changed_when: false
+
+- name: Restart screen-saver
+  ansible.builtin.service:
+    name: screen-saver
+    state: restarted
+  when: not ansible_check_mode

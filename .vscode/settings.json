@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "*.j2": "ansible-jinja",
+    "./inventory/**/*.sops.yaml": "yaml",
+    "*.yml": "ansible",
+    "*/**/*.yml": "ansible"
+  },
+  "sops.defaults.ageKeyFile": "age.key",
+  "ansible.python.interpreterPath": "/home/toni/code/homeplay/.venv/bin/python"
+}

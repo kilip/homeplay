@@ -1,0 +1,14 @@
+---
+- name: Ensure locales installed
+  ansible.builtin.apt:
+    name: locales
+    state: present
+
+- name: Ensure timezone configured
+  community.general.timezone:
+    name: "{{ timezone }}"
+
+- name: Ensure locale configured
+  community.general.locale_gen:
+    name: en_US.UTF-8
+    state: present

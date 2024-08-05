@@ -1,0 +1,57 @@
+---
+- name: Ensure nfs server configured
+  ansible.builtin.include_role:
+    name: geerlingguy.nfs
+    apply:
+      tags: nfs
+  when: nfs_server and not ansible_check_mode
+  tags: nfs
+
+- name: Ensure docker service configured
+  when: configure_docker
+  block:
+    - name: Ensure docker network created
+      community.docker.docker_network:
+        name: "{{ docker_network_name }}"
+        driver: bridge
+
+    - name: Get docker network info
+      community.docker.docker_network_info:
+        name: "{{ docker_network_name }}"
+      register: docker_net_stat
+
+    - name: Set docker network facts
+      ansible.builtin.set_fact:
+        docker_network_exists: docker_net_stat.exists
+
+    - name: Ensure postgres service configured
+      ansible.builtin.include_tasks:
+        file: postgres.yml
+        apply:
+          tags: postgres
+      when: postgres
+      tags: postgres
+
+    - name: Ensure traefik service configured
+      ansible.builtin.include_tasks:
+        file: traefik.yml
+        apply:
+          tags: traefik
+      when: traefik
+      tags: traefik
+
+    - name: Ensure portainer service configured
+      ansible.builtin.include_tasks:
+        file: portainer.yml
+        apply:
+          tags: portainer
+      when: portainer
+      tags: portainer
+
+    - name: Ensure home assistant service configured
+      ansible.builtin.include_tasks:
+        file: hass.yml
+        apply:
+          tags: hass
+      when: hass
+      tags: hass

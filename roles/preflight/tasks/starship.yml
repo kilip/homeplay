@@ -1,0 +1,56 @@
+---
+- name: Gather starship bin file stat
+  ansible.builtin.stat:
+    path: /usr/local/bin/starship
+  register: starship_stat
+
+- name: Ensure required tools installed
+  ansible.builtin.package:
+    name: [curl, unzip, fontconfig]
+    state: present
+
+- name: Ensure starship installed
+  when: not starship_stat.stat.exists
+  block:
+    - name: Ensure starship install scripts downloaded
+      ansible.builtin.get_url:
+        url: https://starship.rs/install.sh
+        dest: /tmp/starship.sh
+        mode: "0775"
+
+    - name: Ensure starship installed
+      ansible.builtin.command:
+        argv:
+          - sh
+          - /tmp/starship.sh
+          - --yes
+
+- name: Check if Fira Code Nerd font installed
+  ansible.builtin.stat:
+    path: "{{ fira_font_lock }}"
+  register: fira_stat
+
+- name: Ensure Fira Code Nerd font installed
+  when: not fira_stat.stat.exists
+  block:
+    - name: Ensure fonts dir exists
+      ansible.builtin.file:
+        path: "{{ font_install_dir }}"
+        state: directory
+    - name: Ensure fira code font extracted
+      ansible.builtin.unarchive:
+        src: FiraCode.zip
+        dest: "{{ font_install_dir }}"
+    - name: Ensure fira code font installed
+      ansible.builtin.command:
+        argv:
+          - fc-cache
+          - -fv
+      become: true
+      become_user: "{{ homeplay_user }}"
+      changed_when: false
+      when: not ansible_check_mode
+    - name: Ensure fira code font lock file exists
+      ansible.builtin.copy:
+        content: ""
+        dest: "{{ fira_font_lock }}"

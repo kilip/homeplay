@@ -1,0 +1,47 @@
+---
+configure_user: false
+homeplay_user: "ansible"
+homeplay_user_home: "/home/{{ homeplay_user }}"
+homeplay_user_shell: "/usr/bin/bash"
+
+configure_apt: false
+apt_proxy: "{{ lookup('ansible.builtin.env', 'HTTP_PROXY') | default(false) }}"
+apt_packages: []
+
+
+configure_laptop: false
+
+configure_locale: false
+timezone: Etc/UTC
+
+configure_ssh: false
+ssh_key_name: ansible
+ssh_private: false
+ssh_public_key: false
+ssh_dir: "{{ homeplay_user_home }}/.ssh"
+ssh_private_key: "{{ ssh_dir }}/{{ ssh_key_name }}"
+
+configure_starship: false
+font_install_dir: /usr/local/share/fonts
+fira_font_lock: "{{ font_install_dir }}/.FiraCode"
+
+
+configure_docker: false
+docker_users:
+  - "{{ homeplay_user }}"
+
+configure_chezmoi: false
+chezmoi_version: "2.51.0"
+chezmoi_deb: |
+  https://github.com/twpayne/chezmoi/releases/download/v{{ chezmoi_version }}/chezmoi_{{ chezmoi_version }}_linux_amd64.deb
+chezmoi_repo: false
+chezmoi_bin: /usr/bin/chezmoi
+chezmoi_clone_dir: "{{ homeplay_user_home }}/.local/share/chezmoi"
+chezmoi_deploy_key: "{{ ssh_private_key }}"
+
+configure_pass: false
+pass_repo: git@github.com:kilip/password-store.git
+pass_gpg_key: "/tmp/gpg-key-backup.asc"
+pass_dir: "{{ homeplay_user_home }}/.password-store"
+
+gpg_keys: []

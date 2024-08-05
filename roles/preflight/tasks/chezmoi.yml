@@ -1,0 +1,43 @@
+---
+- name: Check if chezmoi installed
+  ansible.builtin.stat:
+    path: "{{ chezmoi_bin }}"
+  register: chezmoi_bin
+
+- name: Ensure chezmoi downloaded
+  ansible.builtin.get_url:
+    url: "{{ chezmoi_deb }}"
+    dest: /tmp/chezmoi.deb
+  when: not chezmoi_bin.stat.exists
+
+- name: Ensure chezmoi installed
+  ansible.builtin.apt:
+    deb: /tmp/chezmoi.deb
+    install_recommends: true
+  when:
+    - not ansible_check_mode
+    - not chezmoi_bin.stat.exists
+
+- name: Check if repo cloned
+  ansible.builtin.stat:
+    path: "{{ chezmoi_clone_dir }}"
+  register: chezmoi_dir
+
+- name: Ensure chezmoi configured
+  become: true
+  become_user: "{{ homeplay_user }}"
+  when:
+    - not ansible_check_mode
+    - not chezmoi_dir.stat.exists
+  block:
+    - name: Ensure chezmoi repo cloned # noqa: latest[git]
+      ansible.builtin.git:
+        repo: "{{ chezmoi_repo }}"
+        dest: "{{ chezmoi_clone_dir }}"
+        key_file: "{{ chezmoi_deploy_key }}"
+        accept_newhostkey: true
+
+    - name: Ensure chezmoi initialized
+      ansible.builtin.shell: |
+        chezmoi init --apply {{ chezmoi_repo }}
+      changed_when: false

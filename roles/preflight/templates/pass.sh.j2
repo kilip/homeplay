@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+gpg --import ~/.password-store/gpg-key-backup.asc
+
+cd ~/.password-store
+
+mkdir -p ~/.config/sops/age
+pass age/keys >> ~/.config/sops/age/keys.txt

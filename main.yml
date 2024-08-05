@@ -1,0 +1,28 @@
+---
+- name: Installs and configure nodes
+  gather_facts: true
+  hosts: all
+  become: true
+  tasks:
+    - name: Check test mode
+      ansible.builtin.set_fact:
+        playbook_testing: "{{ lookup('ansible.builtin.env', 'PLAYBOOK_TESTING') }}"
+
+    - name: Include testing vars
+      ansible.builtin.include_vars:
+        file: ./tests/vars/test.yml
+      when: playbook_testing
+
+    - name: Include preflight role
+      ansible.builtin.include_role:
+        name: preflight
+        apply:
+          tags: preflight
+      tags: [always, preflight]
+
+    - name: Include service Role
+      ansible.builtin.include_role:
+        name: service
+        apply:
+          tags: service
+      tags: [always, service]

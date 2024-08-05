@@ -1,0 +1,15 @@
+---
+- name: Ensure pass installed
+  ansible.builtin.apt:
+    package:
+      - pass
+      - python3-packaging
+    state: present
+
+- name: Ensure pass repo cloned # noqa: latest[git]
+  ansible.builtin.git:
+    repo: "{{ pass_repo }}"
+    clone: true
+    dest: "{{ pass_dir }}"
+    key_file: "{{ ssh_private_key }}"
+    accept_newhostkey: true

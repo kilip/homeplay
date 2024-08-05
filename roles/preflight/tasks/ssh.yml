@@ -1,0 +1,33 @@
+---
+- name: Ensure ssh dir exists
+  ansible.builtin.file:
+    path: "{{ ssh_dir }}"
+    state: directory
+    owner: "{{ homeplay_user }}"
+    group: "{{ homeplay_user }}"
+    mode: "0700"
+
+- name: Ensure old ssh key removed
+  ansible.builtin.file:
+    path: "{{ ssh_dir }}/{{ item }}"
+    state: absent
+  with_items:
+    - ansible
+    - ansible.pub
+
+- name: Ensure ssh key configured
+  ansible.builtin.template:
+    src: ssh-private.j2
+    dest: "{{ ssh_private_key }}"
+    mode: "0600"
+    owner: "{{ homeplay_user }}"
+    group: "{{ homeplay_user }}"
+    trim_blocks: false
+
+- name: Ensure ssh public key configured
+  ansible.builtin.template:
+    src: ssh-public.j2
+    dest: "{{ ssh_private_key }}.pub"
+    mode: u+rw,g+r,o+r
+    owner: "{{ homeplay_user }}"
+    group: "{{ homeplay_user }}"

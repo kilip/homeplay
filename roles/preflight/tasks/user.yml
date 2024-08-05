@@ -1,0 +1,14 @@
+---
+- name: Ensure user exists
+  ansible.builtin.user:
+    name: "{{ homeplay_user }}"
+    home: "{{ homeplay_user_home }}"
+    shell: "{{ homeplay_user_shell }}"
+    state: present
+
+- name: Ensure sudoer configured
+  community.general.sudoers:
+    name: "ansible-{{ homeplay_user }}"
+    user: "{{ homeplay_user }}"
+    commands: ALL
+    nopassword: true

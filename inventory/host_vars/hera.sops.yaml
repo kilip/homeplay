@@ -1,0 +1,27 @@
+ansible_host: ENC[AES256_GCM,data:Gl36nqnBhPew,iv:S6ZWB1pbe8YcPlgEob9vDVi4mq+RsiEcNCsrIiCGtFU=,tag:RB+SXb7G5QhSS8Jix2wzBw==,type:str]
+ansible_user: ENC[AES256_GCM,data:M8EoKw==,iv:Cr+0FMsYVgAFMLLXhwo4hzWzQp1Q8pchUFisdFpsm0Y=,tag:fsv6m288dQHldh5QXnRnng==,type:str]
+configure_apt: ENC[AES256_GCM,data:zMPYKw==,iv:e2K/SIOtgBruFm5nB7kc/Mj6bCFbXMxI3od12iItGr0=,tag:aypTIKkbI/co/0w57b9MvQ==,type:bool]
+configure_laptop: ENC[AES256_GCM,data:62aoJA==,iv:CKigunZLh2WUuDQIwjk5YDryp9swrR1dg7ePCIuXq+I=,tag:Ea6Q1PKMVuedTAI4K0+K3w==,type:bool]
+#ENC[AES256_GCM,data:GPgHI35WuFmnlvJRit3vyQ==,iv:WCGvBAdhEYMDtswZSdacWmuJkin56CC6VD1kPc1AKqg=,tag:cvZ0obJcF2/S69ixEaJrvA==,type:comment]
+#ENC[AES256_GCM,data:pTW7Qpeb+RoYQqQS,iv:yduvM61eh5ohO/Pf/y4c6rxS6nx0BeDhds0rJPuXp1M=,tag:3jh6gBLDNPsE34BMjhKT0g==,type:comment]
+#ENC[AES256_GCM,data:PFCBn2oilrtKncSG5seALrfyaV2xoAzRyargzZEGKpnK9qpHiRW/Q+C/j8QNg0spcfXXwi97ogsgmRmdbHl/o+w1QKNUDD0xfYcFchiuq0X7FXU3b1N97aVaqqaThA==,iv:Yo502zNWo9ens5WSMiVO7y7n6OmA94K15cxQcYWCHT4=,tag:HXrAgLRQvZkfdbgjE5eSjw==,type:comment]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age13n6rctev7vwr2vuds9uqdh6anhvdvl2zt8gu9jp6mmvw2wukuqmqxz9ghv
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBTQ1I1cG12Y25MNWpwR3VG
+            cGx4QWhOTjZGa0hxUkJGODBMQWYveTZneGljClJVbXltYk1HakVwQW1RVmJnVXU3
+            OHBCSzVqQi9xN3p6OXBGT1hlWXBKVm8KLS0tIFFxV0s0aExjcElVZ3hNS0dSU3Zw
+            TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
+            YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-08-02T06:50:23Z"
+    mac: ENC[AES256_GCM,data:t2VVU46nth6aQqV6oPN+RDB8HKlNfxDnEZzXnhJ1sGoeihaR7qCqLrMusx0IOb8Fkbor0BdLfnRyPi4iuME5AzDzvtlrLTnAkUNYNkSppx+uRPsdHCIIovgLTEyE4U7mFjxU+JN4S2hasQY+4zsImlS8hYN4a+iLfLhLNmzbjW0=,iv:ZfGwwO7P/1fCvgVMDnqfx9/XKQhxk7qmpRPo+K5KcLY=,tag:hXoVoVcDkrAl9epbz2/nHg==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.9.0

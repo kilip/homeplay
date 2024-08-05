@@ -1,0 +1,26 @@
+---
+# apt section
+configure_apt: true
+apt_packages:
+  - git
+  - fish
+
+configure_chezmoi: true
+chezmoi_repo: "git@github.com:kilip/chezmoi-test.git"
+
+configure_locale: true
+
+configure_ssh: true
+ssh_key_name: id_ed25519
+ssh_private: "{{ lookup('bitwarden.secrets.lookup', '9f572527-1cb2-4e62-8794-b1bc0115006d') }}"
+ssh_public: "{{ lookup('bitwarden.secrets.lookup', 'd7ab0406-9666-4565-ab48-b1bc01153116') }}"
+
+configure_starship: true
+
+configure_user: true
+homeplay_user: toni
+homeplay_user_shell: /usr/bin/fish
+
+configure_docker: false
+docker_users:
+  - "{{ homeplay_user }}"

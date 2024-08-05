@@ -1,0 +1,5 @@
+---
+- name: Import main playbook
+  ansible.builtin.import_playbook: ../../main.yml
+  vars:
+    configure_apt: true

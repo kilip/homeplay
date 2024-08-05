@@ -1,0 +1,44 @@
+version: 3
+
+vars:
+  ANSIBLE_BIN: "{{.VIRTUAL_ENV}}/bin/ansible"
+  PLAYBOOK_BIN: "{{.VIRTUAL_ENV}}/bin/ansible-playbook"
+
+tasks:
+  deps:
+    desc: installs project dependencies
+    cmds:
+      - pip install --upgrade pip
+      - pip install -r requirements.txt
+      - ansible-galaxy collection install -r requirements.yml
+      - ansible-galaxy role install -r requirements.yml
+
+  dev:converge:
+    desc: molecule converge
+    cmds:
+      - molecule converge
+    env:
+      PLAYBOOK_TESTING: true
+
+  dev:destroy:
+    desc: molecule destroy
+    cmds:
+      - molecule destroy
+      - molecule reset
+
+  ping:
+    desc: Ping all available hosts
+    cmds:
+      - "{{.ANSIBLE_BIN}} -i {{.INVENTORY}} --one-line -m ping all"
+
+  play:
+    desc: Run ansible playbook
+    cmds:
+      - "{{.PLAYBOOK_BIN}} -i {{.INVENTORY}} {{.CLI_ARGS}} main.yml"
+
+  check:
+    desc: Check playbook run
+    cmds:
+      - task: play
+        vars:
+          CLI_ARGS: "--check {{.CLI_ARGS}}"

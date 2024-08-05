@@ -1,0 +1,35 @@
+---
+- name: Set container image edition
+  ansible.builtin.set_fact:
+    portainer_image: "{{ portainer_ee_image if portainer_edition == 'ee' else portainer_ce_image }}"
+
+- name: Ensure portainer image pulled
+  community.docker.docker_image:
+    name: "{{ portainer_image }}"
+    source: pull
+
+- name: Ensure portainer volume exists
+  community.docker.docker_volume:
+    name: portainer_data
+    state: present
+
+- name: Ensure portainer container configured
+  when: docker_network_exists
+  community.docker.docker_container:
+    state: started
+    image_name_mismatch: recreate
+    name: portainer
+    image: "{{ portainer_image }}"
+    restart_policy: always
+    networks:
+      - name: "{{ docker_network_name }}"
+    ports:
+      - 9443:9443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.frontend.entrypoints: websecure
+      traefik.http.routers.frontend.rule: "Host(`{{ portainer_hostname }}.{{ traefik_domain }}`)"
+      traefik.http.services.frontend.loadbalancer.server.port: "9000"

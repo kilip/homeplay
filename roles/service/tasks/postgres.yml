@@ -1,0 +1,25 @@
+---
+- name: Ensure postgres image pulled
+  community.docker.docker_image:
+    name: "{{ postgres_image }}"
+    source: pull
+
+- name: Ensure postgres container created
+  community.docker.docker_container:
+    state: started
+    image_name_mismatch: recreate
+    name: "{{ postgres_name }}"
+    image: "{{ postgres_image }}"
+    restart_policy: always
+    env:
+      POSTGRES_USER: "{{ postgres_user }}"
+      POSTGRES_PASSWORD: "{{ postgres_password }}"
+      POSTGRES_DB: "{{ postgres_db }}"
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - "{{ postgres_data_dir }}:/var/lib/postgresql/data"
+    ports:
+      - "{{ postgres_port }}"
+    networks:
+      - name: "{{ docker_network_name }}"
+  when: docker_network_exists
