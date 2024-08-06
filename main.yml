@@ -26,3 +26,15 @@
         apply:
           tags: service
       tags: [always, service]
+
+- name: Installs and configure workstation
+  gather_facts: true
+  hosts: all
+  become: true
+  tasks:
+    - name: Include service Role
+      ansible.builtin.include_role:
+        name: workstation
+        apply:
+          tags: workstation
+      tags: [always, workstation]

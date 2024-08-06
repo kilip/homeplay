@@ -3,7 +3,6 @@
   ansible.builtin.apt:
     package:
       - pass
-      - python3-packaging
     state: present
 
 - name: Ensure pass repo cloned # noqa: latest[git]

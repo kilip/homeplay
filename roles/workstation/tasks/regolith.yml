@@ -1,0 +1,29 @@
+---
+- name: Ensure apt key installed
+  ansible.builtin.apt_key:
+    url: https://regolith-desktop.org/regolith.key
+    state: present
+    keyring: /usr/share/keyrings/regolith-archive-keyring.gpg
+
+- name: Ensure apt source configured
+  ansible.builtin.apt_repository:
+    repo: deb [arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] https://regolith-desktop.org/testing-ubuntu-noble-amd64 noble main
+    state: present
+    filename: regolith.list
+
+- name: Ensure regolith packages installed
+  ansible.builtin.apt:
+    package:
+      - regolith-desktop
+      - regolith-session-flashback
+      - regolith-look-dracula
+      - regolith-compositor-compton-glx
+      - i3xrocks-focused-window-name
+      - i3xrocks-rofication
+      - i3xrocks-info
+      - i3xrocks-app-launcher
+      - i3xrocks-memory
+      - i3xrocks-cpu-usage
+      - i3xrocks-temp
+    update_cache: true
+    state: present

@@ -1,0 +1,29 @@
+---
+- name: Ensure required packages installed
+  ansible.builtin.apt:
+    package: "{{ workstation_packages }}"
+    state: present
+
+- name: Ensure regolith installed
+  ansible.builtin.include_tasks:
+    file: regolith.yml
+    apply:
+      tags: regolith
+  when: regolith
+  tags: regolith
+
+# - name: Ensure openrgb installed
+#   ansible.builtin.include_tasks:
+#     file: openrgb.yml
+#     apply:
+#       tags: openrgb
+#   when: openrgb
+#   tags: openrgb
+
+- name: Ensure brew tasks included
+  ansible.builtin.include_tasks:
+    file: brew.yml
+    apply:
+      tags: brew
+  tags: brew
+  when: brew

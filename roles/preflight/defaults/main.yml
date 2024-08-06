@@ -7,7 +7,7 @@ homeplay_user_shell: "/usr/bin/bash"
 configure_apt: false
 apt_proxy: "{{ lookup('ansible.builtin.env', 'HTTP_PROXY') | default(false) }}"
 apt_packages: []
-
+custom_packages: []
 
 configure_laptop: false
 

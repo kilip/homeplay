@@ -28,7 +28,6 @@
   become_user: "{{ homeplay_user }}"
   when:
     - not ansible_check_mode
-    - not chezmoi_dir.stat.exists
   block:
     - name: Ensure chezmoi repo cloned # noqa: latest[git]
       ansible.builtin.git:
@@ -36,8 +35,11 @@
         dest: "{{ chezmoi_clone_dir }}"
         key_file: "{{ chezmoi_deploy_key }}"
         accept_newhostkey: true
+      when: not chezmoi_dir.stat.exists
 
     - name: Ensure chezmoi initialized
       ansible.builtin.shell: |
+        mkdir -p ~/.config/sops/age
+        pass age/keys >> ~/.config/sops/age/keys.txt
         chezmoi init --apply {{ chezmoi_repo }}
       changed_when: false

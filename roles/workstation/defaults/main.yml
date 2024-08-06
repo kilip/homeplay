@@ -1,0 +1,17 @@
+---
+configure_workstation: false
+
+workstation_packages:
+  - build-essential
+  - procps
+  - curl
+  - file
+  - git
+  - direnv
+  - dotenv
+brew: false
+brew_packages: []
+brew_taps: []
+
+regolith: false
+openrgb: false

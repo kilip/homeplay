@@ -6,6 +6,10 @@ configure_ssh: ENC[AES256_GCM,data:it05IA==,iv:Olrwj7WvweUILWTQ5yA+66gvzwlSiO943
 configure_starship: ENC[AES256_GCM,data:ByHfGQ==,iv:Zx1HIeObYSJ58qJnFJBJdHWPgiNF6V3m37Ysi0H3uDo=,tag:ZgAVILkES0tk2kKqyv899w==,type:bool]
 configure_user: ENC[AES256_GCM,data:Iw+4FA==,iv:xCpWXfo4LhfFSqZ9jn5/WHT5ds7vS5y3DSCVwV41+pQ=,tag:vj2ImN6u4lHSUzW1YHfh5w==,type:bool]
 configure_docker: ENC[AES256_GCM,data:K2FVqw==,iv:pf03FrOtxPWUZK6UMP7AA87GqdVW8RbYUlSeh2IGCoQ=,tag:az8fRijUhwQwN1+vcLBd5w==,type:bool]
+configure_pass: ENC[AES256_GCM,data:0WRslw==,iv:GDk6UulScRJUumOdjwTQ4WmT+mwhcA/G2OSPay1G2mE=,tag:7iltTyZpiGRISWc6dq6w4A==,type:bool]
+nfs_server: ENC[AES256_GCM,data:4SAS+A==,iv:+jXKw6hvH6mNRnkKgnEH1m+OrnG4qVni3t7HFWpJqU4=,tag:HyAhLY2tahqKfUSkUgf5CQ==,type:bool]
+custom_packages:
+    - ENC[AES256_GCM,data:BptIZzOou99We7MCLnE=,iv:BlCAkteQLkdeydPul9aL7GbFAl2rNeR3WnnavKcCAQE=,tag:43frWw0LqoO2v/4Ca+z3fw==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -21,8 +25,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-03T04:31:19Z"
-    mac: ENC[AES256_GCM,data:a1IryJOhvLwCJQ4uuqz4nWhOMj0NMeZjLw3OKt0WwgaGUzNsrwxvtR/Q3xBBj3xXO5+f9bmt6SQ/w6H25IV/EgptxZ4P5B42lut6cxK7EVset7f9zOSGaINQT0oFnSxmMGM0He6aabRmByD1HcMrJEQ631QNJOfHu7aRQWqNKk8=,iv:azkCAxl3M7HjjX5U8T8kY1h0CTAWbpHOLAaErMigOO8=,tag:GOAjrRjVwLtGNCFwZQOYWA==,type:str]
+    lastmodified: "2024-08-06T15:29:33Z"
+    mac: ENC[AES256_GCM,data:uvfq4QGk5Ywd/npMdRMm8JBP1z1KWBniXgvBJjWbzKlyAg7OkkraCUbJqUEsnlGmFRKMSTorAsEczGueENGVAgSaOcHPi7yGHyTzpGwu7ZDC32GzzLnjsP7dF9sWUaSuBb6KDDd0TsdhwRQyflFtH7jq9XjQQPA9ZK6UlNWqPhM=,iv:D689lAahuJH9rey37NXTvTKUEq2jLtra+kX7IKmNmUg=,tag:5Kx+KHWtJZhXxC4xbID7Iw==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

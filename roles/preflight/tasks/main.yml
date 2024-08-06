@@ -38,6 +38,7 @@
       tags: gpg
   tags: gpg
   with_items: "{{ gpg_keys }}"
+  when: not ansible_check_mode
 
 - name: Ensure pass configured
   ansible.builtin.include_tasks:

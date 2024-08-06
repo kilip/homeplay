@@ -1,4 +1,10 @@
 ---
+- name: Ensure required package installed
+  ansible.builtin.apt:
+    package:
+      - python3-packaging
+    state: present
+
 - name: Ensure gpg facts configured
   ansible.builtin.set_fact:
     gpg_source: "{{ item }}"

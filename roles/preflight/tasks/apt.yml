@@ -17,5 +17,5 @@
 
 - name: Ensure preflight packages installed
   ansible.builtin.apt:
-    name: "{{ apt_packages }}"
+    name: "{{ apt_packages + custom_packages }}"
     state: present
