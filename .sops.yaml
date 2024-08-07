@@ -4,7 +4,7 @@ creation_rules:
     key_groups:
       - age:
           - "age13n6rctev7vwr2vuds9uqdh6anhvdvl2zt8gu9jp6mmvw2wukuqmqxz9ghv"
-  - path_regex: files/.*\.sops
+  - path_regex: files/*.*
     key_groups:
       - age:
           - "age13n6rctev7vwr2vuds9uqdh6anhvdvl2zt8gu9jp6mmvw2wukuqmqxz9ghv"

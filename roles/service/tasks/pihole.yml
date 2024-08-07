@@ -1,0 +1,23 @@
+---
+- name: Ensure pihole image pulled
+  community.docker.docker_image:
+    name: "{{ pihole_image }}"
+    source: pull
+
+- name: Ensure dnsmasq.d files copied
+  ansible.builtin.copy:
+    content: "{{ lookup('community.sops.sops', 'pihole/dnsmasq.d/' + item + '.sops') }}"
+    dest: "{{ pihole_dir }}/dnsmasq.d/{{ item }}"
+  loop:
+    - 05-pihole-custom-cname.conf
+    - 42-local-domain.conf
+    - 99-k8s-gateway-forward.conf
+  notify: Restart pihole dns
+
+- name: Ensure etc files copied
+  ansible.builtin.copy:
+    content: "{{ lookup('community.sops.sops', 'pihole/etc/' + item + '.sops') }}"
+    dest: "{{ pihole_dir }}/etc/{{ item }}"
+  loop:
+    - custom.list
+  notify: Restart pihole dns

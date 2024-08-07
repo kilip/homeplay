@@ -25,7 +25,6 @@ configure_starship: false
 font_install_dir: /usr/local/share/fonts
 fira_font_lock: "{{ font_install_dir }}/.FiraCode"
 
-
 configure_docker: false
 docker_users:
   - "{{ homeplay_user }}"
@@ -45,3 +44,5 @@ pass_gpg_key: "/tmp/gpg-key-backup.asc"
 pass_dir: "{{ homeplay_user_home }}/.password-store"
 
 gpg_keys: []
+
+hostname: false

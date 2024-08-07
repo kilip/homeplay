@@ -55,3 +55,11 @@
           tags: hass
       when: hass
       tags: hass
+
+    - name: Ensure pihole configured
+      ansible.builtin.include_tasks:
+        file: pihole.yml
+        apply:
+          tags: pihole
+      when: pihole
+      tags: pihole

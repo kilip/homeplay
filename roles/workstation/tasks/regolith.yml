@@ -17,7 +17,7 @@
       - regolith-desktop
       - regolith-session-flashback
       - regolith-look-dracula
-      - regolith-compositor-compton-glx
+      - regolith-compositor-picom-glx
       - i3xrocks-focused-window-name
       - i3xrocks-rofication
       - i3xrocks-info

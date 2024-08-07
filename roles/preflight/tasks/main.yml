@@ -1,4 +1,9 @@
 ---
+- name: Ensure hostname configured
+  ansible.builtin.hostname:
+    name: "{{ inventory_hostname }}"
+  tags: hostname
+
 - name: Configure and install apt packages
   ansible.builtin.include_tasks:
     file: apt.yml
@@ -38,7 +43,8 @@
       tags: gpg
   tags: gpg
   with_items: "{{ gpg_keys }}"
-  when: not ansible_check_mode
+  when:
+    - not ansible_check_mode
 
 - name: Ensure pass configured
   ansible.builtin.include_tasks:

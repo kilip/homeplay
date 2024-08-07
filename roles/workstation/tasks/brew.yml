@@ -11,5 +11,6 @@
 
     - name: Ensure brew packages installed
       community.general.homebrew:
-        name: "{{ brew_packages }}"
+        name: "{{ item }}"
         state: present
+      with_items: "{{ brew_packages }}"

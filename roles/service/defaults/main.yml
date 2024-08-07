@@ -65,3 +65,11 @@ hass_db_host: postgres
 
 # nfs server section
 nfs_server: false
+
+
+# pihole section
+pihole: false
+# renovate: datasource=docker depName=linuxserver/homeassistant
+pihole_version: 2024.07.0
+pihole_image: "pihole/pihole:{{ pihole_version }}"
+pihole_dir: "/srv/pihole"
