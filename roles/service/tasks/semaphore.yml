@@ -1,0 +1,62 @@
+---
+- name: Ensure semaphore facts configured
+  ansible.builtin.set_fact:
+    semaphore_db_name: "{{ semaphore_env.SEMAPHORE_DB_NAME }}"
+    semaphore_db_user: "{{ semaphore_env.SEMAPHORE_DB_USER }}"
+    semaphore_db_pass: "{{ semaphore_env.SEMAPHORE_DB_PASS }}"
+    semaphore_db_host: "{{ semaphore_env.SEMAPHORE_DB_HOST }}"
+
+- name: Ensure semaphore image pulled
+  community.docker.docker_image:
+    name: "{{ semaphore_image }}"
+    source: pull
+
+- name: Ensure semaphore persistent dir exists
+  ansible.builtin.file:
+    path: "{{ semaphore_dir }}/{{ item }}"
+    state: directory
+    owner: 1001
+    group: root
+    mode: "0755"
+  with_items:
+    - config
+    - data
+    - tmp
+
+- name: Ensure semaphore db user configured
+  community.postgresql.postgresql_user:
+    user: "{{ semaphore_db_user }}"
+    password: "{{ semaphore_db_pass }}"
+    host: "{{ semaphore_db_host }}"
+    login_user: "{{ postgres_user }}"
+    login_password: "{{ postgres_password }}"
+    state: present
+
+- name: Ensure semaphore database configured
+  community.postgresql.postgresql_db:
+    name: "{{ semaphore_db_name }}"
+    host: "{{ semaphore_db_host }}"
+    owner: "{{ semaphore_db_user }}"
+    login_user: "{{ postgres_user }}"
+    login_password: "{{ postgres_password }}"
+
+- name: Ensure semaphore container configured
+  community.docker.docker_container:
+    state: started
+    image_name_mismatch: recreate
+    name: semaphore
+    image: "{{ semaphore_image }}"
+    networks:
+      - name: "{{ docker_network_name }}"
+    restart_policy: always
+    env: "{{ semaphore_env }}"
+    volumes:
+      - "{{ semaphore_dir }}/data:/var/lib/semaphore"
+      - "{{ semaphore_dir }}/config:/etc/semaphore"
+      - "{{ semaphore_dir }}/tmp:/tmp/semaphore"
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.semaphore.entrypoints: websecure
+      traefik.http.routers.semaphore.rule: "Host(`semaphore.{{ traefik_domain }}`)"
+      traefik.http.services.semaphore.loadbalancer.server.port: "3000"
+  when: docker_network_exists

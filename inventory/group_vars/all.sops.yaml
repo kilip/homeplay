@@ -17,6 +17,7 @@ postgres_password: ENC[AES256_GCM,data:wi7RI39Qn/UkRTNCEaQ53EBp442XnEeQo96k7XNn7
 postgres_db: ENC[AES256_GCM,data:dqUAqWNgPRM=,iv:rf4vQtdnLdDRqaZ8xzSmD+xDJ8vQ1BUio71d7/ZoJM0=,tag:twH223WouLnIGQVIBJF23Q==,type:str]
 postgres_port: ENC[AES256_GCM,data:lidqlqDHMdkI,iv:zlaCnZ0IWsAWZ8byU11z7gpbHLcFxebWgykPJ+Ul2YI=,tag:2w5q6QLeASTF65lv3HB4mA==,type:str]
 postgres_data_dir: ENC[AES256_GCM,data:6fg9MJs3NxxrR0M3lA==,iv:Y2POdXpjuIQFBHXZMzjWXin/FhmQLpi3dre/OejpoCg=,tag:XErP4JghIZSNFBWdvY9sCg==,type:str]
+postgres_host: ENC[AES256_GCM,data:+3YfNckzZZIy,iv:VbstHImuK1lYxQZADp5E/7N9Ur65y7xAZQK+xTyFakk=,tag:SBkiBQ4UlTzdyf2Iy1/JTw==,type:str]
 cloudflare_email: ENC[AES256_GCM,data:J/GnY73/2CbjXApTWUw=,iv:Tzi4qOirjMy2ZilORVWBDwRhR79NwohsdNcMFurjym0=,tag:tIndJizd1FyOanR6DnhYtg==,type:str]
 cloudflare_token: ENC[AES256_GCM,data:5VCB2sO8Y5UvqyUhB+sLCX5IXoRIzmjDMfZZPr7q1KzDA6DOkyy2jA==,iv:kGOwZbD/UP0KbNTYJIm0sW/u23Lsoh4aln790tozsbk=,tag:p/FIvSllM862+gAAKsYd3w==,type:str]
 docker_network: ENC[AES256_GCM,data:T0NGCA==,iv:T+dcUCogUAU0A72NvNfMW2s8kN3yCmAhd4lncEhTop0=,tag:AsZt9osDZtdPOtR8pQziaA==,type:bool]
@@ -50,8 +51,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-06T15:06:57Z"
-    mac: ENC[AES256_GCM,data:w4fqTb+g/5Oe+hcKojznTTW3tl/Ltz/B98jJIuG96tFpcgOJ4SRZDGv4V0O6nyDdIF2IaxmKlTnElKKgDHYFvshBslQVQzRvRCeFFVbNod14xVou5/mdQVWaBxvg37v0tTaQVoXUlcKw9CuuTCv5Tw8wQw8cqaTOlnckRMKA2W0=,iv:AqMJZi3r2lTGg04GdAY3OLKUilqC5xqkicEjZ2WYywQ=,tag:76KWku3GdKDkYljy2H/RLQ==,type:str]
+    lastmodified: "2024-08-07T09:13:11Z"
+    mac: ENC[AES256_GCM,data:AI6TC9Sixsa8IPt0vLhU88qyD46VokD4SP8cfFrTQ6uh8qL0Xi7dPoPThjAO9a6bmhZeelXA2gziQIjPuV0f15Iw0/MucSUFLdAzc23LtjNqZNHzw+9Sw3T0pr24g2VfXFAsJyxQKXygVca/TI5iFk/6B1gUMabFIyoGlIsGwBg=,iv:a6YCqXr1i7+fCydhL1rvnopnn3MugpCXc/lueyXB1Qc=,tag:tGDkbcLNe/1YBVco61cyUg==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

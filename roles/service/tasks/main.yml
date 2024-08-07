@@ -19,10 +19,12 @@
       community.docker.docker_network_info:
         name: "{{ docker_network_name }}"
       register: docker_net_stat
+      tags: always
 
     - name: Set docker network facts
       ansible.builtin.set_fact:
         docker_network_exists: docker_net_stat.exists
+      tags: always
 
     - name: Ensure postgres service configured
       ansible.builtin.include_tasks:
@@ -63,3 +65,11 @@
           tags: pihole
       when: pihole
       tags: pihole
+
+    - name: Ensure semaphore configured
+      ansible.builtin.include_tasks:
+        file: semaphore.yml
+        apply:
+          tags: semaphore
+      when: semaphore
+      tags: semaphore

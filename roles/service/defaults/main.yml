@@ -73,3 +73,21 @@ pihole: false
 pihole_version: 2024.07.0
 pihole_image: "pihole/pihole:{{ pihole_version }}"
 pihole_dir: "/srv/pihole"
+
+semaphore: false
+semaphore_version: v2.10.22
+semaphore_image: "semaphoreui/semaphore:{{ semaphore_version }}"
+semaphore_dir: /srv/semaphore
+semaphore_db_name: semaphore
+semaphore_db_user: semaphore
+semaphore_db_pass: semaphore
+semaphore_admin: admin
+semaphore_admin_password: admin
+semaphore_admin_name: Semaphore
+semaphore_admin_email: admin@example.com
+semaphore_email_sender: admin@example.com
+semaphore_email_host: smtp.example.com
+semaphore_email_port: 547
+semaphore_email_username: admin@example.com
+semaphore_email_password: password
+semaphore_email_secure: 'true'
