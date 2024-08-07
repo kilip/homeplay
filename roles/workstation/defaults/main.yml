@@ -15,3 +15,5 @@ brew_taps: []
 
 regolith: false
 openrgb: false
+
+deepcool: false

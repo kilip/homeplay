@@ -27,3 +27,11 @@
       tags: brew
   tags: brew
   when: brew
+
+- name: Ensure deepcook ak400 configured
+  ansible.builtin.include_tasks:
+    file: deepcool.yml
+    apply:
+      tags: deepcool
+  tags: deepcool
+  when: deepcool

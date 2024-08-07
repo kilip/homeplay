@@ -1,0 +1,10 @@
+[Unit]
+Description=Restart deepcool service after resume
+After=suspend.target
+
+[Service]
+Type=simple
+ExecStart=/bin/systemctl --no-block restart deepcool.service
+
+[Install]
+WantedBy=suspend.target

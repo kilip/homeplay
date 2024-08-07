@@ -1,11 +1,10 @@
-
 [Unit]
 Description=Displaying the current temperature and utilisation on the Deepcool AK400
 
 [Service]
 Type=simple
 User=root
-ExecStart= /usr/bin/python3 /usr/bin/deepcool-ak400.py
+ExecStart= /usr/bin/python3 /usr/local/bin/deepcool.py
 Restart=always
 
 [Install]

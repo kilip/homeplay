@@ -1,0 +1,11 @@
+---
+- name: Reload deepcool service
+  ansible.builtin.systemd_service:
+    daemon_reload: true
+  when: not ansible_check_mode
+
+- name: Restart deepcool service
+  ansible.builtin.service:
+    name: deepcool
+    state: restarted
+  when: not ansible_check_mode

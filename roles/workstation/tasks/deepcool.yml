@@ -1,0 +1,35 @@
+---
+- name: Ensure required python lib installed
+  ansible.builtin.apt:
+    package: "{{ item }}"
+    state: present
+  with_items:
+    - python3-hid
+    - python3-psutil
+
+- name: Ensure deepcool service files copied
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "/lib/systemd/system"
+  with_items:
+    - deepcool-restart.service
+    - deepcool.service
+  notify:
+    - Reload deepcool service
+    - Restart deepcool service
+
+- name: Ensure deepcool python script copied
+  ansible.builtin.copy:
+    src: "deepcool.py"
+    dest: "/usr/local/bin/deepcool.py"
+    mode: "0775"
+  notify:
+    - Reload deepcool service
+    - Restart deepcool service
+
+- name: Ensure deepcool service enabled and started
+  ansible.builtin.service:
+    name: deepcool
+    enabled: true
+    state: started
+  when: not ansible_check_mode
