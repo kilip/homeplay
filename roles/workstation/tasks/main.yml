@@ -35,3 +35,11 @@
       tags: deepcool
   tags: deepcool
   when: deepcool
+
+- name: Ensure pgadmin tasks included
+  ansible.builtin.include_tasks:
+    file: pgadmin.yml
+    apply:
+      tags: pgadmin
+  when: pgadmin
+  tags: pgadmin

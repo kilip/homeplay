@@ -20,9 +20,10 @@
 
 - name: Ensure traefik config file copied
   ansible.builtin.copy:
-    content: "{{ traefik_config }}"
+    content: "{{ lookup('community.sops.sops', 'traefik/' + traefik_config) }}"
     dest: "{{ traefik_dir }}/traefik.yml"
   notify: Restart traefik
+  when: traefik_config
 
 - name: Ensure traefik container configured
   community.docker.docker_container:

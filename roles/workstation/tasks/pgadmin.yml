@@ -1,0 +1,29 @@
+---
+- name: Ensure gpg key downloaded
+  ansible.builtin.get_url:
+    url: https://www.pgadmin.org/static/packages_pgadmin_org.pub
+    dest: "/tmp/pgadmin.pub"
+
+- name: Ensure apt key imported
+  ansible.builtin.command:
+    argv:
+      - sudo
+      - gpg
+      - -o
+      - "{{ pgadmin_key_file }}"
+      - --dearmor
+      - /tmp/pgadmin.pub
+    creates: "{{ pgadmin_key_file }}"
+
+- name: Ensure pgadmin apt source configured
+  ansible.builtin.apt_repository:
+    repo: deb [signed-by={{ pgadmin_key_file }}] http://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/{{ ansible_lsb.codename }} pgadmin4 main
+    filename: pgadmin4
+    state: present
+    update_cache: true
+
+- name: Ensure pgadmin installed
+  ansible.builtin.apt:
+    name: [pgadmin4-desktop]
+    state: present
+  when: not ansible_check_mode

@@ -17,3 +17,6 @@ regolith: false
 openrgb: false
 
 deepcool: false
+
+pgadmin: false
+pgadmin_key_file: /usr/share/keyrings/pgadmin.gpg

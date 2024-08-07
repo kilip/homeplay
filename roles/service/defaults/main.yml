@@ -32,9 +32,7 @@ traefik_cert_dir: "{{ traefik_dir }}/certs"
 traefik_secret_dir: "{{ trefik_dir }}/secret"
 traefik_ca_server: https://acme-staging-v02.api.letsencrypt.org/directory
 traefik_ca_storage: /certs/acme-staging.json
-traefik_config: |
-  # put your traefik config content here
-
+traefik_config: false
 cloudflare_email: admin@homeplay.com
 cloudflare_token: replace_with_your_cloudflare_token
 
@@ -75,8 +73,9 @@ pihole_image: "pihole/pihole:{{ pihole_version }}"
 pihole_dir: "/srv/pihole"
 
 semaphore: false
+# renovate: datasource=docker depName=ghcr.io/kilip/semaphore
 semaphore_version: v2.10.22
-semaphore_image: "semaphoreui/semaphore:{{ semaphore_version }}"
+semaphore_image: "ghcr.io/kilip/semaphore:{{ semaphore_version }}"
 semaphore_dir: /srv/semaphore
 semaphore_db_name: semaphore
 semaphore_db_user: semaphore

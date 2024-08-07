@@ -7,27 +7,20 @@
     group: "{{ homeplay_user }}"
     mode: "0700"
 
-- name: Ensure old ssh key removed
-  ansible.builtin.file:
-    path: "{{ ssh_dir }}/{{ item }}"
-    state: absent
-  with_items:
-    - ansible
-    - ansible.pub
-
-- name: Ensure ssh key configured
-  ansible.builtin.template:
-    src: ssh-private.j2
-    dest: "{{ ssh_private_key }}"
+- name: Ensure ssh keys configured
+  ansible.builtin.copy:
+    content: "{{ lookup('community.sops.sops', 'ssh/' + item + '.sops') }}\n"
+    dest: "{{ ssh_dir }}/{{ item }}"
     mode: "0600"
     owner: "{{ homeplay_user }}"
     group: "{{ homeplay_user }}"
-    trim_blocks: false
+  with_items: "{{ ssh_keys }}"
 
 - name: Ensure ssh public key configured
-  ansible.builtin.template:
-    src: ssh-public.j2
-    dest: "{{ ssh_private_key }}.pub"
-    mode: u+rw,g+r,o+r
+  ansible.builtin.copy:
+    content: "{{ lookup('community.sops.sops', 'ssh/' + item + '.pub.sops') }}\n"
+    dest: "{{ ssh_dir }}/{{ item }}.pub"
+    mode: "0600"
     owner: "{{ homeplay_user }}"
     group: "{{ homeplay_user }}"
+  with_items: "{{ ssh_keys }}"

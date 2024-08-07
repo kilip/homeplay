@@ -6,8 +6,3 @@ collections:
   - community.sops
   - community.postgresql
   - bitwarden.secrets
-roles:
-  - name: geerlingguy.docker
-  - name: geerlingguy.nfs
-  - name: kilip.regolith
-  - name: kilip.gpg

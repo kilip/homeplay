@@ -34,7 +34,6 @@
     dest: /etc/systemd/system/screen-saver.service
     owner: root
     mode: "u+rw,g+r,o+r"
-  notify: Restart screen-saver
 
 - name: Ensure screen-saver service started
   ansible.builtin.service:

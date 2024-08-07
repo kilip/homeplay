@@ -1,0 +1,17 @@
+zeus
+iris
+eros
+gaia
+
+[semaphore]
+gaia
+
+[hass]
+iris
+
+[workstation]
+zeus
+
+[pihole]
+iris
+eros

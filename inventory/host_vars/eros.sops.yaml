@@ -1,7 +1,6 @@
 ansible_host: ENC[AES256_GCM,data:EGVpgBEl3as8,iv:qFHK1qzri6GSD3HiO25nLI4v4Ytf5BDi+634IJVC6ig=,tag:K/Ii940infWWLowoq+5qfQ==,type:str]
 hostname: ENC[AES256_GCM,data:varNew==,iv:4HPDYgtPtt4zMpfPUvH2SjzVtANyzfGwxwMVoExgwBM=,tag:lxOOmcCN65QGyIiYvuiE7g==,type:str]
 configure_apt: ENC[AES256_GCM,data:sGgajw==,iv:uceyGvV2PhlqsokNUntl1ZJrfTHJ5D2sWvXyo9JPH68=,tag:3QWEt6gF2//XzsXGIM6DSw==,type:bool]
-configure_chezmoi: ENC[AES256_GCM,data:WziOkg==,iv:37lRu8A6dkOUs8cG17VjN5jKFeBghdg6xeaRQmaN7ms=,tag:Pl0IaIJaKF38lJ1Yxwp8CQ==,type:bool]
 configure_user: ENC[AES256_GCM,data:ai+OwQ==,iv:y1dF///NrxvUBGCQ00+fgo737d3qyS1F0r9MjoZCxjo=,tag:YoMWywM28xyW2Wr8a1EGog==,type:bool]
 configure_ssh: ENC[AES256_GCM,data:Yj/61w==,iv:nkJ1s+QmChC+o6IrVaQ9eFrWp+uQHm2SCGpdpnHwvvQ=,tag:Zkr9KclkX59rYldc8kX7Gg==,type:bool]
 configure_starship: ENC[AES256_GCM,data:Hb89xw==,iv:Cxk6VkLyDcBExNFzuOf1ZF/RRcIpwxPxEcNK47FWt+U=,tag:TIMmYQJzDxwenPxHWM3xcw==,type:bool]
@@ -22,8 +21,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-07T02:57:23Z"
-    mac: ENC[AES256_GCM,data:TrChIijGE6SS+F/lrd1saIK9hHdCcc6bN2PY87dnK8/H1bWLQ3pcD3+LOCwIORe42tnuyN/MCQ+B+AQ0aWyOvkwuX/ullQfPYQ/UBaHfaI6b4mna99xv8U+DqCm481rDNvSBDJqDNFE+kFjhIpVZMZtXAiCK2j8pDohuVZsG9N4=,iv:XYEsn+Lj7/Vsl0PhheHzKYc6f8p0OQ+EEw0mAvGTLZ0=,tag:00RR7MqLlPH9blR1DG4iiQ==,type:str]
+    lastmodified: "2024-08-08T05:12:59Z"
+    mac: ENC[AES256_GCM,data:nL2Suqbec1cwrlIIO6Mc2guxNfWhKJK6e8MWnXlQVi8NRQNaoD0D2iG9bKDAx49zGJ7WIaHSLv6fsQm5vMFRrxg0s5b/ff2VFV52dfOllh/KDKJy0PUKsIwglURzO6Yhr3PtXWvEpS6H0csEkavFR0trhwXFlipBVAhgQVq8gmc=,iv:wO+tcQSp6CaOzlTsjYaXvvThTWI/hvhqaZAi8Pw46b8=,tag:Yx+uboSNR0Ui4Kz9wObiSw==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

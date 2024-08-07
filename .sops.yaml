@@ -1,10 +1,10 @@
 ---
 creation_rules:
-  - path_regex: inventory/.*\.sops\.yaml
+  - path_regex: .*\.sops\.yaml
     key_groups:
       - age:
           - "age13n6rctev7vwr2vuds9uqdh6anhvdvl2zt8gu9jp6mmvw2wukuqmqxz9ghv"
-  - path_regex: files/*.*
+  - path_regex: .*.sops
     key_groups:
       - age:
           - "age13n6rctev7vwr2vuds9uqdh6anhvdvl2zt8gu9jp6mmvw2wukuqmqxz9ghv"

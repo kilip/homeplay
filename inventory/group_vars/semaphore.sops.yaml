@@ -16,6 +16,9 @@ semaphore_env:
     SEMAPHORE_EMAIL_USERNAME: ENC[AES256_GCM,data:Mgf/ulguEBmMwyMzyfo=,iv:UAwi26Otv9xC65tOTHH7W4ZPm0VvQxm1LImRMmZyzdc=,tag:gi/MFWSZlLTPCqTx3jQ0jQ==,type:str]
     SEMAPHORE_EMAIL_PASSWORD: ENC[AES256_GCM,data:py65fdr376CIcCDi40xRsA==,iv:HgkFv+/7jvqY118BKtDd1BZYT1GopNvWhzs+ixXjUik=,tag:2tK5KD8pN3XpyF82Jk3dng==,type:str]
     SEMAPHORE_EMAIL_SECURE: ENC[AES256_GCM,data:JX9R+g==,iv:kCISHYhlDl8LAPgFKYmaICEGz/mV61LYoKZ222lDmYc=,tag:OL3EvlAIv4RNXArdDpurtw==,type:str]
+    SEMAPHORE_TELEGRAM_ALERT: ENC[AES256_GCM,data:4or8Kw==,iv:r+KmwPEIunvwJyaf98J2l3NRyDN2VqJ50q+Fiuzq9Io=,tag:2QNH1wJOF8Jd3lGH6vOnpQ==,type:str]
+    SEMAPHORE_TELEGRAM_CHAT: ENC[AES256_GCM,data:vIQT+GyquES5ORXnIGk=,iv:Xx4EWEliIgdaTteZTQHB8NAaZA53m5Frn71A7mAvvWk=,tag:iO42n+HY2ljHDBjam+MeqQ==,type:str]
+    SEMAPHORE_TELEGRAM_TOKEN: ENC[AES256_GCM,data:bvGoCXs35ufSvefz4JUtuXbFSA3FDkhpO9pKh+sfKpcOamvRkvRnWyRKbVk5CQ==,iv:Rw7GeZY/XDhdITJpXg6Ipv/jsA5umHFu/ke9h077TNQ=,tag:ukimp9u5ZeRMfBEJ2ib1WQ==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -31,8 +34,8 @@ sops:
             NjhsNUh2ODA1aEpWdGtXZDVWTXdoWE0KPrqMR3h2M9oQyoDN009XPNTMHvmfe6oa
             QsN6uPy+YKkBo8Ru0DqIx1Bf11H5cnWYuiUWO+3vgQb1ZGbWqU6ARQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-07T09:55:28Z"
-    mac: ENC[AES256_GCM,data:zZEEzhjABazvUnuEnvNFomqV0PD8ANs6rV0sjdWBwGOlfofWLPGuPcjWr+SuPT4gYS2SC8dyAZzZL240Dr+FXNSUGBYtTJYZLVCW2cw0AhqBsxIlPPtlVNC25/cMY1BNCcel0vDSuix98XrXiMlSexd6bxOc1UvFPhgACpXG5BQ=,iv:Sl6ff3KUfY5Ty1lA2jQEOjxC+cloDQzlWJJMoK5XJ8k=,tag:wruQXo2O2ec8Cav3E9U0NQ==,type:str]
+    lastmodified: "2024-08-08T02:13:31Z"
+    mac: ENC[AES256_GCM,data:WrXD8OYfj4uNo5Ain36aLKPDsaa48VoequqFLAJKa7VNYlLppa/pPAoJ/LEDVh8PF521IxzcVSqLoTGT4RvYretCETPCx02oT/vWy9iwOwmJQ27jpztbahzLOsXeQlj5HcnVoFW0d7kjqEF9TrKz/NiOYvp4OYZA0Rt+lhcRL6k=,iv:kyVhzgN16cMSdKckH5IdlCiR0y2iQRk7RN/VNfQVMRs=,tag:d+sVTWDuM89jIw6z9TMZjQ==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

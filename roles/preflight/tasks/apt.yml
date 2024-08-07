@@ -13,7 +13,6 @@
     update_cache: true
     cache_valid_time: 3600
     upgrade: true
-  when: ansible_os_family == 'Debian'
 
 - name: Ensure preflight packages installed
   ansible.builtin.apt:

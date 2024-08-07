@@ -24,6 +24,9 @@ brew_packages:
     - ENC[AES256_GCM,data:oA0lw0tnlWS+i61b,iv:PDPFLhfKziSqfGWOP6o/9RNA/FytMd0bMreG2LAbMP8=,tag:QQ0lfdkJCgLjBo4G5S7rbw==,type:str]
     - ENC[AES256_GCM,data:kojMvfBu4b8=,iv:JIqvhPvNtg2htEumIOrFSgLuXf9i9zltExJS1WwSF3c=,tag:nVY5MR37If7gKPgAsJA4Sw==,type:str]
 deepcool: ENC[AES256_GCM,data:mJ0xVA==,iv:j8TCDu26LvbA4tXywCYFtseGKuD4WAYD3apKareDjq0=,tag:b7Mjl8Z1SyykZdX4hITqAw==,type:bool]
+pgadmin: ENC[AES256_GCM,data:vZhFXg==,iv:irLan+9V74aLbX8OWlS5FLGeKrklAwQgA4/vwe6wxkc=,tag:p3UQPXEj1lBNhh1boOwHPQ==,type:bool]
+snap_packages:
+    - ENC[AES256_GCM,data:W5LsUEAl1r8GOvBtzJpKpw==,iv:VWk+AYxEUfCcwogJZRzpYnxQNxYuBA4E/zOH6wHqKk4=,tag:mfn3NhrW5OQ7SJs6fIW04Q==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -39,8 +42,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-07T08:35:48Z"
-    mac: ENC[AES256_GCM,data:cZRCBvqiOOwI5hlgEjPCs0GhJ4IdX0Oz2Jc9uj4XA4uLaDrYyxpRL6BLucG+VcrgC7gLPBr2l0GWGNieHMcslMxHV5a6kJTGHK/nyNTHxhIiwTwEOUD3lQ803AqQnAR6ICaNOLUDYmLXmLrw2rGxSkl7BXo07TQp5yP2OycknVI=,iv:G8Ut5tGo4HuK9M6L8WhB5yC5Ca3AR1K//zme63EQcSQ=,tag:iuveRdkffojFeO+rUoGvdw==,type:str]
+    lastmodified: "2024-08-08T01:58:54Z"
+    mac: ENC[AES256_GCM,data:9d5aNw+oGptrvLfedyqCQ6yMEoQScYHa/cdec0ElpQ1YPA4ZMzS9rXVvRPvrhEhjV/dfy11kPAQO0W39UwQcfxzc9YBiaty4xtMfoacY+SXcnXf6evs7dPHTZmQCtzEI0UTzZETSi3AEncYX8RYg1tCuOkBTA2w4mwDIILoPGgc=,iv:I6tDJ1VqtFmUHP9k35dwwmfbVvq3ipcpDN8ZrGz0TU0=,tag:TmyLy8fGxJuvTbZKxk82rQ==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

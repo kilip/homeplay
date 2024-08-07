@@ -3,6 +3,7 @@
   gather_facts: true
   hosts: all
   become: true
+  become_user: root
   tasks:
     - name: Check test mode
       ansible.builtin.set_fact:
@@ -27,9 +28,9 @@
           tags: service
       tags: [always, service]
 
-- name: Installs and configure workstation
+- name: Installs and configure workstations
   gather_facts: true
-  hosts: all
+  hosts: workstation
   become: true
   tasks:
     - name: Include service Role

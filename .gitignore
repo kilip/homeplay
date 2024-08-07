@@ -1,6 +1,7 @@
 .venv
 .env
-inventory/hosts
 age.key
 .decrypted*.sops.yaml
 .decrypted*.sops
+compose.yaml
+/vars/

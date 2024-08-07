@@ -7,6 +7,8 @@
     state: present
 
 - name: Ensure sudoer configured
+  become: true
+  become_user: root
   community.general.sudoers:
     name: "ansible-{{ homeplay_user }}"
     user: "{{ homeplay_user }}"

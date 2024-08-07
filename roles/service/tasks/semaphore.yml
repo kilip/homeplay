@@ -23,6 +23,14 @@
     - data
     - tmp
 
+- name: Ensure python requirements copied
+  ansible.builtin.copy:
+    src: requirements.txt
+    dest: /srv/semaphore/config/requirements.txt
+    owner: 1000
+    group: root
+    mode: "0644"
+
 - name: Ensure semaphore db user configured
   community.postgresql.postgresql_user:
     user: "{{ semaphore_db_user }}"
@@ -50,6 +58,8 @@
       - name: "{{ docker_network_name }}"
     restart_policy: always
     env: "{{ semaphore_env }}"
+    ports:
+      - 3000:3000
     volumes:
       - "{{ semaphore_dir }}/data:/var/lib/semaphore"
       - "{{ semaphore_dir }}/config:/etc/semaphore"

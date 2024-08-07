@@ -10,10 +10,19 @@
 - name: Ensure docker service configured
   when: configure_docker
   block:
+    - name: Ensure python postgres lib installed
+      ansible.builtin.apt:
+        name:
+          - python3-psycopg2
+          - python3-requests
+        state: present
+      tags: always
+
     - name: Ensure docker network created
       community.docker.docker_network:
         name: "{{ docker_network_name }}"
         driver: bridge
+      tags: always
 
     - name: Get docker network info
       community.docker.docker_network_info:

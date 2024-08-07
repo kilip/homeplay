@@ -5,10 +5,20 @@
       - pass
     state: present
 
+- name: Fix permissions
+  ansible.builtin.file:
+    path: "{{ pass_dir }}"
+    owner: "{{ homeplay_user }}"
+    group: "{{ homeplay_user }}"
+    recurse: true
+  check_mode: true
+
 - name: Ensure pass repo cloned # noqa: latest[git]
   ansible.builtin.git:
     repo: "{{ pass_repo }}"
     clone: true
     dest: "{{ pass_dir }}"
-    key_file: "{{ ssh_private_key }}"
+    key_file: "{{ homeplay_deploy_key }}"
     accept_newhostkey: true
+  become: true
+  become_user: "{{ homeplay_user }}"

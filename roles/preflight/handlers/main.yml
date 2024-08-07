@@ -12,5 +12,5 @@
 - name: Restart screen-saver
   ansible.builtin.service:
     name: screen-saver
-    state: restarted
+    state: started
   when: not ansible_check_mode
