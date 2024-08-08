@@ -41,5 +41,5 @@
       ansible.builtin.shell: |
         mkdir -p ~/.config/sops/age
         pass age/keys >> ~/.config/sops/age/keys.txt
-        chezmoi init --apply {{ chezmoi_repo }}
+        chezmoi init --force --apply {{ chezmoi_repo }}
       changed_when: false
