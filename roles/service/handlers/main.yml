@@ -10,3 +10,14 @@
     argv:
       - pihole
       - restartdns
+
+- name: Restart mosquitto
+  ansible.builtin.service:
+    name: mosquitto
+    state: restarted
+
+- name: Restart squid
+  ansible.builtin.service:
+    name: squid
+    state: restarted
+  when: not ansible_check_mode

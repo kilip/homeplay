@@ -82,3 +82,19 @@
           tags: semaphore
       when: semaphore
       tags: semaphore
+
+- name: Ensure mosquitto tasks included
+  ansible.builtin.include_tasks:
+    file: mosquitto.yml
+    apply:
+      tags: mosquitto
+  tags: mosquitto
+  when: mosquitto
+
+- name: Ensure squid tasks included
+  ansible.builtin.include_tasks:
+    file: squid.yml
+    apply:
+      tags: squid
+  tags: squid
+  when: squid

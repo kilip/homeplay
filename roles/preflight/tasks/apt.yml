@@ -1,4 +1,9 @@
 ---
+- name: Ensure installation proxy config removed
+  ansible.builtin.file:
+    path: /etc/apt/apt.conf.d/90curtin-aptproxy
+    state: absent
+
 - name: Ensure apt proxy configured
   ansible.builtin.template:
     src: "apt-proxy.conf.j2"

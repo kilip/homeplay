@@ -90,3 +90,5 @@ semaphore_email_port: 547
 semaphore_email_username: admin@example.com
 semaphore_email_password: password
 semaphore_email_secure: 'true'
+
+mosquitto: false

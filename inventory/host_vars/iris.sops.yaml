@@ -14,6 +14,8 @@ nfs_exports:
     - ENC[AES256_GCM,data:BrgyFvnUuFwoEUbNqMbQZXtd5aNVp0NA2VGzr0seqnkwfXBOVt/2KfCp14qgsP0Hv6R4J19bHp2HT8PtbD91hhNbHVaOCE94WbL6e55vPUVcfy9EGKwlwCWdWmS9,iv:Pmm9b2YN23TfslM40qw+uCzloshbJmhHt/z6bvtQ2sU=,tag:fWEn7++iNGgxPydJYZ3AHQ==,type:str]
 pihole: ENC[AES256_GCM,data:eR6sqA==,iv:sf9aIjtTE3B/RpxQacesu8kR/okdP2+oUL12W7EsXXM=,tag:PzrC14FmkLSAICj5do284A==,type:bool]
 postgres_host: ENC[AES256_GCM,data:nZjT3M2Pagpq,iv:q4O0PAi5jl7nIapTayUP+eIMZT0SiKor33QFdSItZF4=,tag:SDVEeVjdVcyZjCYlpKl7DA==,type:str]
+squid: ENC[AES256_GCM,data:wHn7wA==,iv:HSwJqbnMEGpjsZvzleyzk95WyGv7aAPP/WHKGKzuFto=,tag:MbaTfNwNt9j+hYH5Nv3pPA==,type:bool]
+squid_cache_dir: ENC[AES256_GCM,data:Bp0+mxL0nzuCBg==,iv:qNFh+fWkhb3Bxs2eEuAtGWpOja7RyftAq1SyCKPqJEk=,tag:tO4QWIU2KC7lIezs/qWZHw==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -29,8 +31,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-08T20:41:55Z"
-    mac: ENC[AES256_GCM,data:bBZSmGkc09lJJuDnuR3PvZ8X1snh6JrbItzWXOgbozH9oU4v/wqGOI+Dsz6AHawLjIBKrd4dFCNjPGJaZ0oE1h3BCmqOBZSNXEUmsxmbmLi0xY0ejcsUNhqRdiKw5RVcfVm8CIn3mNpsnEFW9x0bzWGtnYr8q8X7Q4YwtlJwGDk=,iv:TLBHkBAzSkul9D4qC2WGeCGzwz5hdOxPJ164AUkuyxU=,tag:4cVY7Cp85FBLRf+GAR9Jmg==,type:str]
+    lastmodified: "2024-08-08T22:48:41Z"
+    mac: ENC[AES256_GCM,data:agmPE9ZLgXsMs2T0MF37j4FFnOhJQjyRQ+uPlmMlhXuYFvtiR3c/CAVpR5vonzYFJ/jFagIuapTohJm4Yuh2ETTpenO5uW1ArLrtAZ0IW0I4QV+xc5adDOSjgsJ8tpu+cfubQTnaX12McxbbLLahO8gUVhFf6ys+QaqV0dUKCtM=,iv:g6xd81lMykVRWOXpEY8jUOiUNth6b2q9Qq411WNnyOY=,tag:cfdWymN4EiU9ztb7xaa6eQ==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0
