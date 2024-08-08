@@ -48,7 +48,7 @@ portainer_hostname: portainer
 
 hass: false
 # renovate: datasource=docker depName=linuxserver/homeassistant
-hass_version: 2024.7.4
+hass_version: 2024.8.0
 hass_image: "linuxserver/homeassistant:{{ hass_version }}"
 hass_config_local_dir: /srv/hass
 hass_config_branch: main
