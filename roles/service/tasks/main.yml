@@ -43,7 +43,7 @@
       when: postgres
       tags: postgres
 
-    - name: Ensure traefik service configured
+    - name: Ensure traefik tasks included
       ansible.builtin.include_tasks:
         file: traefik.yml
         apply:
