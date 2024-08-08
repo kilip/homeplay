@@ -3,7 +3,7 @@ configure_laptop: ENC[AES256_GCM,data:c4XA8w==,iv:zfQsPauo8Iq+sM6HMvS7tHEE31uwbY
 configure_docker: ENC[AES256_GCM,data:7EW+sA==,iv:AuE4ST5qxS+93+bhy6ucX12g+5YuvAe/t7xoIRTBdEM=,tag:BG6/ruCN3o8OBX+6vTe+6A==,type:bool]
 postgres: ENC[AES256_GCM,data:2iM8eg==,iv:L61dhvvhvZXh0chCwnSwx9TBJWqfod5RUTqzmg4AeCs=,tag:PG55qhMiHJ/fvWIlLt7cRg==,type:bool]
 traefik: ENC[AES256_GCM,data:IMdFSw==,iv:DaE5wNRVE7lO6G6R/O/WCyd7BHkyFYlcY//vvDGBpPQ=,tag:UDsN2c8iHP9GOKpmRR/sdQ==,type:bool]
-traefik_hostname: ENC[AES256_GCM,data:YI8viw==,iv:YcFbDWoOPlGkhPezmBRO5pIeld+9WRGaUA6m8MDFo3Y=,tag:U9WpBZM9kAZ6O+cCVqCA+Q==,type:str]
+traefik_hostname: ENC[AES256_GCM,data:195XSA==,iv:NAET8Qyvs7OMJaWJ5EmdgGakgbNX/cGE0IEANWV5GNg=,tag:5zc6y0G9d8HUD/qbafwEoQ==,type:str]
 portainer: ENC[AES256_GCM,data:pw5xlQ==,iv:TUQ8X4EUhZ5CBlhM2t1MOSWMpjT/wNrjGbVJq6nZOo0=,tag:R5/Yi46jg55KDt3VM3wBKQ==,type:bool]
 portainer_edition: ENC[AES256_GCM,data:rxY=,iv:d5HqyBUfsd+uaeV3gNS1qANxsiPD+7Nrb5QMsc2Oaok=,tag:I0wcFFp3hwWHSInF570eHA==,type:str]
 portainer_hostname: ENC[AES256_GCM,data:Kukylm2+kMka,iv:20OJS0dB28kbNog49Xtga1XQhM9AiEg/r7n0YwXcwSU=,tag:/43ZXv7ghcJ7MnEG7hfjLw==,type:str]
@@ -30,8 +30,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-08T05:48:23Z"
-    mac: ENC[AES256_GCM,data:sJASUkMeVnXIIFn8+ozCcbAEU+NxkiUiWTmtPBIT+9g7Hu8KcxAZCwrxYObic48SuT4ZBatM9Lfa9KWzIvqyb2zZ+sRfwRgZt25n8jHqFeEr31cGFUk94ic7ncrDtuE45ZAHk+S+FM3/yQ3qR07xY7BXiDrWPty+Be0/yN+IaGE=,iv:cm1RQdao5nYh63GdK+xTtR4gJMhi8ojYOQTwwqPSBVM=,tag:lNTiPi5pZGT0VDSWK9Ai+A==,type:str]
+    lastmodified: "2024-08-08T06:42:36Z"
+    mac: ENC[AES256_GCM,data:nPwT2mMfPG+gTTq8w+x9uvIwZBvATX6ZoP5AUpBDXhnRhVHvl5XwRsEEMTDeIM4aI2/EgHnlJk6Sw3ZUYoW4iHY6D6J+mtr8yeqLItb7I2YY+f3PMDR7QkLZ2HaF8R568Q/yRZXFmXGmNJcMF4Cd9qh22sA5fSb+Z+P4pRAC/Hs=,iv:h7o1ZHM7D148QPNTb/tgDB2xbAu1FiKdqgDrsI83du8=,tag:JDEozYkQ826hfC9PcOvGTQ==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

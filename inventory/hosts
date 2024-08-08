@@ -15,3 +15,7 @@ zeus
 [pihole]
 iris
 eros
+
+[traefik]
+iris
+eros

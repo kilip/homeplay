@@ -6,6 +6,8 @@ configure_ssh: ENC[AES256_GCM,data:Yj/61w==,iv:nkJ1s+QmChC+o6IrVaQ9eFrWp+uQHm2SC
 configure_starship: ENC[AES256_GCM,data:Hb89xw==,iv:Cxk6VkLyDcBExNFzuOf1ZF/RRcIpwxPxEcNK47FWt+U=,tag:TIMmYQJzDxwenPxHWM3xcw==,type:bool]
 configure_docker: ENC[AES256_GCM,data:ONM7bw==,iv:fZnCzN/FTkirqVC+8lBqUQjDK2YQ7HGV3/6zfG57bbE=,tag:f0RXIG4JTwSxz/EzDJpy8g==,type:bool]
 pihole: ENC[AES256_GCM,data:AGHq6Q==,iv:9uO4qHIwaWuSpUCKYMt2luGKh/1vYgaW4448jjo4gpU=,tag:4XTaNIOgqc5sWrWFNBHR2Q==,type:bool]
+traefik: ENC[AES256_GCM,data:0LCelg==,iv:80AiMLH0B8JwZSxQg8wOD5crA6F2juVAqXjxAc2YqRE=,tag:2tLPp142Ypj+W3TaIdkevg==,type:bool]
+trafik_hostname: ENC[AES256_GCM,data:AxVEuw==,iv:cXfksi2S6PPQeEbCoMYjAL+esK0lT60y3rq/+5FE9qk=,tag:c/GODnPeSL/JvskK8m0qRw==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -21,8 +23,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-08T05:12:59Z"
-    mac: ENC[AES256_GCM,data:nL2Suqbec1cwrlIIO6Mc2guxNfWhKJK6e8MWnXlQVi8NRQNaoD0D2iG9bKDAx49zGJ7WIaHSLv6fsQm5vMFRrxg0s5b/ff2VFV52dfOllh/KDKJy0PUKsIwglURzO6Yhr3PtXWvEpS6H0csEkavFR0trhwXFlipBVAhgQVq8gmc=,iv:wO+tcQSp6CaOzlTsjYaXvvThTWI/hvhqaZAi8Pw46b8=,tag:Yx+uboSNR0Ui4Kz9wObiSw==,type:str]
+    lastmodified: "2024-08-08T06:42:22Z"
+    mac: ENC[AES256_GCM,data:ghSl09FvJ6NcdFYb21brjQ03YRk8UIyO4QzKcGbjPWH5jQN0zZYVno1VOPQPVown0w64YMKrl4/QHMXWilnjnypubcbrHUIVcHCCTnZnRlbtRmoDMDHi07G1ISA1cV112FhK9BHmKHiNr0M6wLu1um72JZ2vxdxOhWDUyzjBiNc=,iv:0M7T0iKkO21ziRCD7SkJADqXTZx+U1LKl3Ib3N9gDUQ=,tag:/AOGT2SFmxdeJ/ePLreFqg==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0
