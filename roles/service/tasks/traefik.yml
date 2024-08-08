@@ -57,7 +57,7 @@
       --certificatesresolvers.letsencrypt.acme.dnschallenge.provider=cloudflare
       --certificatesResolvers.letsencrypt.acme.dnschallenge.resolvers=1.1.1.1:53,1.0.0.1:53
       --certificatesResolvers.letsencrypt.acme.dnschallenge.delayBeforeCheck=20
-      --certificatesresolvers.letsencrypt.acme.email={{ traefik_email }}}
+      --certificatesresolvers.letsencrypt.acme.email={{ traefik_email }}
       --certificatesresolvers.letsencrypt.acme.storage={{ traefik_ca_storage }}
       --certificatesresolvers.letsencrypt.acme.caserver={{ traefik_ca_server }}
       --entrypoints.web.address=:80
