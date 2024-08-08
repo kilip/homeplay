@@ -32,6 +32,7 @@
     ports:
       - 53:53/tcp
       - 53:53/udp
+      - 1980:80
     restart_policy: always
     networks:
       - name: "{{ docker_network_name }}"
