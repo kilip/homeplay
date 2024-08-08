@@ -4,7 +4,7 @@
     name: "{{ pihole_image }}"
     source: pull
 
-- name: Ensure dnsmasq.d files copied
+- name: Ensure pihole dnsmasq.d files copied
   ansible.builtin.copy:
     content: "{{ lookup('community.sops.sops', 'pihole/dnsmasq.d/' + item + '.sops') }}"
     dest: "{{ pihole_dir }}/dnsmasq.d/{{ item }}"
@@ -14,7 +14,7 @@
     - 99-k8s-gateway-forward.conf
   notify: Restart pihole dns
 
-- name: Ensure etc files copied
+- name: Ensure pihole etc files copied
   ansible.builtin.copy:
     content: "{{ lookup('community.sops.sops', 'pihole/etc/' + item + '.sops') }}"
     dest: "{{ pihole_dir }}/etc/{{ item }}"
