@@ -6,8 +6,11 @@ configure_ssh: ENC[AES256_GCM,data:Yj/61w==,iv:nkJ1s+QmChC+o6IrVaQ9eFrWp+uQHm2SC
 configure_starship: ENC[AES256_GCM,data:Hb89xw==,iv:Cxk6VkLyDcBExNFzuOf1ZF/RRcIpwxPxEcNK47FWt+U=,tag:TIMmYQJzDxwenPxHWM3xcw==,type:bool]
 configure_docker: ENC[AES256_GCM,data:ONM7bw==,iv:fZnCzN/FTkirqVC+8lBqUQjDK2YQ7HGV3/6zfG57bbE=,tag:f0RXIG4JTwSxz/EzDJpy8g==,type:bool]
 pihole: ENC[AES256_GCM,data:AGHq6Q==,iv:9uO4qHIwaWuSpUCKYMt2luGKh/1vYgaW4448jjo4gpU=,tag:4XTaNIOgqc5sWrWFNBHR2Q==,type:bool]
+postgres: ENC[AES256_GCM,data:hYqmsQ==,iv:0TNY17LMyHdBsn1G0OVfVTRxk2R8zJJ74uZxuf7b1jw=,tag:PuiV26de757Ni/ROljxHwQ==,type:bool]
+hass: ENC[AES256_GCM,data:gaOkEw==,iv:ZHSIzeJQ8O1/uioROZaadFGoyE8qz0fLigTnjzDlX7k=,tag:EyoE/vjpsXjCPNfpY9/khw==,type:bool]
 traefik: ENC[AES256_GCM,data:0LCelg==,iv:80AiMLH0B8JwZSxQg8wOD5crA6F2juVAqXjxAc2YqRE=,tag:2tLPp142Ypj+W3TaIdkevg==,type:bool]
-trafik_hostname: ENC[AES256_GCM,data:AxVEuw==,iv:cXfksi2S6PPQeEbCoMYjAL+esK0lT60y3rq/+5FE9qk=,tag:c/GODnPeSL/JvskK8m0qRw==,type:str]
+traefik_hostname: ENC[AES256_GCM,data:Ga2DOw==,iv:Xt4I0cCV2ZoeGOX5DidB+ThZ9KpPcA7nOR6eJWdMMRk=,tag:nN2bCTFZcIPismnxx/iIOg==,type:str]
+postgres_host: ENC[AES256_GCM,data:T3Hd+T6q1kpH,iv:QWWYbjnvLGE+Y6unqYnuKMDsVgLS0B7+a1uEIaqQcEA=,tag:+kRjfZ97dQN6LiR9GVWgUg==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -23,8 +26,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-08T06:42:22Z"
-    mac: ENC[AES256_GCM,data:ghSl09FvJ6NcdFYb21brjQ03YRk8UIyO4QzKcGbjPWH5jQN0zZYVno1VOPQPVown0w64YMKrl4/QHMXWilnjnypubcbrHUIVcHCCTnZnRlbtRmoDMDHi07G1ISA1cV112FhK9BHmKHiNr0M6wLu1um72JZ2vxdxOhWDUyzjBiNc=,iv:0M7T0iKkO21ziRCD7SkJADqXTZx+U1LKl3Ib3N9gDUQ=,tag:/AOGT2SFmxdeJ/ePLreFqg==,type:str]
+    lastmodified: "2024-08-08T20:42:05Z"
+    mac: ENC[AES256_GCM,data:Dt1z8FhnxE0FR59iytXOfAwrSDlslnJMZ0oahNtyUSmHS0iChaJIHUNqwLF2oRIXGfhiXU25QCfgDI1e8Sy4fuXKMOV1JGYYw1If6lX7i5A872AdemcYzUxPDWYJpb33UmLNEeXWV5jYB8fy6jmXy8IHBkFX1RajiTRl+CL81lg=,iv:zPrSIE/MAzqxfd5FabAlWBX+vKb7ONfRBnOsMer/N+U=,tag:JSV+CTV8/kYr7RIRRxeNFQ==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

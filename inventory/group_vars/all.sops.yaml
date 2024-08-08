@@ -18,19 +18,11 @@ postgres_password: ENC[AES256_GCM,data:wi7RI39Qn/UkRTNCEaQ53EBp442XnEeQo96k7XNn7
 postgres_db: ENC[AES256_GCM,data:dqUAqWNgPRM=,iv:rf4vQtdnLdDRqaZ8xzSmD+xDJ8vQ1BUio71d7/ZoJM0=,tag:twH223WouLnIGQVIBJF23Q==,type:str]
 postgres_port: ENC[AES256_GCM,data:lidqlqDHMdkI,iv:zlaCnZ0IWsAWZ8byU11z7gpbHLcFxebWgykPJ+Ul2YI=,tag:2w5q6QLeASTF65lv3HB4mA==,type:str]
 postgres_data_dir: ENC[AES256_GCM,data:6fg9MJs3NxxrR0M3lA==,iv:Y2POdXpjuIQFBHXZMzjWXin/FhmQLpi3dre/OejpoCg=,tag:XErP4JghIZSNFBWdvY9sCg==,type:str]
-postgres_host: ENC[AES256_GCM,data:+3YfNckzZZIy,iv:VbstHImuK1lYxQZADp5E/7N9Ur65y7xAZQK+xTyFakk=,tag:SBkiBQ4UlTzdyf2Iy1/JTw==,type:str]
 cloudflare_email: ENC[AES256_GCM,data:J/GnY73/2CbjXApTWUw=,iv:Tzi4qOirjMy2ZilORVWBDwRhR79NwohsdNcMFurjym0=,tag:tIndJizd1FyOanR6DnhYtg==,type:str]
 cloudflare_token: ENC[AES256_GCM,data:5VCB2sO8Y5UvqyUhB+sLCX5IXoRIzmjDMfZZPr7q1KzDA6DOkyy2jA==,iv:kGOwZbD/UP0KbNTYJIm0sW/u23Lsoh4aln790tozsbk=,tag:p/FIvSllM862+gAAKsYd3w==,type:str]
 docker_network: ENC[AES256_GCM,data:T0NGCA==,iv:T+dcUCogUAU0A72NvNfMW2s8kN3yCmAhd4lncEhTop0=,tag:AsZt9osDZtdPOtR8pQziaA==,type:bool]
 docker_network_name: ENC[AES256_GCM,data:XMtdWCUa9NM=,iv:Rv0q05xRJKL4E/t5oPrzLlIsYdMKjfwUd3T2QQ2V4h0=,tag:H3f8mafMzvJqr75Q47LSlA==,type:str]
 docker_network_type: ENC[AES256_GCM,data:u7uMHQ7r,iv:Pc9KJaa2amgoHhEsgB18Bi5owTQYduULrMgxphsoyNo=,tag:Jv2XmTvey9Vhu7q0yPwOiQ==,type:str]
-traefik_email: ENC[AES256_GCM,data:gMtxyhG+wNqyEl61l6s=,iv:Lh1lHR/gTVLMa0FbQIQRN6JYyEBm8mgTCGJThRlvSzQ=,tag:3zIwlgSokUZaHqN4dISh+g==,type:str]
-traefik_domain: ENC[AES256_GCM,data:zhWe5mmzmJpkhlo=,iv:9QelXPvsFPOV4SmX9JfC7mP1OeeEqcRcHj73LcaR3oc=,tag:X4JRYBFzBpKuoUYKMW+dhg==,type:str]
-traefik_username: ENC[AES256_GCM,data:xMT0iw==,iv:zHoTHz8OuTpayqfu+g3ix+60O6SBYh11M5CeKKf+0xM=,tag:S2Abt36TK8D9ac0/1ARZFg==,type:str]
-traefik_hashed_password: ENC[AES256_GCM,data:hWetTuLlq8Ak+wf89sHvliPT7KmIII61EFJy1FsIF+32HBG0wQ==,iv:aQ2s0vckLrrnFGoYZ8/aF1vjKzewxYyAApN9jJtGfHo=,tag:/9R4nfFotAJZR0dS5nrTnw==,type:str]
-traefik_dir: ENC[AES256_GCM,data:FZ53P1I8cwgxfZwe,iv:5UKY7QmABIL9dODN+gnVw/02zYt3NC4I87mDhykKA04=,tag:5Vqrcwr2PkHzRzkt8vTrOA==,type:str]
-traefik_ca_server: ENC[AES256_GCM,data:IWCX/7+MsT31ZyENnNFaQXKWMfsbN++s7Efsidi+9w+9xWKJ12CKYHF7JTxBoQ==,iv:lcrmyJUyGStzpq/zOoKAOcWR3NjC9FnpJV0sBPi6KEQ=,tag:kRL9TWdlSRSilPsFNw4jQQ==,type:str]
-traefik_ca_storage: ENC[AES256_GCM,data:6nMGlcuripVa+KTfmUKwfg==,iv:/O5V+th/GUDuskUTjbCGyL7hBksivoUHwQ/S3usdTNY=,tag:sZpVcDJ/8odPUjwl99/1EQ==,type:str]
 hass_config_repo: ENC[AES256_GCM,data:yc2pMKd/02skdCyoA0yWZ5SXCPhRtwURwmWt0hE=,iv:YxqzaSmMz0rxDQZp489tfphllf7ohXl13t4UZoQSGm0=,tag:zURL0Iqj6FLdI/OqjTcAFg==,type:str]
 hass_deploy_key: ENC[AES256_GCM,data:ie289QVAbQTdng6A0B8ZkN3XWfZiFUk=,iv:eW+o5+xeoD77r92TJeu5LXkpZuHSRvyDBC5cvDgTx+k=,tag:Y0AFcRkjpPP+AZ2ZqyMi6g==,type:str]
 hass_db_password: ENC[AES256_GCM,data:tNueEET23PNAhiiFun55dqtFkafTMGDH,iv:htx8lDz2ItEfdG5apYW1VyQA7AaxhIic+8p+EH5nquY=,tag:U2dd2r30GcYOW3Jp3IjeJQ==,type:str]
@@ -52,8 +44,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-08T04:27:36Z"
-    mac: ENC[AES256_GCM,data:rMgkiuxXkdaZGBCHnUg7Avn7zZTNWIWgA+B7sSxcmc7sNq2vGqTz66UQunbDkrWX0z/joBfPpYVv7c3Z2isKjIsAu6xHANVrBRNlHSx5cN08juVyOffh8+CP0/52zJ6cRXmkIaDu/vOPXctbW/OUkdTNRaxFyqRxz8Groi/t8GY=,iv:PzKWe7fT4GiqYOAbdJWuBg0cKuvFSen9933K4UBryk4=,tag:3hZZzy4PYTt3rsliSI/A0w==,type:str]
+    lastmodified: "2024-08-08T20:41:44Z"
+    mac: ENC[AES256_GCM,data:3w+2cfjX0GwNJC5s8SlnjurhsBRFmqR4IGuS50CgXrIhelGE85jZD15sZTdovHr30Ppr8d9JQrrl3z/AuC36KfkzcRMDYiUwxHKMuRDtGVtf6W/nhCcHDVfAyCAmqfehJ20BmBqCPHstl8ob5KTtMCu0LSC6MOtSZezIzVaMItg=,iv:uVUSSVQFX/YlIgqanm9hbjxBiKSn9n7Al720gRmaWuc=,tag:agOdeXb4OKrfLwDC8SVqQQ==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0
