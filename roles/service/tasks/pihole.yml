@@ -21,3 +21,20 @@
   loop:
     - custom.list
   notify: Restart pihole dns
+
+- name: Ensure pihole container configured
+  community.docker.docker_container:
+    state: started
+    image_name_mismatch: recreate
+    name: pihole
+    image: "{{ pihole_image }}"
+    env: "{{ pihole_env }}"
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+    restart_policy: always
+    networks:
+      - name: "{{ docker_network_name }}"
+    volumes:
+      - /srv/pihole/dnsmasq.d:/etc/dnsmasq.d:rw
+      - /srv/pihole/etc:/etc/pihole:rw
