@@ -28,3 +28,6 @@ docker: true
 mosquitto: true
 squid: true
 squid_cache_dir: /srv/squid
+
+# postgres: true
+# hass: true

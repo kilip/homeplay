@@ -40,7 +40,7 @@
     name: hass
     image: "{{ hass_image }}"
     env:
-      AUTOMATION_ENABLED: "no"
+      AUTOMATION_ENABLED: "{{ 'yes' if hass_automation_enabled else 'no' }}"
       DB_CONNECTION: "postgresql://{{ hass_db_user }}:{{ hass_db_password }}@{{ hass_db_host }}:{{ hass_db_port }}/{{ hass_db_name }}"
       PGID: "1000"
       PUID: "1000"
