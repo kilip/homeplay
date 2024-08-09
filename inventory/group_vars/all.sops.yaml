@@ -12,6 +12,7 @@ apt_packages:
     - ENC[AES256_GCM,data:Rkzn,iv:5HE7LcPewrekYLvzv3loytBJDd8IMBr4vfk6/pe9U5w=,tag:SuJnHGir5tsxyuYmiefv7g==,type:str]
     - ENC[AES256_GCM,data:9bRzAg==,iv:gZZRDwjAswTEUdMkzZdD4UhV98Q/2EqnclPjAAABkVY=,tag:hdHbRKpJ4z6cJNvTPoFAag==,type:str]
     - ENC[AES256_GCM,data:RXwj/Q==,iv:tElmUbySxFNNQlvFECM0whlixlYOMLHT24RUDWro4Cg=,tag:Z/G9QHyltYaupOqdEln9tg==,type:str]
+    - ENC[AES256_GCM,data:dMmgRGsCr8PuzN1wtxk1CutD9tDksITK,iv:nFo/J2D3O8iAtngIaF1l9wPlxCQj0qmfu0G1hsB0HSY=,tag:8GGM4VM0lyGgxrGkqC+ZmA==,type:str]
 chezmoi_repo: ENC[AES256_GCM,data:Web9Xz9MXgeoWcYSu18BOLKrzvSKGJLJ5vPP0idERV0L,iv:GYlAJ2S+IJeelYPYzYhYFllC82hbT+Rr2JTJEbC3roQ=,tag:s35geCe/W2MIFkuG16sGpg==,type:str]
 chezmoi_use_age_key: ENC[AES256_GCM,data:eQz6EQ==,iv:lfpXp8mgn1uEHG8VF37d2Z0z4Ua35v7IVEiUkbgDX+E=,tag:kP9PPm/vbmUr0futqS7eeg==,type:bool]
 postgres_user: ENC[AES256_GCM,data:tYsUtIMzWn4=,iv:5IIiG25UWaPR4bFvsJDj42h04mayvZrCwuDjjZVXeGg=,tag:YRjAOBh7qCoJTlqwyqwYDg==,type:str]
@@ -51,8 +52,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-09T10:31:55Z"
-    mac: ENC[AES256_GCM,data:f91WWkoahHTaH4xrYb5WTPAxY2zEt323t2Pe1tAooj9X/LiwsfyqN5+HfQvPIFR1pSkLKvMtcwOfDsTrSCPuLCDa2yLWJJc+ECaj1CE8VnWaSTgTYMb2wGr5AAmwCTLJv3pGL/ESEGmXcyzFKBsuX/pKO4dS5KtZjC67m7vt9GI=,iv:xRUBsyZi0pH1qQiWdY4u4RTIstFWFPfkaPmKNx4M+mQ=,tag:9rlhYZWSB/JNCev9kwpDQg==,type:str]
+    lastmodified: "2024-08-09T11:30:52Z"
+    mac: ENC[AES256_GCM,data:78ZB4vJPoQVRCzsSLalp94ssDFdd6YEG/X+uXEoQ6PWvQm6WG08CRILDtH15UeuUsB9xKtoc/HKC8lbAswdD31vAuu0FFXGZOtxiygGd/puJQp3wQUclqq7g/nA3X67upzcBWXiU8XhwRYPTApViLzFL/okg/PcFj01N8vqeU/E=,iv:u+AlWXS0zyW8T8dILxOXJckqPrHE779jXYAPf7ab9Cc=,tag:HAMZ4zVm9q6KIHVpLX5aZw==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

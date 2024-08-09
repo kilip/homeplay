@@ -19,7 +19,6 @@ eros
 
 [traefik]
 iris
-eros
 
 [postgres]
 iris
