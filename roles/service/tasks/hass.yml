@@ -35,11 +35,11 @@
       TZ: "Asia/Makassar"
     volumes:
       - "{{ hass_config_local_dir }}:/config"
-    labels:
-      traefik.enable: "true"
-      traefik.http.routers.hass.entrypoints: websecure
-      traefik.http.routers.hass.rule: "Host(`hass.{{ traefik_domain }}`)"
-      traefik.http.services.hass.loadbalancer.server.port: "8123"
+    # labels:
+    #   traefik.enable: "true"
+    #   traefik.http.routers.hass.entrypoints: websecure
+    #  traefik.http.routers.hass.rule: "Host(`hass.{{ traefik_domain }}`)"
+    #   traefik.http.services.hass.loadbalancer.server.port: "8123"
     networks:
       - name: "{{ docker_network_name }}"
     ports:
