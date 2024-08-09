@@ -93,3 +93,9 @@ semaphore_email_password: password
 semaphore_email_secure: 'true'
 
 mosquitto: false
+
+tunnel: false
+tunnel_env: {}
+# renovate: datasource=docker depName=ghcr.io/kilip/semaphore
+tunnel_version: 2024.8.2
+tunnel_image: "cloudflare/cloudflared:{{ tunnel_version }}"

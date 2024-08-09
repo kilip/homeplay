@@ -83,6 +83,14 @@
       when: semaphore
       tags: semaphore
 
+    - name: Ensure tunnel tasks included
+      ansible.builtin.include_tasks:
+        file: tunnel.yml
+        apply:
+          tags: tunnel
+      tags: tunnel
+      when: tunnel
+
 - name: Ensure mosquitto tasks included
   ansible.builtin.include_tasks:
     file: mosquitto.yml

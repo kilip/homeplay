@@ -29,6 +29,8 @@ hass_db_password: ENC[AES256_GCM,data:tNueEET23PNAhiiFun55dqtFkafTMGDH,iv:htx8lD
 gpg_keys:
     - ENC[AES256_GCM,data:sNdsdHc7SSl0jgdEAw==,iv:0WMqAq5H0kxDtuw0N3ICxpoQ+X+Vd1iQIGoTTu8TnVA=,tag:hWwPAKD4y7iAXQzR1Wg/HQ==,type:str]
     - ENC[AES256_GCM,data:cpn8C6Jr3YSU5J+q8A==,iv:qQq4hAyQiYViCKYEUw0/lOvQins5lIBcWO5mfS648WQ=,tag:03b+axI2bex3Vi27K0yu4A==,type:str]
+tunnel_env:
+    TUNNEL_TOKEN: ENC[AES256_GCM,data:2Fl8/F95k8fCwVjvCW4vIi9WYQeowWP4P21HMSClA2O9abiyyY+Hm5gxJ+eXmWulpHtnNedVFO3qVhm47DYas8el0M6QXeOTX5ahcEbmHtJz43jzMpWqvApUJCmR/HqXFhFeJYEE2Uu7WBOet3t0pj475bdJu6exY2DbRIZoA79xDvinRZ8IPf59pnHwKMOojK9z0RzaW5Co2/EoDINnf1jXfoNG1anmpqKDI2g2XEtGhdyDLUJopQ==,iv:g90v1EQy689uWqst51Jwte5FHQueDDxITP8AniX4bH0=,tag:3QezuPF4eLeXq2XZA+tN7w==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -44,8 +46,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-08T20:41:44Z"
-    mac: ENC[AES256_GCM,data:3w+2cfjX0GwNJC5s8SlnjurhsBRFmqR4IGuS50CgXrIhelGE85jZD15sZTdovHr30Ppr8d9JQrrl3z/AuC36KfkzcRMDYiUwxHKMuRDtGVtf6W/nhCcHDVfAyCAmqfehJ20BmBqCPHstl8ob5KTtMCu0LSC6MOtSZezIzVaMItg=,iv:uVUSSVQFX/YlIgqanm9hbjxBiKSn9n7Al720gRmaWuc=,tag:agOdeXb4OKrfLwDC8SVqQQ==,type:str]
+    lastmodified: "2024-08-09T01:16:13Z"
+    mac: ENC[AES256_GCM,data:qc2l6doMX0K4FzmWO8YvL+erWLkk2s4f7ScZqdtr2msw1pOMaCJhGz43FCae4eG8C05dOx5jLVc7/gvPSefTdnKmgbHDDxNGtGA6NdWCCJTfceykPCsFmxjVoRVsHMW7xemr61/dq7v2Hn7/gSCfcHtFKwiRfFlB3oolTKe2VIw=,iv:ADouRcmNjPtoABKa1+3FigKetBfoE+TLxZAP0VKeBzQ=,tag:qXvZIYG32CRW4kfB7GduJA==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0
