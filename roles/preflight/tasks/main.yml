@@ -1,4 +1,12 @@
 ---
+- name: Ensure chezmoi requirements fullfiled
+  ansible.builtin.set_fact:
+    configure_pass: true
+    configure_ssh: true
+    configure_gpg: true
+    configure_user: true
+  when: configure_chezmoi
+
 - name: Ensure hostname configured
   ansible.builtin.hostname:
     name: "{{ inventory_hostname }}"
@@ -59,10 +67,7 @@
     file: chezmoi.yml
     apply:
       tags: chezmoi
-  when:
-    - configure_chezmoi
-    - configure_ssh
-    - configure_user
+  when: configure_chezmoi
   tags: chezmoi
 
 - name: Ensure laptop servers configured

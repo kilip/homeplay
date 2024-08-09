@@ -1,0 +1,10 @@
+---
+- name: Backup postgres
+  hosts: postgres
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Include backup tasks
+      ansible.builtin.include_role:
+        name: backup
+        tasks_from: backup

@@ -28,13 +28,11 @@ docker_users:
   - "{{ homeplay_user }}"
 
 configure_chezmoi: false
-chezmoi_version: "2.51.0"
-chezmoi_deb: |
-  https://github.com/twpayne/chezmoi/releases/download/v{{ chezmoi_version }}/chezmoi_{{ chezmoi_version }}_linux_amd64.deb
 chezmoi_repo: false
 chezmoi_bin: /usr/bin/chezmoi
 chezmoi_clone_dir: "{{ homeplay_user_home }}/.local/share/chezmoi"
 chezmoi_deploy_key: "{{ homeplay_deploy_key }}"
+chezmoi_use_age_key: false
 
 configure_pass: false
 pass_repo: git@github.com:kilip/password-store.git

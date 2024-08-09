@@ -1,0 +1,36 @@
+---
+- name: Ensure backup config files pulled
+  ansible.posix.synchronize:
+    mode: pull
+    src: "{{ backup_rsync_dest }}/{{ hass_restore.config }}"
+    dest: "/tmp/config.tgz"
+  delegate_to: "{{ inventory_hostname }}"
+
+- name: Ensure backup db files pulled
+  ansible.posix.synchronize:
+    mode: pull
+    src: "{{ backup_rsync_dest }}/{{ hass_restore.db }}"
+    dest: "/tmp/dump.sql"
+  delegate_to: "{{ inventory_hostname }}"
+
+- name: Ensure hass config restored
+  ansible.builtin.unarchive:
+    src: "/tmp/config.tgz"
+    dest: "{{ hass_config_local_dir | dirname }}"
+    remote_src: true
+    owner: "{{ homeplay_user }}"
+    group: "{{ homeplay_user }}"
+
+- name: Ensure hass database configured
+  ansible.builtin.include_role:
+    name: service
+    tasks_from: hass-db.yml
+
+- name: Ensure database dumped
+  community.postgresql.postgresql_db:
+    name: "{{ hass_db_name }}"
+    state: restore
+    target: "/tmp/dump.sql"
+    login_user: "{{ postgres_user }}"
+    login_password: "{{ postgres_password }}"
+    host: localhost

@@ -3,6 +3,7 @@ version: 3
 vars:
   ANSIBLE_BIN: "{{.VIRTUAL_ENV}}/bin/ansible"
   PLAYBOOK_BIN: "{{.VIRTUAL_ENV}}/bin/ansible-playbook"
+  PLAYBOOK_CMD: "{{.PLAYBOOK_BIN}} -i {{.INVENTORY}}"
 
 tasks:
   deps:
@@ -55,3 +56,29 @@ tasks:
       - task: play
         vars:
           CLI_ARGS: "-l semaphore --tags docker,semaphore"
+
+  preflight:
+    desc: Play preflight tasks
+    cmd: "{{.PLAYBOOK_CMD}} play-preflight.yml {{.host}}{{.check}}{{.tags}} {{.CLI_ARGS}}"
+    vars:
+      host: "{{if .host}}-l {{.host}}{{end}}"
+      check: "{{if .check}} --check{{end}}"
+      tags: "{{if .tags}} --tags {{.tags}}{{end}}"
+
+  service:
+    desc: Play service tasks
+    cmd: "{{.PLAYBOOK_CMD}} play-service.yml {{.host}}{{.check}}{{.tags}} {{.CLI_ARGS}}"
+    vars:
+      host: "{{if .host}}-l {{.host}}{{end}}"
+      check: "{{if .check}} --check{{end}}"
+      tags: "{{if .tags}} --tags {{.tags}}{{end}}"
+
+  backup:
+    desc: Play backup tasks
+    cmd: "{{.PLAYBOOK_CMD}} play-backup.yml {{.host}} {{.CLI_ARGS}}"
+
+  restore:
+    desc: Play restore tasks
+    cmd: "{{.PLAYBOOK_CMD}} play-restore.yml {{.host}} {{.CLI_ARGS}}"
+    vars:
+      host: "{{if .host}}-l {{.host}}{{end}}"

@@ -14,24 +14,8 @@
     force: true
   when: hass_deploy_key and hass_config_repo
 
-- name: Ensure hass db user configured
-  community.postgresql.postgresql_user:
-    user: "{{ hass_db_user }}"
-    password: "{{ hass_db_password }}"
-    host: localhost
-    login_user: "{{ postgres_user }}"
-    login_password: "{{ postgres_password }}"
-    state: present
-  when: not ansible_check_mode
-
-- name: Ensure hass database configured
-  community.postgresql.postgresql_db:
-    name: "{{ hass_db_name }}"
-    host: localhost
-    owner: "{{ hass_db_user }}"
-    login_user: "{{ postgres_user }}"
-    login_password: "{{ postgres_password }}"
-  when: not ansible_check_mode
+- name: Ensure hass db tasks configured
+  ansible.builtin.include_tasks: hass-db.yml
 
 - name: Ensure hass container configured
   community.docker.docker_container:
@@ -39,6 +23,10 @@
     image_name_mismatch: recreate
     name: hass
     image: "{{ hass_image }}"
+    capabilities:
+      - NET_ADMIN
+      - NET_RAW
+    devices: "{{ hass_devices }}"
     env:
       AUTOMATION_ENABLED: "{{ 'yes' if hass_automation_enabled else 'no' }}"
       DB_CONNECTION: "postgresql://{{ hass_db_user }}:{{ hass_db_password }}@{{ hass_db_host }}:{{ hass_db_port }}/{{ hass_db_name }}"

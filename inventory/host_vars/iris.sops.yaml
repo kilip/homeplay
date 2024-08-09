@@ -9,7 +9,7 @@ portainer: ENC[AES256_GCM,data:pw5xlQ==,iv:TUQ8X4EUhZ5CBlhM2t1MOSWMpjT/wNrjGbVJq
 portainer_edition: ENC[AES256_GCM,data:rxY=,iv:d5HqyBUfsd+uaeV3gNS1qANxsiPD+7Nrb5QMsc2Oaok=,tag:I0wcFFp3hwWHSInF570eHA==,type:str]
 portainer_hostname: ENC[AES256_GCM,data:Kukylm2+kMka,iv:20OJS0dB28kbNog49Xtga1XQhM9AiEg/r7n0YwXcwSU=,tag:/43ZXv7ghcJ7MnEG7hfjLw==,type:str]
 hass: ENC[AES256_GCM,data:9Ze3mQ==,iv:hMqu0OpGGXgZd8gLBbKjJtZPtykqDwx4HY3Tl3BjXd4=,tag:lx/M6IT9TJeULcJJgfrzpA==,type:bool]
-hass_automation_enabled: ENC[AES256_GCM,data:EZxBkQ==,iv:cKbZ4NrPK4kVuDh0EsWQjf3znpji/rFkntVTCy9ZB8c=,tag:WsPlBYfYM0w8fcpA6tFsLw==,type:bool]
+hass_automation_enabled: ENC[AES256_GCM,data:C7SzTKI=,iv:JLI32lXs9zERudnYcHBpPg0G+t67YZgAm7HnX8+9lIs=,tag:wQXU8BBCSb2eQkT7DJDLSA==,type:bool]
 nfs_server: ENC[AES256_GCM,data:0Yowkg==,iv:qW6gEzJeebuJhmv0nTm3MnTui1lzlrU8V98t9CLRORE=,tag:qygUJHs5ZTz/cVJpNlaqAg==,type:bool]
 nfs_exports:
     - ENC[AES256_GCM,data:9kI34q51mh2vrcwJiUU6c0eLfC/+eT8t3uWwVWVKdjLIk9GX5NLiBb1wKZFT17HRi3ohZOS4N8ANKIC34XyPB6Qz4LNaD2v5tBNLxXjfKP38JpLQ5oYf,iv:CacJlsuGllxw/w0iX2RCBPZB+LsbSlBN48toNkw4UCE=,tag:y+YdUS6NcIukTbF8OYmbHQ==,type:str]
@@ -19,6 +19,8 @@ postgres_host: ENC[AES256_GCM,data:nZjT3M2Pagpq,iv:q4O0PAi5jl7nIapTayUP+eIMZT0Si
 squid: ENC[AES256_GCM,data:wHn7wA==,iv:HSwJqbnMEGpjsZvzleyzk95WyGv7aAPP/WHKGKzuFto=,tag:MbaTfNwNt9j+hYH5Nv3pPA==,type:bool]
 squid_cache_dir: ENC[AES256_GCM,data:Bp0+mxL0nzuCBg==,iv:qNFh+fWkhb3Bxs2eEuAtGWpOja7RyftAq1SyCKPqJEk=,tag:tO4QWIU2KC7lIezs/qWZHw==,type:str]
 tunnel: ENC[AES256_GCM,data:Evwq8g==,iv:TD97yVofmqOIcisVH7d1BEGHH2LTJ1ONnO6agOGY8AY=,tag:JAncmVTJQEr0NshsXoAgbQ==,type:bool]
+mosquitto: ENC[AES256_GCM,data:SD1HeA==,iv:zmVNdKhv+fXuBBD4UPpI9WGAT8Gyky0Pkmq37YO0THM=,tag:mTYF9wDoCXrj4uhJ1lxsdA==,type:bool]
+backup_dir: ENC[AES256_GCM,data:XTjJ+ZWEqPep,iv:UYu4tJeOhL2ABZDNfyChD/fedL9OOUQaIuyGNslkBZI=,tag:3jyUxlXnpT12ciB1U8RyiA==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -34,8 +36,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-09T01:08:35Z"
-    mac: ENC[AES256_GCM,data:VCJJDG+wJbGjAEg8wP1FpEX0QewzX9D8GszH7BxNvfILOq67m2ZUq5AzQklPKZL2d/5ZUpffW/jZadO7AFcHbSkNbVGMnsNo+xa8Hxzy4YC22oeD/QcgQDdhiE7MENLXx01UKrTmOgwt2v75BzTy9qOgFnPNaY0g6We6bkB20ys=,iv:EfoFa/623HgZ0ErrTHZx1umNJwe8FK67GDAWCKV0myc=,tag:/m8K73dvYO7PcRtjRv9LrA==,type:str]
+    lastmodified: "2024-08-09T10:39:32Z"
+    mac: ENC[AES256_GCM,data:mBEC2CWLtoWI6sXUU+/vDqWRcqyF3OfUTMDC+b2lcm0voRCz6LaPfdnRiWsPGXOdaBPqsxH7LXOpYkVG1DG5Q15NGNww66eba1hW66OHKa77wpm0dS5jgcHGWevfaTLkMGENFmliYxcBLZisa60FV0BNrEFbR2KWXJfFbkiMbOQ=,iv:KzDb9kX7FEFtz5CGcZBMV+5x/8VE/7ZHkfg5aUk/qTc=,tag:ZsOkmgVL3Xv9VNSt9+ZW9A==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

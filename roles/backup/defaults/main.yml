@@ -1,0 +1,9 @@
+---
+version: "{{ '%Y%m%d' | strftime(ansible_date_time.epoch) }}"
+backup_dir: /srv/backup
+
+hass_db_backup: "{{ backup_dir }}/hass/db-{{ version }}.sql"
+hass_config_backup: "{{ backup_dir }}/hass/config-{{ version }}.tgz"
+hass_restore:
+  config: false
+  db: false

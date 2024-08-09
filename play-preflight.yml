@@ -1,0 +1,11 @@
+---
+- name: Installs and configure nodes
+  gather_facts: true
+  hosts: all
+  become: true
+  become_user: root
+  tasks:
+    - name: Include preflight role
+      ansible.builtin.include_role:
+        name: preflight
+      tags: always

@@ -8,6 +8,7 @@ gaia
 
 [hass]
 iris
+eros
 
 [workstation]
 zeus
@@ -17,5 +18,9 @@ iris
 eros
 
 [traefik]
+iris
+eros
+
+[postgres]
 iris
 eros

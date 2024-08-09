@@ -1,0 +1,10 @@
+---
+- name: Restore backup
+  hosts: all
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Restore backup
+      ansible.builtin.include_role:
+        name: backup
+        tasks_from: restore
