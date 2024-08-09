@@ -10,6 +10,7 @@ hass: ENC[AES256_GCM,data:gaOkEw==,iv:ZHSIzeJQ8O1/uioROZaadFGoyE8qz0fLigTnjzDlX7
 #ENC[AES256_GCM,data:g1ZvOW8KsbN6iYIPkVQ=,iv:sIkkxHGX6Cl7hD/Z+I1DUgwKA+TyvTPnWWuFOb+f0xc=,tag:S4rv/Dxi7HWdpThmkZH4Fg==,type:comment]
 #ENC[AES256_GCM,data:jNVto1wEiq8ksS83EKo0iKEDl3IlPeEKg+burwg+/9fO/5Wm,iv:N57F5pA8nkf8e/SvMrPDfFWOkUeGR0+bv9itYetqe6I=,tag:Rb1uQ5cqlc/p/PqGOKQlLw==,type:comment]
 hass_automation_enabled: ENC[AES256_GCM,data:S+3C4g==,iv:JKhL6AYsEANavn5wRhqgIbAK4misWW/3qiOJOrfj3+U=,tag:XxunkMaLaO1K32wZzPhQGA==,type:bool]
+tunnel: ENC[AES256_GCM,data:s7KHLA==,iv:sqpEI1GXmdRjJlIM4dNdO8a+t66XpKUnD9eYYKZWg9o=,tag:XjfF1RzWIr/Plsk14PGDWQ==,type:bool]
 traefik: ENC[AES256_GCM,data:0LCelg==,iv:80AiMLH0B8JwZSxQg8wOD5crA6F2juVAqXjxAc2YqRE=,tag:2tLPp142Ypj+W3TaIdkevg==,type:bool]
 traefik_hostname: ENC[AES256_GCM,data:Ga2DOw==,iv:Xt4I0cCV2ZoeGOX5DidB+ThZ9KpPcA7nOR6eJWdMMRk=,tag:nN2bCTFZcIPismnxx/iIOg==,type:str]
 postgres_host: ENC[AES256_GCM,data:T3Hd+T6q1kpH,iv:QWWYbjnvLGE+Y6unqYnuKMDsVgLS0B7+a1uEIaqQcEA=,tag:+kRjfZ97dQN6LiR9GVWgUg==,type:str]
@@ -36,8 +37,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-09T10:39:30Z"
-    mac: ENC[AES256_GCM,data:8fW/Ew0KH0ESdO+80vvh6ZprtVdADH8TrP1Zxo2bJiRAhchvajo5DGTq7JtJZlIhOF1K6IA3us9mged8mF/NLkJ45IVgYTgC9Dqrw86Q3bPdG7L6Zbhi8Bngf4k7bOeOwQqHJ1QVCxmWSiMUCM/eL+5tI2BgV5yf55FFjY/1QQI=,iv:YAFcWiqS1L9mTY+ehvkLYvC4axor11sO69I2VT+5yyw=,tag:xmJaJ7fRA73eCl8i39oqsA==,type:str]
+    lastmodified: "2024-08-09T11:02:49Z"
+    mac: ENC[AES256_GCM,data:rPpnwydxvTAbFzdxP/cWsJ8BDXmqo93V3Kuzn7GMZqEuOnpIWtHHaPKuVKTy11732Zk5ygUMW4KtBivQhkE5bCv0d7tixrnDIP6MpCKCCHtrNfmfUoQRlhZSNV14vJmDnJK8+TAvktxMrjGeiE7Ybg1rbbi8wE4+TEN55ro6was=,iv:s137/7bYvdVieOlTYpZjCT62qwNmsg4cBYDxreSLMgs=,tag:7Btp+vs9tCMZSq6Eb4Ichw==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0
