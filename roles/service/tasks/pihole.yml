@@ -4,6 +4,14 @@
     name: "{{ pihole_image }}"
     source: pull
 
+- name: Ensure pihole config dir exists
+  ansible.builtin.file:
+    path: "{{ pihole_dir }}/{{ item }}"
+    state: directory
+  with_items:
+    - dnsmasq.d
+    - etc
+
 - name: Ensure pihole dnsmasq.d files copied
   ansible.builtin.copy:
     content: "{{ lookup('community.sops.sops', 'pihole/dnsmasq.d/' + item + '.sops') }}"
