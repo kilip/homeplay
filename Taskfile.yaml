@@ -45,43 +45,6 @@ tasks:
         vars:
           CLI_ARGS: "--check {{.CLI_ARGS}}"
 
-  semaphore:
-    desc: Converge semaphore hosts
-    cmds:
-      - task: play
-        vars:
-          CLI_ARGS: "-l semaphore --tags docker,semaphore"
-
-  preflight:
-    desc: Play preflight tasks
-    cmd: "{{.PLAYBOOK_CMD}} play-preflight.yml {{.host}}{{.check}}{{.tags}} {{.CLI_ARGS}}"
-    vars:
-      host: "{{if .host}}-l {{.host}}{{end}}"
-      check: "{{if .check}} --check{{end}}"
-      tags: "{{if .tags}} --tags {{.tags}}{{end}}"
-
-  service:
-    desc: Play service tasks
-    cmd: "{{.PLAYBOOK_CMD}} play-service.yml {{.host}}{{.check}}{{.tags}} {{.CLI_ARGS}}"
-    vars:
-      host: "{{if .host}}-l {{.host}}{{end}}"
-      check: "{{if .check}} --check{{end}}"
-      tags: "{{if .tags}} --tags {{.tags}}{{end}}"
-
-  backup:
-    desc: Play backup tasks
-    cmd: "{{.PLAYBOOK_CMD}} play-backup.yml {{.host}}{{.check}}{{.tags}} {{.CLI_ARGS}}"
-    vars:
-      host: "{{if .host}}-l {{.host}}{{end}}"
-      check: "{{if .check}} --check{{end}}"
-      tags: "{{if .tags}} --tags {{.tags}}{{end}}"
-
-  restore:
-    desc: Play restore tasks
-    cmd: "{{.PLAYBOOK_CMD}} play-restore.yml {{.host}} {{.CLI_ARGS}}"
-    vars:
-      host: "{{if .host}}-l {{.host}}{{end}}"
-
   play:
     desc: Run ansible playbook
     cmd: "{{.PLAYBOOK_BIN}} -i {{.INVENTORY}} {{.playbook}}{{.host}}{{.tags}}{{.check}}{{.args}}"
@@ -91,9 +54,24 @@ tasks:
       tags: "{{if .tags}} --tags {{.tags}}{{end}}"
       args: "{{if .CLI_ARGS}} {{.CLI_ARGS}}{{end}}"
 
+  semaphore:
+    desc: Converge semaphore hosts
+    cmds:
+      - task: play
+        vars:
+          host: semaphore
+          tags: docker,semaphore
+
   workstation:
     desc: Play workstation tasks
     cmds:
       - task: play
         vars:
           playbook: play-workstation.yml
+
+  service:
+    desc: Play service tasks
+    cmds:
+      - task: play
+        vars:
+          playbook: play-service.yml
