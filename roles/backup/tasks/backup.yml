@@ -4,17 +4,18 @@
     package:
       - postgresql-client
     state: present
+  delegate_to: gaia
 
 - name: Ensure hass service backup
   ansible.builtin.include_tasks:
     file: backup/hass.yml
   when: backup_hass
 
-- name: Ensure backup synced
-  tags: synchronize
-  ansible.posix.synchronize:
-    src: "{{ backup_dir }}/"
-    dest: "{{ backup_rsync_dest }}/{{ inventory_hostname }}"
-    recursive: true
-    delete: true
-  delegate_to: "{{ inventory_hostname }}"
+# - name: Ensure backup synced
+#  tags: synchronize
+#  ansible.posix.synchronize:
+#    src: "{{ backup_dir }}/"
+#    dest: "{{ backup_rsync_dest }}/{{ inventory_hostname }}"
+#    recursive: true
+#    delete: true
+#  delegate_to: "{{ inventory_hostname }}"

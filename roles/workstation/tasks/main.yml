@@ -12,13 +12,21 @@
   when: regolith
   tags: regolith
 
-# - name: Ensure openrgb installed
-#   ansible.builtin.include_tasks:
-#     file: openrgb.yml
-#     apply:
-#       tags: openrgb
-#   when: openrgb
-#   tags: openrgb
+- name: Ensure spotify installed
+  ansible.builtin.include_tasks:
+    file: spotify.yml
+    apply:
+      tags: spotify
+  when: spotify
+  tags: spotify
+
+- name: Ensure openrgb installed
+  ansible.builtin.include_tasks:
+    file: openrgb.yml
+    apply:
+      tags: openrgb
+  when: openrgb
+  tags: openrgb
 
 - name: Ensure brew tasks included
   ansible.builtin.include_tasks:

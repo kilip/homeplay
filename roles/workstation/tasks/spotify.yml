@@ -1,0 +1,31 @@
+---
+- name: Ensure spotify key downloaded
+  ansible.builtin.get_url:
+    url: https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg
+    dest: "/tmp/spotify-key.gpg"
+
+- name: Ensure spotify key imported
+  ansible.builtin.command:
+    argv:
+      - sudo
+      - gpg
+      - -o
+      - "{{ spotify_key_file }}"
+      - --dearmor
+      - /tmp/spotify-key.gpg
+    creates: "{{ spotify_key_file }}"
+
+- name: Ensure spotify source configured
+  ansible.builtin.apt_repository:
+    repo: deb [signed-by={{ spotify_key_file }}] http://repository.spotify.com stable non-free
+    state: present
+    filename: spotify
+    update_cache: true
+
+- name: Ensure spotify installed
+  ansible.builtin.apt:
+    name:
+      - spotify-client
+    install_recommends: true
+    state: present
+  when: not ansible_check_mode

@@ -38,11 +38,6 @@ tasks:
     cmds:
       - "{{.ANSIBLE_BIN}} -i {{.INVENTORY}} --one-line -m ping all"
 
-  play:
-    desc: Run ansible playbook
-    cmds:
-      - "{{.PLAYBOOK_BIN}} -i {{.INVENTORY}} {{.CLI_ARGS}} main.yml"
-
   check:
     desc: Check playbook run
     cmds:
@@ -75,10 +70,30 @@ tasks:
 
   backup:
     desc: Play backup tasks
-    cmd: "{{.PLAYBOOK_CMD}} play-backup.yml {{.host}} {{.CLI_ARGS}}"
+    cmd: "{{.PLAYBOOK_CMD}} play-backup.yml {{.host}}{{.check}}{{.tags}} {{.CLI_ARGS}}"
+    vars:
+      host: "{{if .host}}-l {{.host}}{{end}}"
+      check: "{{if .check}} --check{{end}}"
+      tags: "{{if .tags}} --tags {{.tags}}{{end}}"
 
   restore:
     desc: Play restore tasks
     cmd: "{{.PLAYBOOK_CMD}} play-restore.yml {{.host}} {{.CLI_ARGS}}"
     vars:
       host: "{{if .host}}-l {{.host}}{{end}}"
+
+  play:
+    desc: Run ansible playbook
+    cmd: "{{.PLAYBOOK_BIN}} -i {{.INVENTORY}} {{.playbook}}{{.host}}{{.tags}}{{.check}}{{.args}}"
+    vars:
+      host: "{{if .host}} -l {{.host}}{{end}}"
+      check: "{{if .check}} --check{{end}}"
+      tags: "{{if .tags}} --tags {{.tags}}{{end}}"
+      args: "{{if .CLI_ARGS}} {{.CLI_ARGS}}{{end}}"
+
+  workstation:
+    desc: Play workstation tasks
+    cmds:
+      - task: play
+        vars:
+          playbook: play-workstation.yml

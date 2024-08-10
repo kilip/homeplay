@@ -9,3 +9,7 @@
     name: deepcool
     state: restarted
   when: not ansible_check_mode
+
+- name: Reboot
+  ansible.builtin.reboot:
+    msg: Rebooting workstation

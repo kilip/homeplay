@@ -8,6 +8,9 @@
   ansible.builtin.file:
     path: "{{ backup_dir }}/hass"
     state: directory
+    owner: "{{ homeplay_user }}"
+    group: "{{ homeplay_user }}"
+  delegate_to: "{{ backup_node }}"
 
 - name: Ensure hass backup
   when: result.exists
@@ -16,12 +19,21 @@
       community.postgresql.postgresql_db:
         login_user: "{{ postgres_user }}"
         login_password: "{{ postgres_password }}"
-        host: localhost
+        host: "{{ ansible_host }}"
         name: hass
         state: dump
-        target: "{{ hass_db_backup }}"
+        target: "{{ backup_dir }}/hass/{{ version }}-db.sql"
+      become: true
+      become_user: "{{ homeplay_user }}"
+      delegate_to: "{{ backup_node }}"
 
-    - name: Ensure hass config backup
+    - name: Ensure hass config archived
       community.general.archive:
         path: "{{ hass_config_local_dir }}"
-        dest: "{{ hass_config_backup }}"
+        dest: "/tmp/hass-config.tgz"
+
+    - name: Ensure hass config backup
+      ansible.posix.synchronize:
+        src: "/tmp/hass-config.tgz"
+        dest: "rsync://10.0.0.21/backup/eros/hass/{{ version }}-config.tgz"
+      delegate_to: "{{ inventory_hostname }}"

@@ -1,0 +1,11 @@
+---
+- name: Installs and configure workstation
+  gather_facts: true
+  hosts: workstation
+  become: true
+  become_user: root
+  tasks:
+    - name: Include service Role
+      ansible.builtin.include_role:
+        name: workstation
+      tags: always

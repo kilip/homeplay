@@ -14,9 +14,20 @@ brew_packages: []
 brew_taps: []
 
 regolith: false
-openrgb: false
 
 deepcool: false
 
 pgadmin: false
 pgadmin_key_file: /usr/share/keyrings/pgadmin.gpg
+
+openrgb: false
+# https://gitlab.com/CalcProgrammer1/OpenRGB/-/releases
+openrgb_deb_url: https://openrgb.org/releases/release_0.9/openrgb_0.9_amd64_bookworm_b5f46e3.deb
+openrgb_config_dir: "/home/{{ homeplay_user }}/.config/OpenRGB"
+
+# https://gitlab.com/OpenRGBDevelopers/OpenRGBEffectsPlugin/-/releases
+openrgb_effects_url: https://gitlab.com/OpenRGBDevelopers/OpenRGBEffectsPlugin/-/jobs/4632324432/artifacts/download
+
+spotify: false
+spotify_gpg_url: https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg
+spotify_key_file: "/usr/share/keyrings/spotify.gpg"

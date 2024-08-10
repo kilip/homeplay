@@ -1,7 +1,7 @@
 ---
 version: "{{ '%Y%m%d' | strftime(ansible_date_time.epoch) }}"
-backup_dir: /srv/backup
-
+backup_node: "localhost"
+backup_dir: "/srv/backup/{{ inventory_hostname }}"
 backup_hass: false
 hass_db_backup: "{{ backup_dir }}/hass/db-{{ version }}.sql"
 hass_config_backup: "{{ backup_dir }}/hass/config-{{ version }}.tgz"

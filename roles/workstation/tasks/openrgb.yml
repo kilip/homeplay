@@ -1,14 +1,46 @@
 ---
-# ppa:thopiekar/openrgb
-- name: Ensure openrgb ppa repository added
-  ansible.builtin.apt_repository:
-    repo: ppa:thopiekar/openrgb
-    update_cache: true
-    codename: noble
-  tags: openrgb
+- name: Ensure openrgb package downloaded
+  ansible.builtin.get_url:
+    url: "{{ openrgb_deb_url }}"
+    dest: "/tmp/openrgb.deb"
+  check_mode: false
 
-- name: Ensure openrgb package installed
+- name: Ensure openrgb required package installed
   ansible.builtin.apt:
-    name: openrgb
+    name:
+      - openrazer-driver-dkms
+      - i2c-tools
+      - openal-tools
     state: present
-  tags: openrgb
+
+- name: Ensure kernel module loaded
+  community.general.modprobe:
+    name: i2c-dev
+    state: present
+    persistent: present
+  notify: Reboot
+
+- name: Ensure openrgb installed
+  ansible.builtin.apt:
+    deb: "/tmp/openrgb.deb"
+    state: present
+  when: not ansible_check_mode
+
+- name: Ensure openrgb effects plugin downloaded
+  ansible.builtin.get_url:
+    url: "{{ openrgb_effects_url }}"
+    dest: /tmp/openrgb-effects.zip
+
+- name: Ensure openrgb plugin dir exists
+  ansible.builtin.file:
+    path: "{{ openrgb_config_dir }}/plugins"
+    state: directory
+    owner: "{{ homeplay_user }}"
+    group: "{{ homeplay_user }}"
+
+- name: Ensure openrgb effects plugin extracted
+  ansible.builtin.unarchive:
+    src: "/tmp/openrgb-effects.zip"
+    dest: "{{ openrgb_config_dir }}/plugins"
+    owner: "{{ homeplay_user }}"
+    group: "{{ homeplay_user }}"

@@ -1,4 +1,5 @@
 ansible_host: ENC[AES256_GCM,data:EGVpgBEl3as8,iv:qFHK1qzri6GSD3HiO25nLI4v4Ytf5BDi+634IJVC6ig=,tag:K/Ii940infWWLowoq+5qfQ==,type:str]
+ansible_python_interpreter: ENC[AES256_GCM,data:VRwNn1U5DiRr/z2rOe0AS/n1mQ==,iv:C3c6ocbTu9ObgiEIwmIKWubRLon31HkzDT4LfuS+oAk=,tag:vy8nt8+rN07md2LXdsS9Nw==,type:str]
 hostname: ENC[AES256_GCM,data:varNew==,iv:4HPDYgtPtt4zMpfPUvH2SjzVtANyzfGwxwMVoExgwBM=,tag:lxOOmcCN65QGyIiYvuiE7g==,type:str]
 configure_apt: ENC[AES256_GCM,data:sGgajw==,iv:uceyGvV2PhlqsokNUntl1ZJrfTHJ5D2sWvXyo9JPH68=,tag:3QWEt6gF2//XzsXGIM6DSw==,type:bool]
 configure_starship: ENC[AES256_GCM,data:Hb89xw==,iv:Cxk6VkLyDcBExNFzuOf1ZF/RRcIpwxPxEcNK47FWt+U=,tag:TIMmYQJzDxwenPxHWM3xcw==,type:bool]
@@ -39,8 +40,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-10T02:26:43Z"
-    mac: ENC[AES256_GCM,data:UsXYS8vcWtxeqO4rIFZUKJG4PwFxKh7ausvYa6UUbjMFsEHkTPiIXfO0BmZMGVTJDwjuXmpcQe8dqzCHBEN/Z5utZqVFv/U8CLziQaz6Pst0dcDx0rvk4G+KgeGZO35hyNztMuNYb4HlsZhc7e4o74nk2RlDuPzvDbJ/YKfQKcc=,iv:UH28wFDO7SL/YZpVcWLHy54aLV8VUwD4iCbOnYLOXgI=,tag:9RbEaF2mcA5pYTmCfB374g==,type:str]
+    lastmodified: "2024-08-10T08:23:15Z"
+    mac: ENC[AES256_GCM,data:O5eDFHkvsm6p0cdbnzJ8hTMAVPCOpt/y7qAnExJWEyPu9mG8vHsFH7CJ/TdmKK2OejmHrjnsmf9iqjGQplZ6mShjkU2MEluQFNus1LkUDQIME377csAcsbAAjXCfAf0xw37eFGCRuJulOLX+O2h1fhESlF5/EN/dIYkEGkiuD30=,iv:VN4vAro4IgsaO4/f7EZjBBeCz37JpEd3D6owj41Jwh8=,tag:toW0OqQprMhFTbfoJpbkAg==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

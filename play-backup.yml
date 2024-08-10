@@ -1,6 +1,6 @@
 ---
-- name: Backup postgres
-  hosts: postgres
+- name: Backup
+  hosts: all
   become: true
   become_user: root
   gather_facts: true
@@ -9,3 +9,4 @@
       ansible.builtin.include_role:
         name: backup
         tasks_from: backup
+      tags: always
