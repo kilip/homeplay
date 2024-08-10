@@ -8,7 +8,7 @@
 - name: Ensure hass service backup
   ansible.builtin.include_tasks:
     file: backup/hass.yml
-  when: hass
+  when: backup_hass
 
 - name: Ensure backup synced
   tags: synchronize
