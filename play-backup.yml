@@ -2,6 +2,7 @@
 - name: Backup postgres
   hosts: postgres
   become: true
+  become_user: root
   gather_facts: true
   tasks:
     - name: Include backup tasks
