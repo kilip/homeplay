@@ -35,5 +35,7 @@
     - name: Ensure hass config backup
       ansible.posix.synchronize:
         src: "/tmp/hass-config.tgz"
-        dest: "rsync://10.0.0.21/backup/eros/hass/{{ version }}-config.tgz"
+        dest: "toni@10.0.0.12:/tank/backup/eros/hass/{{ version }}-config.tgz"
       delegate_to: "{{ inventory_hostname }}"
+      become: true
+      become_user: "{{ homeplay_user }}"

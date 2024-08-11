@@ -1,9 +1,6 @@
 ---
-configure_docker: false
-
 squid: false
 squid_cache_dir_config: cache_dir aufs /var/spool/squid 20000 24 256
-
 
 postgres: false
 # renovate: datasource=docker depName=postgres
@@ -19,6 +16,10 @@ docker: false
 docker_network_name: homeplay
 docker_network_type: bridge
 docker_network_exists: false
+
+portainer: false
+portainer_edition: ce
+portainer_agent: false
 
 traefik: false
 # renovate: datasource=docker depName=traefik
@@ -36,16 +37,6 @@ traefik_ca_storage: /certs/acme-staging.json
 traefik_config: false
 cloudflare_email: admin@homeplay.com
 cloudflare_token: replace_with_your_cloudflare_token
-
-portainer: false
-portainer_edition: ce
-# renovate: datasource=docker depName=portainer/portainer-ee
-portainer_ee_version: latest
-portainer_ee_image: "portainer/portainer-ee:{{ portainer_ee_version }}"
-# renovate: datasource=docker depName=portainer/portainer-ce
-portainer_ce_version: latest
-portainer_ce_image: "portainer/portainer-ce:{{ portainer_ce_version }}"
-portainer_hostname: portainer
 
 hass: false
 # renovate: datasource=docker depName=linuxserver/homeassistant

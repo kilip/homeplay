@@ -1,4 +1,11 @@
 ---
+- name: Ensure portainer vars included
+  ansible.builtin.include_vars: portainer.yml
+
+- name: Ensure portainer facts configured
+  ansible.builtin.set_fact:
+    portainer_state: "{{ 'present' if portainer else 'absent' }}"
+
 - name: Set container image edition
   ansible.builtin.set_fact:
     portainer_image: "{{ portainer_ee_image if portainer_edition == 'ee' else portainer_ce_image }}"
@@ -7,14 +14,22 @@
   community.docker.docker_image:
     name: "{{ portainer_image }}"
     source: pull
+  when: portainer
 
-- name: Ensure portainer volume exists
+- name: Ensure portainer container removed
+  community.docker.docker_container:
+    name: portainer
+    state: absent
+  when: not portainer
+
+- name: Ensure portainer volume configured
   community.docker.docker_volume:
     name: portainer_data
-    state: present
+    state: "{{ portainer_state }}"
+  when: not portainer
 
 - name: Ensure portainer container configured
-  when: docker_network_exists
+  when: docker_network_exists and portainer
   community.docker.docker_container:
     state: started
     image_name_mismatch: recreate

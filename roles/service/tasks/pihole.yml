@@ -3,8 +3,10 @@
   community.docker.docker_image:
     name: "{{ pihole_image }}"
     source: pull
+  when: pihole
 
 - name: Ensure pihole config dir exists
+  when: pihole
   ansible.builtin.file:
     path: "{{ pihole_dir }}/{{ item }}"
     state: directory
@@ -13,6 +15,7 @@
     - etc
 
 - name: Ensure pihole dnsmasq.d files copied
+  when: pihole
   ansible.builtin.copy:
     content: "{{ lookup('community.sops.sops', 'pihole/dnsmasq.d/' + item + '.sops') }}"
     dest: "{{ pihole_dir }}/dnsmasq.d/{{ item }}"
@@ -23,6 +26,7 @@
   notify: Restart pihole dns
 
 - name: Ensure pihole etc files copied
+  when: pihole
   ansible.builtin.copy:
     content: "{{ lookup('community.sops.sops', 'pihole/etc/' + item + '.sops') }}"
     dest: "{{ pihole_dir }}/etc/{{ item }}"
@@ -31,6 +35,7 @@
   notify: Restart pihole dns
 
 - name: Ensure pihole container configured
+  when: pihole
   community.docker.docker_container:
     state: started
     image_name_mismatch: recreate
@@ -47,3 +52,9 @@
     volumes:
       - /srv/pihole/dnsmasq.d:/etc/dnsmasq.d:rw
       - /srv/pihole/etc:/etc/pihole:rw
+
+- name: Ensure pihole container removed
+  when: not pihole
+  community.docker.docker_container:
+    name: pihole
+    state: absent

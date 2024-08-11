@@ -8,7 +8,7 @@
   tags: nfs
 
 - name: Ensure docker service configured
-  when: configure_docker
+  when: docker
   block:
     - name: Ensure python postgres lib installed
       ansible.builtin.apt:
@@ -48,7 +48,6 @@
         file: traefik.yml
         apply:
           tags: traefik
-      when: traefik
       tags: traefik
 
     - name: Ensure portainer service configured
@@ -56,7 +55,13 @@
         file: portainer.yml
         apply:
           tags: portainer
-      when: portainer
+      tags: portainer
+
+    - name: Ensure portainer-agent service configured
+      ansible.builtin.include_tasks:
+        file: portainer-agent.yml
+        apply:
+          tags: portainer
       tags: portainer
 
     - name: Ensure home assistant service configured
@@ -64,7 +69,6 @@
         file: hass.yml
         apply:
           tags: hass
-      when: hass
       tags: hass
 
     - name: Ensure pihole configured
@@ -72,7 +76,6 @@
         file: pihole.yml
         apply:
           tags: pihole
-      when: pihole
       tags: pihole
 
     - name: Ensure semaphore configured

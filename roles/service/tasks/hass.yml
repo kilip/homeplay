@@ -3,6 +3,7 @@
   community.docker.docker_image:
     name: "{{ hass_image }}"
     source: pull
+  when: hass
 
 - name: Ensure hass config repository cloned
   ansible.builtin.git: # noqa: latest[git]
@@ -12,12 +13,17 @@
     accept_newhostkey: true
     key_file: "{{ hass_deploy_key }}"
     force: true
-  when: hass_deploy_key and hass_config_repo
+  when:
+    - hass_deploy_key
+    - hass_config_repo
+    - hass
 
 - name: Ensure hass db tasks configured
   ansible.builtin.include_tasks: hass-db.yml
+  when: hass
 
 - name: Ensure hass container configured
+  when: hass
   community.docker.docker_container:
     state: started
     image_name_mismatch: recreate
@@ -35,13 +41,14 @@
       TZ: "Asia/Makassar"
     volumes:
       - "{{ hass_config_local_dir }}:/config"
-    # labels:
-    #   traefik.enable: "true"
-    #   traefik.http.routers.hass.entrypoints: websecure
-    #  traefik.http.routers.hass.rule: "Host(`hass.{{ traefik_domain }}`)"
-    #   traefik.http.services.hass.loadbalancer.server.port: "8123"
     networks:
       - name: "{{ docker_network_name }}"
     ports:
       - 8123:8123
     restart_policy: always
+
+- name: Ensure hass container removed
+  when: not hass
+  community.docker.docker_container:
+    name: hass
+    state: absent

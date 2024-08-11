@@ -1,5 +1,5 @@
 ---
-configure_workstation: false
+workstation: false
 
 workstation_packages:
   - build-essential

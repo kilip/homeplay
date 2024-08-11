@@ -42,4 +42,4 @@
     - name: Ensure chezmoi initialized
       ansible.builtin.command:
         cmd: "chezmoi init --force --apply {{ chezmoi_repo }}"
-        creates: "{{ homeplay_user }}/.config/chezmoi/chezmoi.yaml"
+        creates: "{{ homeplay_user_home }}/.config/chezmoi/chezmoi.yaml"

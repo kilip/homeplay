@@ -1,40 +1,40 @@
 ---
-configure_user: false
+user: false
 homeplay_user: "ansible"
 homeplay_user_home: "/home/{{ homeplay_user }}"
 homeplay_user_shell: "/usr/bin/bash"
 homeplay_deploy_key: "{{ homeplay_user_home }}/.ssh/homeplay"
 
-configure_apt: false
+apt: false
 apt_proxy: "{{ lookup('ansible.builtin.env', 'HTTP_PROXY') | default(false) }}"
 apt_packages: []
 custom_packages: []
 
-configure_laptop: false
+laptop: false
 
-configure_locale: false
+locale: false
 timezone: Etc/UTC
 
-configure_ssh: false
+ssh: false
 ssh_keys: []
 ssh_dir: "{{ homeplay_user_home }}/.ssh"
 
-configure_starship: false
+starship: false
 font_install_dir: /usr/local/share/fonts
 fira_font_lock: "{{ font_install_dir }}/.FiraCode"
 
-configure_docker: false
+docker: false
 docker_users:
   - "{{ homeplay_user }}"
 
-configure_chezmoi: false
+chezmoi: false
 chezmoi_repo: false
 chezmoi_bin: /usr/bin/chezmoi
 chezmoi_clone_dir: "{{ homeplay_user_home }}/.local/share/chezmoi"
 chezmoi_deploy_key: "{{ homeplay_deploy_key }}"
 chezmoi_use_age_key: false
 
-configure_pass: false
+password_store: false
 pass_repo: git@github.com:kilip/password-store.git
 pass_gpg_key: "/tmp/gpg-key-backup.asc"
 pass_dir: "{{ homeplay_user_home }}/.password-store"

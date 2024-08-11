@@ -5,6 +5,8 @@
     src: "{{ backup_rsync_dest }}/{{ hass_restore.config }}"
     dest: "/tmp/config.tgz"
   delegate_to: "{{ inventory_hostname }}"
+  become: true
+  become_user: "{{ homeplay_user }}"
 
 - name: Ensure backup db files pulled
   ansible.posix.synchronize:
@@ -12,6 +14,8 @@
     src: "{{ backup_rsync_dest }}/{{ hass_restore.db }}"
     dest: "/tmp/dump.sql"
   delegate_to: "{{ inventory_hostname }}"
+  become: true
+  become_user: "{{ homeplay_user }}"
 
 - name: Ensure hass config restored
   ansible.builtin.unarchive:

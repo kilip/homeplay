@@ -1,3 +1,4 @@
+pihole: ENC[AES256_GCM,data:SIdvIw==,iv:DYPDU/QO2EEnJbMmBvwyapRxlv3CzSxQrTJm7Xjc+OI=,tag:vHeGuQcxKm3RYbgcFzckyg==,type:bool]
 pihole_env:
     TZ: ENC[AES256_GCM,data:NkYUMHXJvpPvGOsSJQ==,iv:ArnqCzwJsgfQaZtVBhsG75uyGM7D1F5go9BSG6O0ALc=,tag:CUZatfTVdFanRbRmGPAGcA==,type:str]
     WEBPASSWORD: ENC[AES256_GCM,data:eySlmgAH8XlrqTtz,iv:tYVC+Nm7gY7XXWQI8GNwtp7lYtaXwoFfdAr6mc7IMnk=,tag:wI/Cxe3YPUb1+gfy/tAsTQ==,type:str]
@@ -16,8 +17,8 @@ sops:
             MnlIYkkydStWbUFOK3VMMVZOOEZESWMK/dOfNf/8KiwhurXktxQ5I0yuGyBW7C9v
             BUOukjcKkwoLisLyWxz/yl9OB5wokNssjkEcFm0Li3dDj9hF9xavSQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-08T10:27:38Z"
-    mac: ENC[AES256_GCM,data:LD5TVQ4oPuA0aBvpdwz0nxXL075nM9baPq3YthIPlbl0t0oB5Nfn8bX87LNAF/hAgnx409Eo0RulKdNreoQp+2CJC+nOYdSEhmfT2z8uGE6pJ2qj5l5m1+X4Ihem35IgtsmIto9EPr0IgaJSB5jki2t3SGJgBpkYOc16I8dK1Jo=,iv:X4fT397WmNlsPmfGShsSOQXUUuyKtXKcAHRV79R76BQ=,tag:j2mnvmwVGLWnJ9JYfpZPOA==,type:str]
+    lastmodified: "2024-08-11T14:07:14Z"
+    mac: ENC[AES256_GCM,data:D32ipKYeeHaYjKAN0j2C3A+xY4WLpmZxagCoQ7kuTtTICp5bDgfXxu+a0eCRR3vuyC/hGuA7IgWs9hdPXuHYIQvOIDte2uNqLtSHtgJBbCs7T+aARPQkHg8A3iaG+7GwTk0wVLf6CTXI4rN2LsH4DOzwrgNLXRmoflSOtsRdpfw=,iv:VeHBB78ko/ZJT3zIcnDKrJjxU9fcjpJcDpzIcCUWFJc=,tag:3+q7VFyQXpNIhSGV1Cagzg==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

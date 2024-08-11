@@ -3,6 +3,7 @@
   community.docker.docker_image:
     name: "{{ traefik_image }}"
     source: pull
+  when: traefik
 
 - name: Ensure traefik cert dirs exists
   ansible.builtin.file:
@@ -10,6 +11,7 @@
     state: directory
     owner: root
     mode: u+rwx,g+rx,o+x
+  when: traefik
 
 - name: Ensure traefik secret dirs exists
   ansible.builtin.file:
@@ -17,15 +19,17 @@
     state: directory
     owner: root
     mode: u+rwx,g+rx,o+x
+  when: traefik
 
 - name: Ensure traefik config file copied
   ansible.builtin.copy:
     content: "{{ lookup('community.sops.sops', traefik_config) }}"
     dest: "{{ traefik_dir }}/traefik.yml"
   notify: Restart traefik
-  when: traefik_config
+  when: traefik_config and traefik
 
 - name: Ensure traefik container configured
+  when: traefik
   community.docker.docker_container:
     state: started
     image_name_mismatch: recreate
@@ -77,7 +81,13 @@
       traefik.http.routers.http-catchall.rule: hostregexp(`{host:.+}`)
       traefik.http.routers.traefik.entryPoints: websecure
       traefik.http.routers.traefik.middlewares: api-auth
-      traefik.http.routers.traefik.rule: "Host(`{{ traefik_hostname }}.{{ traefik_domain }}`)"
+      traefik.http.routers.traefik.rule: "Host(`{{ inventory_hostname }}.{{ traefik_domain }}`)"
       traefik.http.routers.traefik.service: api@internal
       traefik.http.routers.traefik.tls.certresolver: letsencrypt
       traefik.http.services.traefik.loadbalancer.server.port: "8080"
+
+- name: Ensure traefik container removed
+  community.docker.docker_container:
+    name: traefik
+    state: absent
+  when: not traefik

@@ -1,4 +1,11 @@
 ---
+- name: Ensure required restore apps installed
+  ansible.builtin.apt:
+    package:
+      - postgresql-client
+      - rsync
+    state: present
+
 - name: Ensure hass restore tasks included
   ansible.builtin.include_tasks:
     file: restore/hass.yml

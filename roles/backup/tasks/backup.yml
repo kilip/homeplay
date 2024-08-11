@@ -3,8 +3,9 @@
   ansible.builtin.apt:
     package:
       - postgresql-client
+      - rsync
     state: present
-  delegate_to: gaia
+  delegate_to: "{{ backup_node }}"
 
 - name: Ensure hass service backup
   ansible.builtin.include_tasks:

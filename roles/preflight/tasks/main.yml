@@ -1,11 +1,11 @@
 ---
 - name: Ensure chezmoi requirements fullfiled
   ansible.builtin.set_fact:
-    configure_pass: true
-    configure_ssh: true
-    configure_gpg: true
-    configure_user: true
-  when: configure_chezmoi
+    password_store: true
+    ssh: true
+    gpg: true
+    user: true
+  when: chezmoi
 
 - name: Ensure hostname configured
   ansible.builtin.hostname:
@@ -18,7 +18,7 @@
     apply:
       tags: apt
   tags: apt
-  when: configure_apt
+  when: apt
 
 - name: Ensure locale configured
   ansible.builtin.include_tasks:
@@ -26,7 +26,7 @@
     apply:
       tags: locale
   tags: locale
-  when: configure_locale
+  when: locale
 
 - name: Ensure user configured
   ansible.builtin.include_tasks:
@@ -34,7 +34,7 @@
     apply:
       tags: user
   tags: user
-  when: configure_user
+  when: user
 
 - name: Configure ssh
   ansible.builtin.include_tasks:
@@ -42,7 +42,7 @@
     apply:
       tags: ssh
   tags: ssh
-  when: configure_ssh
+  when: ssh
 
 - name: Ensure gpg keys imported
   ansible.builtin.include_tasks:
@@ -60,14 +60,14 @@
     apply:
       tags: pass
   tags: pass
-  when: configure_pass
+  when: password_store
 
 - name: Ensure chezmoi configured
   ansible.builtin.include_tasks:
     file: chezmoi.yml
     apply:
       tags: chezmoi
-  when: configure_chezmoi
+  when: chezmoi
   tags: chezmoi
 
 - name: Ensure laptop servers configured
@@ -76,7 +76,7 @@
     apply:
       tags: laptop
   tags: laptop
-  when: configure_laptop
+  when: laptop
 
 - name: Ensure starship configured
   ansible.builtin.include_tasks:
@@ -84,12 +84,12 @@
     apply:
       tags: starship
   tags: starship
-  when: configure_starship and not ansible_check_mode
+  when: starship and not ansible_check_mode
 
 - name: Ensure docker installed
   ansible.builtin.include_role:
     name: geerlingguy.docker
     apply:
       tags: docker
-  when: configure_docker
+  when: docker
   tags: docker

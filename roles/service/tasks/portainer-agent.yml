@@ -1,0 +1,30 @@
+- name: Ensure portainer vars included
+  ansible.builtin.include_vars: portainer.yml
+
+- name: Ensure portainer facts configured
+  ansible.builtin.set_fact:
+    portainer_state: "{{ 'present' if portainer else 'absent' }}"
+
+- name: Ensure portainer-agent image configured
+  ansible.builtin.set_fact:
+    portainer_agent_image: "{{ portainer_agent_image }}"
+
+- name: Ensure portainer-agent container configured
+  when: portainer_agent
+  community.docker.docker_container:
+    state: started
+    image_name_mismatch: recreate
+    name: portainer-agent
+    image: "{{ portainer_agent_image }}"
+    restart_policy: always
+    ports:
+      - 9001:9001
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/volumes:/var/lib/docker/volumes
+
+- name: Ensure portainer agent container removed
+  community.docker.docker_container:
+    name: portainer-agent
+    state: absent
+  when: not portainer_agent

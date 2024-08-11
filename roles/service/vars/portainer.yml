@@ -1,0 +1,11 @@
+# renovate: datasource=docker depName=portainer/portainer-ee
+portainer_ee_version: 2.20.2-alpine
+portainer_ee_image: "portainer/portainer-ee:{{ portainer_ee_version }}"
+# renovate: datasource=docker depName=portainer/portainer-ce
+portainer_ce_version: 2.20.2-alpine
+portainer_ce_image: "portainer/portainer-ce:{{ portainer_ce_version }}"
+portainer_hostname: portainer
+
+# renovate: datasource=docker depName=portainer/agent
+portainer_agent_version: 2.20.2-alpine
+portainer_agent_image: "portainer/agent:{{ portainer_agent_version }}"

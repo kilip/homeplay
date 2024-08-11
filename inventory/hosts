@@ -1,25 +1,24 @@
 zeus
+mars
+hera
 iris
 eros
-gaia
 
 [semaphore]
-gaia
+mars
 
 [hass]
-iris
-eros
+mars
 
 [workstation]
 zeus
 
 [pihole]
-iris
 eros
+mars
 
 [traefik]
-iris
+mars
 
 [postgres]
-iris
-eros
+mars

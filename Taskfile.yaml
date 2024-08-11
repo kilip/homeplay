@@ -54,6 +54,13 @@ tasks:
       tags: "{{if .tags}} --tags {{.tags}}{{end}}"
       args: "{{if .CLI_ARGS}} {{.CLI_ARGS}}{{end}}"
 
+  preflight:
+    desc: Converge semaphore hosts
+    cmds:
+      - task: play
+        vars:
+          playbook: play-preflight.yml
+
   semaphore:
     desc: Converge semaphore hosts
     cmds:
@@ -75,3 +82,24 @@ tasks:
       - task: play
         vars:
           playbook: play-service.yml
+
+  reboot:
+    desc: Reboot machine
+    cmds:
+      - task: play
+        vars:
+          playbook: play-reboot.yml
+
+  backup:
+    desc: Runs backup
+    cmds:
+      - task: play
+        vars:
+          playbook: play-backup.yml
+
+  restore:
+    desc: Runs restore
+    cmds:
+      - task: play
+        vars:
+          playbook: play-restore.yml

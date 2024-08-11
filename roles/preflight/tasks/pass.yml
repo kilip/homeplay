@@ -5,14 +5,6 @@
       - pass
     state: present
 
-- name: Fix permissions
-  ansible.builtin.file:
-    path: "{{ pass_dir }}"
-    owner: "{{ homeplay_user }}"
-    group: "{{ homeplay_user }}"
-    recurse: true
-  check_mode: true
-
 - name: Ensure pass repo cloned # noqa: latest[git]
   ansible.builtin.git:
     repo: "{{ pass_repo }}"
