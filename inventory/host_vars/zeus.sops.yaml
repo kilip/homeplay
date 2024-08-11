@@ -28,6 +28,8 @@ deepcool: ENC[AES256_GCM,data:mJ0xVA==,iv:j8TCDu26LvbA4tXywCYFtseGKuD4WAYD3apKar
 pgadmin: ENC[AES256_GCM,data:vZhFXg==,iv:irLan+9V74aLbX8OWlS5FLGeKrklAwQgA4/vwe6wxkc=,tag:p3UQPXEj1lBNhh1boOwHPQ==,type:bool]
 snap_packages:
     - ENC[AES256_GCM,data:W5LsUEAl1r8GOvBtzJpKpw==,iv:VWk+AYxEUfCcwogJZRzpYnxQNxYuBA4E/zOH6wHqKk4=,tag:mfn3NhrW5OQ7SJs6fIW04Q==,type:str]
+nitrogen: ENC[AES256_GCM,data:x1jtIw==,iv:D385U85C9Z2jCze+KilP6mzUE0Ut7Rv16p4Tf9+zY5o=,tag:uc1mgFm0ZXp919eioIF1+g==,type:bool]
+nitrogen_wallpaper: ENC[AES256_GCM,data:gmChQ6oMIgLR1n42AtHn6eoKcNL17kYQ/DmzVrBF3A==,iv:800d1wc6BS88pkLoK16r7kApDUO3k8imKV/2DJo4wI4=,tag:vi/yFs17lTDmzdSRo1A7zA==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -43,8 +45,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-10T07:03:17Z"
-    mac: ENC[AES256_GCM,data:jjfKSOH1+TQOg1cNxlAnnV8eQS9eJ5+SibTaOXWu5MU0tuXJMYMSH2+bMDoASM3umnN5tUhqKwNHiHZnwCDO1D3qz5iwZoA1U7bxC5h5yoz9tvAh+1F2M7PGj+gseN4Ig8T/lXPA7V7kmF6Y0QFlcQiT2qbX5tpTzBTEdn7FRVs=,iv:GpB5Di982krFrAT5Ho4VoJhI/o8AJOMhkLA5KVCYq2M=,tag:RI6s/wLkLS61tbvmQqYjzQ==,type:str]
+    lastmodified: "2024-08-11T02:03:35Z"
+    mac: ENC[AES256_GCM,data:x8CHmPdThfi7uxswYKxt9FEIwM67TqNxG9osLbkJDkj8skwBOSXoW6AVxqfXOPCv5IBsVXr3078VhJoBtPFWwd3pmfJy4etPu+eWdWdLrYIc3KIZHQy7ExAqgWpHx3HeM8bgcqs5mzvKOWGXCXBqkrJabr1Lq2urFEy3QNaRSV8=,iv:l7xM45EgvNza/hYATZ+Y5YmdOu5GMB/GkZtdRTgXN90=,tag:jG+5IeElVPt6FzNCOc+tWA==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

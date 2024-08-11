@@ -51,3 +51,11 @@
       tags: pgadmin
   when: pgadmin
   tags: pgadmin
+
+- name: Ensure nitrogen tasks included
+  ansible.builtin.include_tasks:
+    file: nitrogen.yml
+    apply:
+      tags: nitrogen
+  when: nitrogen
+  tags: nitrogen

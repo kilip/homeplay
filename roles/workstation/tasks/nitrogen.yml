@@ -1,0 +1,22 @@
+---
+- name: Ensure nitrogen installed
+  ansible.builtin.apt:
+    name: nitrogen
+    state: present
+
+- name: Ensure wallpaper script copied
+  ansible.builtin.template:
+    src: wallpaper.sh.j2
+    dest: "{{ nitrogen_wallpaper_bin }}"
+    owner: "{{ homeplay_user }}"
+    group: "{{ homeplay_user }}"
+    mode: "u+rwx,g+rx,o+rx"
+
+- name: Ensure wallpaper cron configured
+  ansible.builtin.cron:
+    name: Randomize Wallpaper
+    state: present
+    job: "{{ nitrogen_wallpaper_bin }}"
+    user: "{{ homeplay_user }}"
+    cron_file: "wallpaper"
+    minute: "*/5"
