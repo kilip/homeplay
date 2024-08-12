@@ -60,7 +60,7 @@ nfs_server: false
 
 # pihole section
 pihole: false
-# renovate: datasource=docker depName=linuxserver/homeassistant
+# renovate: datasource=docker depName=pihole/pihole
 pihole_version: 2024.07.0
 pihole_image: "pihole/pihole:{{ pihole_version }}"
 pihole_dir: "/srv/pihole"
@@ -88,7 +88,7 @@ mosquitto: false
 
 tunnel: false
 tunnel_env: {}
-# renovate: datasource=docker depName=ghcr.io/kilip/semaphore
+# renovate: datasource=docker depName=cloudflare/cloudflared
 tunnel_version: 2024.8.2
 tunnel_image: "cloudflare/cloudflared:{{ tunnel_version }}"
 
