@@ -1,0 +1,31 @@
+- name: Ensure jellyfin vars loaded
+  ansible.builtin.include_vars: jellyfin.yml
+
+- name: Ensure jellyfin installed
+  when: jellyfin
+  block:
+    - name: Ensure jellyfin image pulled
+      community.docker.docker_image:
+        name: "{{ jellyfin_image }}"
+        source: pull
+
+    - name: Ensure jellyfin container created
+      community.docker.docker_container:
+        state: started
+        image_name_mismatch: recreate
+        name: jellyfin
+        image: "{{ jellyfin_image }}"
+        restart_policy: always
+        networks:
+          - name: "{{ docker_network_name }}"
+        env: "{{ jellyfin_env }}"
+        ports:
+          - 8096:8096
+          - 8920:8920
+          - 7359:7359/udp
+          - 1900:1900/udp
+        volumes:
+          - /srv/jellyfin:/config
+          - /tank/media:/media
+        devices:
+          - /dev/dri:/dev/dri

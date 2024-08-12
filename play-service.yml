@@ -1,7 +1,7 @@
 ---
 - name: Installs and configure nodes
   gather_facts: true
-  hosts: all
+  hosts: server
   become: true
   become_user: root
   tasks:

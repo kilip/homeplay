@@ -1,0 +1,28 @@
+jellyfin: ENC[AES256_GCM,data:ouYA+Q==,iv:aNxjkbOfp4ZYs895Fkyo2FpRPjL9L9/gXJmXHuDgTRQ=,tag:umdKhp8ZbgHbd25maRxgoA==,type:bool]
+jellyfin_env:
+    PUID: ENC[AES256_GCM,data:QgP2ww==,iv:+tqQgVZDH3QHuMkCrDYKG2QOq9f0ajtcyIxnl71ghio=,tag:nTHIGl/kJa3W82uGmdmnPg==,type:str]
+    PGID: ENC[AES256_GCM,data:9pMfiQ==,iv:zNcyxslfvqUkb9EM1UybvKqGEOZxOZv8+us4N+fzZuY=,tag:8LkxxZnbzXo/B3AD76Uoqg==,type:str]
+    TZ: ENC[AES256_GCM,data:jZZCtWozAC0qE3b1+A==,iv:aClhh+A7LAXa4z0DeMKJmKk6mHZMZfbkA4iM3d+zUps=,tag:h8wmI1CIOdz6k/NqSGu1DQ==,type:str]
+    JELLYFIN_PublishedServerUrl: ENC[AES256_GCM,data:eQKpamau6b1xgbZr7B3Gr4R+,iv:Tgj8nK/2qj8q2TAmlZ+ZSJLX59nWjL53WJJNfu1szxs=,tag:k6SKM0sPibG808AqTDfi8Q==,type:str]
+    DOCKER_MODS: ENC[AES256_GCM,data:99SlNa5KV7PkMkaa04Jiq5/a73JWlIeujXcODZlY+0EYIrwXQxxixjf70DtN1TER9gxQ5R6kY7M6W+RbH5ZdxpLbc2oQ,iv:1iZXP6Kn6+TNhVoyTLwJ6c5r1EkHH5XsKphHQPv/DGA=,tag:j8q75XM4uEXkiho7hHC5lQ==,type:str]
+    HTTP_PROXY: ENC[AES256_GCM,data:6EIaf/DRnYuTwXQ6PqK3Mmwl8gb5,iv:DB9w91z42jGBPVvvjh+l444bKYGNP2nOmNmvIUnvzv4=,tag:ffEaCOD1JnMdNlRjqodKew==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age13n6rctev7vwr2vuds9uqdh6anhvdvl2zt8gu9jp6mmvw2wukuqmqxz9ghv
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA4aDFKTUgrUHIxc0svTnJB
+            c0FJQU81ZzBPelJNOE5lWkd2dXFKRzBpTWhRCjlyUS95NXgvMVlYd1hsWTR1Nk4z
+            dTVxRkY2UDJPSlVvVVBZWGFkcThZK3MKLS0tIHBJT0Vlei81TUw0cDVhWThCUE9u
+            NjhsNUh2ODA1aEpWdGtXZDVWTXdoWE0KPrqMR3h2M9oQyoDN009XPNTMHvmfe6oa
+            QsN6uPy+YKkBo8Ru0DqIx1Bf11H5cnWYuiUWO+3vgQb1ZGbWqU6ARQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-08-11T15:51:07Z"
+    mac: ENC[AES256_GCM,data:b8RYlVsoCbTzvkqQ2V81Id4r+E4bM+44XC1ORBrXGSnVodZUkQ6lZSguYfJSMvXP8xreZqMjYMv3hR6xmVoYZ9nDZ94qCtbEDEFc717rYJZjMiyTpRJI7NU94/8Btxb+NOxBkKwzHpL4/Ag50KI61xO6xo9n1Nqbq99HbZJFngc=,iv:3hZO6lrXZxQfr6Q7rrp93AYBxWgVjaAn7mNLjWrIh7Y=,tag:ppq7jF28U01srfKQMeUXRw==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.9.0

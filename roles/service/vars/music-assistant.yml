@@ -1,0 +1,4 @@
+#
+# docker run --network host --privileged -v <dir>:/data ghcr.io/music-assistant/server
+music_assistant_version: 2.1.1
+music_assistant_image: "ghcr.io/music-assistant/server:{{ music_assistant_version }}"

@@ -4,6 +4,11 @@ hera
 iris
 eros
 
+[server]
+mars
+hera
+iris
+
 [semaphore]
 mars
 
@@ -22,3 +27,9 @@ mars
 
 [postgres]
 mars
+
+[jellyfin]
+hera
+
+[music_assistant]
+hera
