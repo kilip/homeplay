@@ -1,11 +1,38 @@
 {
-  $schema: "https://docs.renovatebot.com/renovate-schema.json",
-  extends: [
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
     "config:recommended",
+    "docker:enableMajor",
     ":disableRateLimiting",
     ":dependencyDashboard",
     ":semanticCommits",
     ":skipStatusChecks",
-    ":timezone(Asia/Makassar)",
+    ":timezone(Asia/Makassar)"
   ],
+  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
+  "regexManagers": [
+    {
+      "description": ["Process various dependencies in YAML files"],
+      "fileMatch": [".+\\.ya?ml$"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*=?))?( versionTemplate=(?<versionTemplate>.*=?))?\\n.*: ?(\"?(?<currentValue>[^\"\\n]+=?)\"?)"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
+      "extractVersionTemplate": "{{#if versionTemplate}}{{{versionTemplate}}}{{else}}{{/if}}"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "pinDigests": true
+    },
+    {
+      "description": ["Custom versioning for qbittorrent"],
+      "matchDatasources": ["docker"],
+      "matchPackagePatterns": ["qbittorrent"],
+      "allowedVersions": "<14.0.0"
+    }
+  ]
 }

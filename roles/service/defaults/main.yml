@@ -104,7 +104,7 @@ music_assistant: false
 
 prometheus: false
 # renovate: datasource=docker depName=prom/prometheus
-prometheus_version: v2.53.2
+prometheus_version: v2.54.0
 prometheus_image: "prom/prometheus:{{ prometheus_version }}"
 
 grafana: false
