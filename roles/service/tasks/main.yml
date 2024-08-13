@@ -6,6 +6,11 @@
 
 - name: Ensure tools service tasks included
   ansible.builtin.include_tasks:
+    file: storage/main.yml
+  tags: always
+
+- name: Ensure tools service tasks included
+  ansible.builtin.include_tasks:
     file: tools/main.yml
   tags: always
 

@@ -117,3 +117,7 @@ grafana_db_host: postgres
 grafana_db_port: 5432
 grafana_db_type: postgres
 grafana_api_key: false
+
+portainer_agent_port: "9001"
+minio_env: {}
+minio_dir: '/srv/minio'

@@ -1,0 +1,8 @@
+---
+- name: Ensure zfs datasets configured
+  community.general.zfs:
+    name: "{{ item.name }}"
+    extra_zfs_properties: "{{ item.properties }}"
+    state: present
+  with_items: "{{ zfs_datasets }}"
+  notify: Run exportfs

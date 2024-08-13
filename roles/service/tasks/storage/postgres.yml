@@ -1,4 +1,12 @@
 ---
+- name: Ensure python postgres lib installed
+  ansible.builtin.apt:
+    name:
+      - python3-psycopg2
+      - python3-requests
+    state: present
+  tags: always
+
 - name: Ensure postgres image pulled
   community.docker.docker_image:
     name: "{{ postgres_image }}"

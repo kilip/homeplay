@@ -1,0 +1,61 @@
+---
+- name: Ensure minio vars included
+  ansible.builtin.include_vars: minio.yml
+
+- name: Ensure minio facts configured
+  ansible.builtin.set_fact:
+    minio: "{{ true if 'minio' in group_names else false }}"
+
+- name: Ensure minio container configured
+  when: minio
+  block:
+    - name: Ensure minio image pulled
+      community.docker.docker_image:
+        name: "{{ minio_image }}"
+        source: pull
+
+    - name: Ensure minio dir exists
+      ansible.builtin.file:
+        path: "{{ minio_dir }}"
+        state: directory
+        owner: "{{ homeplay_user }}"
+        group: "{{ homeplay_user }}"
+
+    - name: Ensure minio container started
+      community.docker.docker_container:
+        state: started
+        image_name_mismatch: recreate
+        name: minio
+        image: "{{ minio_image }}"
+        volumes:
+          - "{{ minio_dir }}:/data"
+        ports:
+          - 9000:9000
+          - 9001:9001
+        env: "{{ minio_env }}"
+        user: "1000:1000"
+        command:
+          - server
+          - '/data'
+          - '--console-address'
+          - ':9001'
+        restart_policy: always
+        networks:
+          - name: "{{ docker_network_name }}"
+        labels:
+          traefik.enable: "true"
+          traefik.http.routers.minio.entrypoints: websecure
+          traefik.http.routers.minio.rule: "Host(`minio.{{ traefik_domain }}`)"
+          traefik.http.services.minio.loadbalancer.server.port: "9001"
+
+- name: Ensure minio cname configured
+  ansible.builtin.include_tasks: pihole-cname.yml
+  vars:
+    cname_domain: "{{ host }}.{{ traefik_domain }}"
+    cname_target: "{{ full_hostname }}"
+    cname_state: "{{ 'present' if minio else 'absent' }}"
+  loop_control:
+    loop_var: host
+  with_items:
+    - s3
+    - minio

@@ -1,0 +1,15 @@
+---
+- name: Ensure postgres tasks included
+  ansible.builtin.include_tasks:
+    file: postgres.yml
+    apply:
+      tags: postgres
+  when: postgres
+  tags: postgres
+
+- name: Ensure minio tasks included
+  ansible.builtin.include_tasks:
+    file: minio.yml
+    apply:
+      tags: minio
+  tags: minio

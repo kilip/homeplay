@@ -20,3 +20,9 @@
     name: docker
     state: restarted
   when: not ansible_check_mode
+
+- name: Run exportfs
+  ansible.builtin.command:
+    argv:
+      - exportfs
+      - -arv

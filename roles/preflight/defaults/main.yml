@@ -42,3 +42,6 @@ pass_dir: "{{ homeplay_user_home }}/.password-store"
 gpg_keys: []
 
 hostname: false
+
+zfs: false
+zfs_datatasets: []

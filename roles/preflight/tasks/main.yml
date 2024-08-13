@@ -104,3 +104,11 @@
   when: docker
   tags: docker
   notify: Restart docker
+
+- name: Ensure zfs configured
+  ansible.builtin.include_tasks:
+    file: zfs.yml
+    apply:
+      tags: zfs
+  when: zfs
+  tags: zfs

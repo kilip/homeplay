@@ -31,6 +31,9 @@ hera
 [postgres]
 mars
 
+[minio]
+hera
+
 [jellyfin]
 hera
 

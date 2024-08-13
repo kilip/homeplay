@@ -32,28 +32,12 @@
     docker_network_exists: docker_net_stat.exists
   tags: always
 
-- name: Ensure python postgres lib installed
-  ansible.builtin.apt:
-    name:
-      - python3-psycopg2
-      - python3-requests
-    state: present
-  tags: always
-
 - name: Ensure pihole configured
   ansible.builtin.include_tasks:
     file: pihole.yml
     apply:
       tags: pihole
   tags: pihole
-
-- name: Ensure postgres service configured
-  ansible.builtin.include_tasks:
-    file: postgres.yml
-    apply:
-      tags: postgres
-  when: postgres
-  tags: postgres
 
 - name: Ensure traefik tasks included
   ansible.builtin.include_tasks:
