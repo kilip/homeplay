@@ -46,14 +46,15 @@
       - "{{ traefik_cert_dir }}:/certs:rw"
       - /var/run/docker.sock:/var/run/docker.sock
       - /srv/traefik/secrets:/secrets
-      # - "{{ traefik_dir }}/traefik.yml:/custom.yml"
+      - "{{ traefik_dir }}/traefik.yml:/custom.yml"
     networks:
       - name: "{{ docker_network_name }}"
-    # command: --providers.file.filename=/custom.yml
+    # command:
     command: >
       --log.level=INFO
       --providers.docker=true
       --providers.docker.exposedbydefault=false
+      --providers.file.filename=/custom.yml
       --api
       --api.dashboard=true
       --api.insecure=true

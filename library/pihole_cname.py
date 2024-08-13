@@ -78,7 +78,7 @@ class PiholeCname(object):
 
     def run_absent(self):
         self._vv('run absent mode')
-        if self.domain in self.cnames:
+        if self.domain in self.cnames and self.cnames[self.domain] == self.target:
             self.changed = True
             self.cnames.pop(self.domain)
 

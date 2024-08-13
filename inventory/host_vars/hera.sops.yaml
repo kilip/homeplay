@@ -13,6 +13,7 @@ portainer_agent: ENC[AES256_GCM,data:o7Lrvg==,iv:Mv1aLQ9e6Dm6av6otHoaWHIrRsrIbIP
 brew: ENC[AES256_GCM,data:zTfczg==,iv:7JxCPusqDkSlnJqgfPfJ5iQExdJZtkWmPljitkbkkN8=,tag:fvSP/g/OEEs8ZA/nWIz5UQ==,type:bool]
 brew_packages:
     - ENC[AES256_GCM,data:GLoliyL+kg==,iv:9jYXMUPZNC4eOKY9N6rBJAaPiC9GoPn0Y7V+/cSjPOE=,tag:TJSdw+EphlN6sANLWihG1Q==,type:str]
+qbittorrent_download_dir: ENC[AES256_GCM,data:5bi75e1rZJHYbuM=,iv:ixM5/eDrANeeksL7AN4SrLcegrWCorBs99C1i7GwVgg=,tag:Owg5KATEzwQaUVl+LDMRbA==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -28,8 +29,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-13T01:10:49Z"
-    mac: ENC[AES256_GCM,data:uifMPiTudyplMjQu19LTd8Klp1MNi9q3SDombd9D/COit/7fXao3+KYQpFSAphfyA67rMf9lw99olcuUyf86OLOkDLEFkMFtSymoX22wmQ+zvFVjctpRHeaF0NKc6Rerh36w8yx7ifLsADa5tMaKm9vkl0bS4xgz0e46ktD4wkY=,iv:Qvz3ZocS45NHmTIYc5N99HZH+OIYVlf7Goij0B+ayyk=,tag:UIBnkZbiks2V7nqEN/83NA==,type:str]
+    lastmodified: "2024-08-13T01:55:26Z"
+    mac: ENC[AES256_GCM,data:TxlrVA24hEC1MqEwkDOuNeud9X+tPFjLHyQP/X+GvPQs6xjd+7l1OECEBVpuWDR9U2ddMxf/5kNWgaLijuvtDN3QSihUmnkRUiCHX7ZkdFsT17yFKaW077cLlQtOjCjp4mTdEYRuZ2xraBvHwR6r4S2hah6/h18Fr8bxk/0tDVQ=,iv:E+trpA8i7IVZExj8GfuTTgdkU2qDiU+/hLrekurX/Lg=,tag:PNt2uG8gwKtjYFVJmmzTSw==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

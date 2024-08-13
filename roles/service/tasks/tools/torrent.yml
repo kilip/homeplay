@@ -1,0 +1,60 @@
+---
+- name: Ensure qbittorrent vars configured
+  ansible.builtin.include_vars: qbittorrent.yml
+- name: Ensure qbittorrent facts configured
+  ansible.builtin.set_fact:
+    qbittorrent: "{{ true if 'torrent' in group_names else false }}"
+
+- name: Ensure download dir configured
+  ansible.builtin.set_fact:
+    qbittorrent_download_dir: "/srv/qbittorrent/downloads"
+  when: not qbittorrent_download_dir is defined
+
+- name: Ensure qbittorrent service configured
+  when: qbittorrent
+  block:
+    - name: Ensure qbittorrent image pulled
+      community.docker.docker_image:
+        name: "{{ qbittorrent_image }}"
+        source: pull
+
+    - name: Ensure qbittorrent persistence dir exists
+      ansible.builtin.file:
+        path: "/srv/qbittorrent/{{ item }}"
+        state: directory
+        owner: "{{ homeplay_user }}"
+        group: "{{ homeplay_user }}"
+      with_items:
+        - config
+        - downloads
+
+    - name: Ensure qbittorrent container configured
+      community.docker.docker_container:
+        state: started
+        image_name_mismatch: recreate
+        name: qbittorrent
+        image: "{{ qbittorrent_image }}"
+        env:
+          PUID: "1000"
+          PGID: "1000"
+          TZ: "Asia/Makassar"
+        restart_policy: always
+        networks:
+          - name: "{{ docker_network_name }}"
+        ports:
+          - 6881:6881
+          - 6881:6881/udp
+        volumes:
+          - /srv/qbittorrent:/config
+          - "{{ qbittorrent_download_dir }}:/downloads"
+        labels:
+          traefik.enable: "true"
+          traefik.http.routers.qbittorrent.entrypoints: websecure
+          traefik.http.routers.qbittorrent.rule: "Host(`torrent.{{ traefik_domain }}`)"
+          traefik.http.services.qbittorrent.loadbalancer.server.port: "8080"
+
+    - name: Ensure qbittorrent cname configured
+      ansible.builtin.include_tasks: pihole-cname.yml
+      vars:
+        cname_domain: "torrent.{{ traefik_domain }}"
+        cname_target: "{{ full_hostname }}"
