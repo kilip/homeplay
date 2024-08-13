@@ -1,4 +1,22 @@
 ---
+- name: Ensure brew install script downloaded
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+    dest: "/tmp/brew-install.sh"
+    mode: "u=rwx,g=rx,o=rx"
+
+- name: Ensure brew installed
+  become: true
+  become_user: "{{ homeplay_user }}"
+  environment:
+    NONINTERACTIVE: 1
+  ansible.builtin.command:
+    argv:
+      - /usr/bin/bash
+      - -c
+      - /tmp/brew-install.sh
+    creates: "/home/linuxbrew/.linuxbrew"
+
 - name: Ensure brew packages installed
   become: true
   become_user: "{{ homeplay_user }}"
