@@ -1,7 +1,7 @@
 {
     "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
     "name": "Flux Cluster Template",
-    "image": "ghcr.io/onedr0p/cluster-template/devcontainer:base",
+    "image": "ghcr.io/onedr0p/cluster-template/devcontainer:base@sha256:ef7f5a7af35bb90c23d0644367db170bbfbf5c3fc1551136ce0fbb025ce8ec20",
     "postCreateCommand": {
       "setup": "bash ${containerWorkspaceFolder}/.devcontainer/postCreateCommand.sh"
     },
