@@ -1,3 +1,3 @@
-# renovate: datasource=docker depName=linuxserver/qbittorrent
-qbittorrent_version: 4.6.5
-qbittorrent_image: "linuxserver/qbittorrent:{{ qbittorrent_version }}"
+# renovate: datasource=docker depName=lscr.io/linuxserver/qbittorrent
+qbittorrent_version: latest
+qbittorrent_image: "lscr.io/linuxserver/qbittorrent:{{ qbittorrent_version }}"
