@@ -13,3 +13,10 @@
     apply:
       tags: minio
   tags: minio
+
+- name: Ensure dragonfly tasks included
+  ansible.builtin.include_tasks:
+    file: dragonfly.yml
+    apply:
+      tags: dragonfly
+  tags: dragonfly

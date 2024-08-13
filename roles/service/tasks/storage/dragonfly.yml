@@ -1,0 +1,32 @@
+---
+- name: Ensure dragonfly vars included
+  ansible.builtin.include_vars: dragonfly.yml
+
+- name: Ensure dragonfly facts configured
+  ansible.builtin.set_fact:
+    dragonfly: "{{ true if 'dragonfly' in group_names else false }}"
+
+- name: Ensure dragonfly container configured
+  when: dragonfly
+  block:
+    - name: Ensure dragonfly image pulled
+      community.docker.docker_image:
+        name: "{{ dragonfly_image }}"
+        source: pull
+
+    - name: Ensure dragonfly persistent dir exists
+      ansible.builtin.file:
+        path: '/srv/dragonfly'
+        state: directory
+
+    - name: Ensure dragonfly container started
+      community.docker.docker_container:
+        state: started
+        image_name_mismatch: recreate
+        name: dragonfly
+        image: "{{ dragonfly_image }}"
+        ulimits:
+          - memlock:1024:1024
+        network_mode: host
+        volumes:
+          - '/srv/dragonfly:/data'
