@@ -12,6 +12,11 @@ postgres_password: homeplay
 postgres_db: homeplay
 postgres_data_dir: "/srv/postgres"
 
+# postgres exporter
+# renovate: datasource=docker depName=quay.io/prometheuscommunity/postgres-exporter
+postgres_exporter_version: v0.15.0
+postgres_exporter_image: "quay.io/prometheuscommunity/postgres-exporter:{{ postgres_exporter_version }}"
+
 docker: false
 docker_network_name: homeplay
 docker_network_type: bridge
@@ -64,6 +69,8 @@ pihole: false
 pihole_version: 2024.07.0
 pihole_image: "pihole/pihole:{{ pihole_version }}"
 pihole_dir: "/srv/pihole"
+pihole_remote_cname_file: "/srv/pihole/dnsmasq.d/05-pihole-custom-cname.conf"
+pihole_cname_file: "/tmp/pihole-cname.conf"
 
 semaphore: false
 # renovate: datasource=docker depName=ghcr.io/kilip/semaphore
@@ -94,3 +101,20 @@ tunnel_image: "cloudflare/cloudflared:{{ tunnel_version }}"
 
 jellyfin: false
 music_assistant: false
+
+prometheus: false
+# renovate: datasource=docker depName=prom/prometheus
+prometheus_version: v2.53.2
+prometheus_image: "prom/prometheus:{{ prometheus_version }}"
+
+grafana: false
+# renovate: datasource=docker depName=grafana/grafana-oss
+grafana_version: 11.1.3
+grafana_image: "grafana/grafana-oss:{{ grafana_version }}"
+grafana_db_name: grafana
+grafana_db_user: grafana
+grafana_db_pass: grafana
+grafana_db_host: postgres
+grafana_db_port: 5432
+grafana_db_type: postgres
+grafana_api_key: false

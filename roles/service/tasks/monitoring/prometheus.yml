@@ -1,0 +1,57 @@
+---
+- name: Ensure prometheus image pulled
+  community.docker.docker_image:
+    name: "{{ prometheus_image }}"
+    source: pull
+    state: "{{ 'present' if prometheus else 'absent' }}"
+  when: prometheus
+
+- name: Ensure prometheus config dir configured
+  ansible.builtin.file:
+    path: "/srv/prometheus/{{ item }}"
+    state: "{{ 'directory' if prometheus else 'absent' }}"
+    owner: "{{ homeplay_user }}"
+    group: "{{ homeplay_user }}"
+  with_items:
+    - config
+    - data
+
+- name: Ensure prometheus config file copied
+  ansible.builtin.copy:
+    content: "{{ lookup('community.sops.sops', 'monitoring/prometheus.sops.yaml') }}"
+    dest: '/srv/prometheus/config/prometheus.yml'
+    owner: "{{ homeplay_user }}"
+    group: "{{ homeplay_user }}"
+  when: prometheus
+  notify: Restart prometheus
+
+- name: Ensure prometheus container configured
+  community.docker.docker_container:
+    state: "{{ 'started' if prometheus else 'absent' }}"
+    image_name_mismatch: recreate
+    name: prometheus
+    image: "{{ prometheus_image }}"
+    restart_policy: always
+    user: "1000:1000"
+    command:
+      - '--config.file=/config/prometheus.yml'
+    networks:
+      - name: "{{ docker_network_name }}"
+    volumes:
+      - '/srv/prometheus/config:/config'
+      - '/srv/prometheus/data:/prometheus'
+    ports:
+      - 9090:9090
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.prometheus.entrypoints: websecure
+      traefik.http.routers.prometheus.rule: "Host(`prometheus.{{ traefik_domain }}`)"
+      traefik.http.services.prometheus.loadbalancer.server.port: "9090"
+
+- name: Ensure prometheus cname configured
+  ansible.builtin.include_tasks:
+    file: pihole-cname.yml
+  vars:
+    cname_domain: "prometheus.{{ traefik_domain }}"
+    cname_target: "{{ full_hostname }}"
+  when: prometheus

@@ -19,7 +19,12 @@
     - hass
 
 - name: Ensure hass db tasks configured
-  ansible.builtin.include_tasks: hass-db.yml
+  ansible.builtin.include_tasks: postgres-db.yml
+  vars:
+    db_user: "{{ hass_db_user }}"
+    db_pass: "{{ hass_db_password }}"
+    db_host: "{{ hass_db_host }}"
+    db_name: "{{ hass_db_name }}"
   when: hass
 
 - name: Ensure hass container configured
@@ -46,9 +51,21 @@
     ports:
       - 8123:8123
     restart_policy: always
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.hass.entrypoints: websecure
+      traefik.http.routers.hass.rule: "Host(`hass.{{ traefik_domain }}`)"
+      traefik.http.services.hass.loadbalancer.server.port: "8123"
 
 - name: Ensure hass container removed
   when: not hass
   community.docker.docker_container:
     name: hass
     state: absent
+
+- name: Ensure hass cname configured
+  ansible.builtin.include_tasks: pihole-cname.yml
+  vars:
+    cname_domain: "hass.{{ traefik_domain }}"
+    cname_target: "{{ full_hostname }}"
+  when: hass

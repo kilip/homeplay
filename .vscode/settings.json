@@ -2,6 +2,7 @@
   "files.associations": {
     "*.j2": "ansible-jinja",
     "./inventory/**/*.sops.yaml": "yaml",
+    "./files/**/*.sops.ini": "ini",
     "*.yml": "ansible",
     "*/**/*.yml": "ansible"
   },

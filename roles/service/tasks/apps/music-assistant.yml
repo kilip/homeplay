@@ -10,7 +10,7 @@
   community.docker.docker_image:
     name: "{{ music_assistant_image }}"
     source: pull
-    state: "{{ music_assistant_state }}"
+  when: music_assistant
 
 - name: Ensure music assistant data dir configured
   ansible.builtin.file:
@@ -28,3 +28,15 @@
     privileged: true
     volumes:
       - /srv/music-assistant:/data
+    # labels:
+    #  traefik.enable: "true"
+    #  traefik.http.routers.music.entrypoints: websecure
+    #  traefik.http.routers.music.rule: "Host(`music.{{ traefik_domain }}`)"
+    #  traefik.http.services.music.loadbalancer.server.port: "8095"
+
+- name: Ensure music assistant cname configured
+  ansible.builtin.include_tasks: pihole-cname.yml
+  vars:
+    cname_domain: "music.{{ traefik_domain }}"
+    cname_target: "{{ full_hostname }}"
+  when: music_assistant

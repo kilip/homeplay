@@ -10,7 +10,7 @@
     path: "{{ traefik_cert_dir }}"
     state: directory
     owner: root
-    mode: u+rwx,g+rx,o+x
+    mode: u=rwx,g=rx,o=x
   when: traefik
 
 - name: Ensure traefik secret dirs exists
@@ -18,7 +18,7 @@
     path: "{{ traefik_cert_dir }}"
     state: directory
     owner: root
-    mode: u+rwx,g+rx,o+x
+    mode: u=rwx,g=rx,o=x
   when: traefik
 
 - name: Ensure traefik config file copied
@@ -46,14 +46,14 @@
       - "{{ traefik_cert_dir }}:/certs:rw"
       - /var/run/docker.sock:/var/run/docker.sock
       - /srv/traefik/secrets:/secrets
-      - "{{ traefik_dir }}/traefik.yml:/custom.yml"
+      # - "{{ traefik_dir }}/traefik.yml:/custom.yml"
     networks:
       - name: "{{ docker_network_name }}"
+    # command: --providers.file.filename=/custom.yml
     command: >
       --log.level=INFO
       --providers.docker=true
       --providers.docker.exposedbydefault=false
-      --providers.file.filename=/custom.yml
       --api
       --api.dashboard=true
       --api.insecure=true
@@ -91,3 +91,10 @@
     name: traefik
     state: absent
   when: not traefik
+
+- name: Ensure traefik cname configured
+  ansible.builtin.include_tasks: pihole-cname.yml
+  vars:
+    cname_domain: "{{ inventory_hostname }}.{{ traefik_domain }}"
+    cname_target: "{{ full_hostname }}"
+  when: traefik

@@ -83,6 +83,20 @@ tasks:
         vars:
           playbook: play-service.yml
 
+  monitoring:
+    desc: Runs monitoring tasks
+    cmds:
+      - task: play
+        vars:
+          playbook: play-monitoring.yml
+
+  test:
+    desc: Runs testing playbook
+    cmds:
+      - task: play
+        vars:
+          playbook: play-test.yml
+
   reboot:
     desc: Reboot machine
     cmds:

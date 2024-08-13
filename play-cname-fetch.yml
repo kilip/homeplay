@@ -1,0 +1,14 @@
+---
+- name: Fetch pihole cname
+  hosts: mars
+  become: true
+  become_user: root
+  tags: always
+  tasks:
+    - name: Ensure pihole fetch cname task included
+      ansible.builtin.include_role:
+        name: service
+        tasks_from: cname-fetch.yml
+        apply:
+          tags: always
+      tags: always

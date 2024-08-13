@@ -1,0 +1,70 @@
+---
+- name: Ensure grafana image pulled
+  community.docker.docker_image:
+    name: "{{ grafana_image }}"
+    source: pull
+    state: "{{ 'present' if grafana else 'absent' }}"
+
+- name: Ensure grafana dir exists
+  ansible.builtin.file:
+    name: "/srv/grafana/{{ item }}"
+    state: "{{ 'directory' if grafana else 'absent' }}"
+    owner: "{{ homeplay_user }}"
+    group: "{{ homeplay_user }}"
+  with_items:
+    - config
+    - data
+
+- name: Ensure grafana config file copied
+  ansible.builtin.copy:
+    content: "{{ lookup('community.sops.sops', 'monitoring/grafana.sops.ini') }}"
+    dest: '/srv/grafana/config/grafana.ini'
+    owner: "{{ homeplay_user }}"
+    group: "{{ homeplay_user }}"
+  when: grafana
+
+- name: Ensure grafana database configured
+  ansible.builtin.include_tasks: postgres-db.yml
+  vars:
+    db_user: "{{ grafana_db_user }}"
+    db_pass: "{{ grafana_db_pass }}"
+    db_host: "{{ grafana_db_host }}"
+    db_name: "{{ grafana_db_name }}"
+  when: grafana
+
+- name: Ensure grafana container configured
+  community.docker.docker_container:
+    state: "{{ 'started' if grafana else 'absent' }}"
+    image_name_mismatch: recreate
+    name: grafana
+    image: "{{ grafana_image }}"
+    restart_policy: always
+    user: "1000:1000"
+    networks:
+      - name: "{{ docker_network_name }}"
+    volumes:
+      - '/srv/grafana/config:/config'
+      - '/srv/grafana/data:/var/lib/grafana'
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.grafana.entrypoints: websecure
+      traefik.http.routers.grafana.rule: "Host(`grafana.{{ traefik_domain }}`)"
+      traefik.http.services.grafana.loadbalancer.server.port: "3000"
+    env:
+      GF_PATHS_CONFIG: /config/grafana.ini
+      GF_DATE_FORMATS_USE_BROWSER_LOCALE: "true"
+      GF_EXPLORE_ENABLED: "true"
+      GF_SECURITY_ANGULAR_SUPPORT_ENABLED: "true"
+      GF_DATABASE_TYPE: postgres
+      GF_DATABASE_HOST: "{{ grafana_db_host }}"
+      GF_DATABASE_NAME: "{{ grafana_db_name }}"
+      GF_DATABASE_USER: "{{ grafana_db_user }}"
+      GF_DATABASE_PASSWORD: "{{ grafana_db_pass }}"
+
+- name: Ensure grafana cname configured
+  ansible.builtin.include_tasks:
+    file: pihole-cname.yml
+  vars:
+    cname_domain: "grafana.{{ traefik_domain }}"
+    cname_target: "{{ full_hostname }}"
+  when: grafana

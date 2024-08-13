@@ -1,0 +1,22 @@
+---
+- name: Ensure prometheus task included
+  ansible.builtin.include_tasks:
+    file: "prometheus.yml"
+    apply:
+      tags: "prometheus"
+  tags: "prometheus"
+
+- name: Ensure grafana task included
+  ansible.builtin.include_tasks:
+    file: "grafana.yml"
+    apply:
+      tags: "grafana"
+  tags: "grafana"
+
+- name: Ensure grafana provisioned
+  when: grafana_api_key and grafana
+  ansible.builtin.include_tasks:
+    file: "grafana-provision.yml"
+    apply:
+      tags: grafana
+  tags: grafana

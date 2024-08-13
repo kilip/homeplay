@@ -1,6 +1,7 @@
 ansible_host: ENC[AES256_GCM,data:Gl36nqnBhPew,iv:S6ZWB1pbe8YcPlgEob9vDVi4mq+RsiEcNCsrIiCGtFU=,tag:RB+SXb7G5QhSS8Jix2wzBw==,type:str]
 ansible_user: ENC[AES256_GCM,data:5GkB9w==,iv:Gac0R4NApULSJGliS9Z3TvBQ4P0T45tCzOIXtG11XdQ=,tag:MO09er4cMqAGO2MLb9Evnw==,type:str]
 ansible_python_interpreter: ENC[AES256_GCM,data:lRAMTUcO2sfnLe460aw5TszKyg==,iv:1Iz7HLoVtfZ2t36bdVJDn4Zyha0XvnhASkzj8Ulu7XA=,tag:RVTK9a+uR2mMkJuZu3cXcQ==,type:str]
+full_hostname: ENC[AES256_GCM,data:VA+OiTYTXck=,iv:Odtf8m0/X4t8yvOifoJcmt6mUale3MCfCw75Ys513h0=,tag:ne4TAfe3BBVNv6uPMoARdw==,type:str]
 laptop: ENC[AES256_GCM,data:+8+gjg==,iv:WMVAxwLsYSyYlvDhucoMF/hukAvxX8rCiHd91+aJ07g=,tag:F/EaOColmOdU4YSEBrSgEw==,type:bool]
 custom_packages:
     - ENC[AES256_GCM,data:4m2TGuEjtsNH+nku,iv:gNVFafez1MqJylA+6Zkm++QgYb9kk0XMZE9TB8MM9wk=,tag:Qu3W+Adn++1iWWr61ZeH3g==,type:str]
@@ -24,8 +25,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-11T12:29:47Z"
-    mac: ENC[AES256_GCM,data:TU9EQaaOzuyrzxc4Mha5ry8SuTp2ZFCWBJr5Ne3WDpOZxRKYZtD4XmR8fh93X/lztJTionxz4yNwIUL4GEOcaBvJMkBJxPRnY4mchKcngxx1eMhe26C0z/1poOY4IQAffvHA3vIpgj816kCXbk5pRNiwx2QBsRwepCFG53AoeKE=,iv:hL72qvNJYj8hWspfjAhM4UTFYKNrw8gcjZ3eJgvqGe4=,tag:bZ9rMK780lLSMOZ8dGGSbA==,type:str]
+    lastmodified: "2024-08-12T14:59:56Z"
+    mac: ENC[AES256_GCM,data:W9NQgbveWN/LHKBd202RzrcrIi4AjoaIkUmqxD0rXoscRDd7/cAFggJN2FnFtxzd4jgG5meYkvWWqNAdqTjhcFEoCpvCk73H6NgK0cKYzQKteLPJfJIaSH9ch9b3d3po7PMsiofWj7f05V0wxgaI7fiZ4mKN6J7kGkKoLfA/Oyc=,iv:T01BmTHOTW67355Pw7lcNpqkTuUo3IwJbWhr3CISl8w=,tag:ZIcf0YNAbcLoH3Xv+AZZDw==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

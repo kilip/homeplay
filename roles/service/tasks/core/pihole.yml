@@ -20,7 +20,6 @@
     content: "{{ lookup('community.sops.sops', 'pihole/dnsmasq.d/' + item + '.sops') }}"
     dest: "{{ pihole_dir }}/dnsmasq.d/{{ item }}"
   loop:
-    - 05-pihole-custom-cname.conf
     - 42-local-domain.conf
     - 99-k8s-gateway-forward.conf
   notify: Restart pihole dns
@@ -52,9 +51,21 @@
     volumes:
       - /srv/pihole/dnsmasq.d:/etc/dnsmasq.d:rw
       - /srv/pihole/etc:/etc/pihole:rw
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.pihole.entrypoints: websecure
+      traefik.http.routers.pihole.rule: "Host(`pihole.{{ traefik_domain }}`)"
+      traefik.http.services.pihole.loadbalancer.server.port: "1980"
 
 - name: Ensure pihole container removed
   when: not pihole
   community.docker.docker_container:
     name: pihole
     state: absent
+
+- name: Ensure pihole cname configured
+  ansible.builtin.include_tasks: pihole-cname.yml
+  vars:
+    cname_domain: "pihole.{{ traefik_domain }}"
+    cname_target: "{{ pihole_cname_target }}"
+  when: pihole

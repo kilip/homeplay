@@ -1,0 +1,21 @@
+---
+- name: Ensure home assistant service configured
+  ansible.builtin.include_tasks:
+    file: hass.yml
+    apply:
+      tags: hass
+  tags: hass
+
+- name: Ensure jellyfin tasks included
+  ansible.builtin.include_tasks:
+    file: jellyfin.yml
+    apply:
+      tags: jellyfin
+  tags: jellyfin
+
+- name: Ensure music assistant task included
+  ansible.builtin.include_tasks:
+    file: music-assistant.yml
+    apply:
+      tags: music-assistant
+  tags: music-assistant

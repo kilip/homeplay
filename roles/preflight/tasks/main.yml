@@ -93,3 +93,14 @@
       tags: docker
   when: docker
   tags: docker
+
+- name: Ensure docker metrics configured
+  ansible.builtin.copy:
+    content: |
+      {
+        "metrics-addr": "0.0.0.0:9323"
+      }
+    dest: "/etc/docker/daemon.json"
+  when: docker
+  tags: docker
+  notify: Restart docker

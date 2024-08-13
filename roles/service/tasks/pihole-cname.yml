@@ -1,0 +1,15 @@
+---
+- name: Ensure cname defaults facts configured
+  ansible.builtin.set_fact:
+    cname_state: "present"
+  when: not cname_state is defined
+
+- name: Ensure cname configured
+  pihole_cname:
+    domain: "{{ cname_domain }}"
+    target: "{{ cname_target }}"
+    state: "{{ cname_state }}"
+    cname_file: "{{ pihole_cname_file }}"
+  delegate_to: localhost
+  become: true
+  become_user: root

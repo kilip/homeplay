@@ -45,6 +45,13 @@
       - portainer_data:/data
     labels:
       traefik.enable: "true"
-      traefik.http.routers.frontend.entrypoints: websecure
-      traefik.http.routers.frontend.rule: "Host(`{{ portainer_hostname }}.{{ traefik_domain }}`)"
-      traefik.http.services.frontend.loadbalancer.server.port: "9000"
+      traefik.http.routers.portainer.entrypoints: websecure
+      traefik.http.routers.portainer.rule: "Host(`{{ portainer_hostname }}.{{ traefik_domain }}`)"
+      traefik.http.services.portainer.loadbalancer.server.port: "9000"
+
+- name: Ensure portainer cname configured
+  ansible.builtin.include_tasks: pihole-cname.yml
+  vars:
+    cname_domain: "portainer.{{ traefik_domain }}"
+    cname_target: "{{ full_hostname }}"
+  when: portainer

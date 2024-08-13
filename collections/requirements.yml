@@ -5,4 +5,4 @@ collections:
   - community.docker
   - community.sops
   - community.postgresql
-  - bitwarden.secrets
+  - community.grafana

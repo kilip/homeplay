@@ -1,0 +1,22 @@
+---
+- name: Ensure portainer service configured
+  ansible.builtin.include_tasks:
+    file: portainer.yml
+    apply:
+      tags: portainer
+  tags: portainer
+
+- name: Ensure portainer-agent service configured
+  ansible.builtin.include_tasks:
+    file: portainer-agent.yml
+    apply:
+      tags: portainer
+  tags: portainer
+
+- name: Ensure semaphore configured
+  ansible.builtin.include_tasks:
+    file: semaphore.yml
+    apply:
+      tags: semaphore
+  when: semaphore
+  tags: semaphore

@@ -1,0 +1,19 @@
+---
+- name: Installs and configure nodes
+  gather_facts: true
+  hosts: pihole
+  become: true
+  become_user: root
+  environment:
+    PIHOLE_CNAME_FILE: '/srv/pihole/cname.conf'
+  tasks:
+    - name: Test cname
+      pihole_cname:
+        domain: test.itstoni.com
+        target: service.lan
+      delegate_to: mars
+    - name: Test cname
+      pihole_cname:
+        domain: prometheus.itstoni.com
+        target: service.lan
+      delegate_to: mars

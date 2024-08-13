@@ -2,15 +2,15 @@
 - name: Import fetch cname playbook
   ansible.builtin.import_playbook: play-cname-fetch.yml
 
-- name: Installs and configure nodes
+- name: Configures monitoring nodes
   gather_facts: true
-  hosts: server
+  hosts: prometheus,grafana
   become: true
   become_user: root
   tasks:
-    - name: Include service Role
+    - name: Ensure monitoring role included
       ansible.builtin.include_role:
-        name: service
+        name: monitoring
       tags: always
 
 - name: Import update cname playbook

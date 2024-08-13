@@ -8,6 +8,7 @@ eros
 mars
 hera
 iris
+eros
 
 [semaphore]
 mars
@@ -24,6 +25,7 @@ mars
 
 [traefik]
 mars
+hera
 
 [postgres]
 mars
@@ -32,4 +34,10 @@ mars
 hera
 
 [music_assistant]
-hera
+mars
+
+[grafana]
+mars
+
+[prometheus]
+mars

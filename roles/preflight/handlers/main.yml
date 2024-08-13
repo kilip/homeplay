@@ -14,3 +14,9 @@
     name: screen-saver
     state: started
   when: not ansible_check_mode
+
+- name: Restart docker
+  ansible.builtin.service:
+    name: docker
+    state: restarted
+  when: not ansible_check_mode
