@@ -2,12 +2,14 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
+    "docker:enableMajor",
     ":disableRateLimiting",
     ":dependencyDashboard",
     ":semanticCommits",
     ":skipStatusChecks",
-    ":timezone(Asia/Makassar)",
+    ":timezone(Asia/Makassar)"
   ],
+  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
   "regexManagers": [
     {
       "description": ["Process various dependencies in YAML files"],
