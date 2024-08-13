@@ -10,6 +10,6 @@
     target: "{{ cname_target }}"
     state: "{{ cname_state }}"
     cname_file: "{{ pihole_cname_file }}"
-  delegate_to: localhost
-  become: true
-  become_user: root
+  delegate_to: "{{ item }}"
+  loop: "{{ groups['pihole'] }}"
+  notify: Restart pihole dns

@@ -4,8 +4,6 @@
   hosts: pihole
   become: true
   become_user: root
-  environment:
-    PIHOLE_CNAME_FILE: '/srv/pihole/cname.conf'
   tasks:
     - name: Test cname
       pihole_cname:

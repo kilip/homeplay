@@ -1,0 +1,66 @@
+---
+- name: Ensure pyload vars configured
+  ansible.builtin.include_vars: pyload.yml
+- name: Ensure pyload facts configured
+  ansible.builtin.set_fact:
+    pyload: "{{ true if 'pyload' in group_names else false }}"
+
+- name: Ensure download dir configured
+  ansible.builtin.set_fact:
+    pyload_download_dir: "/srv/pyload/downloads"
+  when: not pyload_download_dir is defined
+
+- name: Ensure pyload service configured
+  when: pyload
+  block:
+    - name: Ensure pyload image pulled
+      community.docker.docker_image:
+        name: "{{ pyload_image }}"
+        source: pull
+
+    - name: Ensure pyload persistence dir exists
+      ansible.builtin.file:
+        path: "/srv/pyload/{{ item }}"
+        state: directory
+        owner: "{{ homeplay_user }}"
+        group: "{{ homeplay_user }}"
+      with_items:
+        - config
+        - downloads
+
+    - name: Ensure pyload container configured
+      community.docker.docker_container:
+        state: started
+        image_name_mismatch: recreate
+        name: pyload
+        image: "{{ pyload_image }}"
+        env:
+          PUID: "1000"
+          PGID: "1000"
+          TZ: "Asia/Makassar"
+        restart_policy: always
+        networks:
+          - name: "{{ docker_network_name }}"
+        ports:
+          - 9666:9666
+        volumes:
+          - /srv/pyload:/config
+          - "{{ pyload_download_dir }}:/downloads"
+        labels:
+          traefik.enable: "true"
+          traefik.http.routers.pyload.entrypoints: websecure
+          traefik.http.routers.pyload.rule: "Host(`pyload.{{ traefik_domain }}`)"
+          traefik.http.services.pyload.loadbalancer.server.port: "8000"
+
+    - name: Ensure pyload cname configured
+      ansible.builtin.include_tasks: pihole-cname.yml
+      vars:
+        cname_domain: "pyload.{{ traefik_domain }}"
+        cname_target: "{{ full_hostname }}"
+
+    - name: Ensure test cname configured
+      ansible.builtin.include_tasks: pihole-cname.yml
+      vars:
+        cname_domain: "test.{{ traefik_domain }}"
+        cname_target: "{{ full_hostname }}"
+        cname_state: absent

@@ -1,7 +1,4 @@
 ---
-- name: Import fetch cname playbook
-  ansible.builtin.import_playbook: play-cname-fetch.yml
-
 - name: Installs and configure nodes
   gather_facts: true
   hosts: server
@@ -12,6 +9,3 @@
       ansible.builtin.include_role:
         name: service
       tags: always
-
-- name: Import update cname playbook
-  ansible.builtin.import_playbook: play-cname-update.yml

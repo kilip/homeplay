@@ -27,3 +27,10 @@
     apply:
       tags: torrent
   tags: torrent
+
+- name: Ensure pyload task included
+  ansible.builtin.include_tasks:
+    file: pyload.yml
+    apply:
+      tags: pyload
+  tags: pyload

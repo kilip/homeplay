@@ -10,6 +10,8 @@
     argv:
       - pihole
       - restartdns
+  delegate_to: "{{ item }}"
+  loop: "{{ groups['pihole'] }}"
 
 - name: Restart mosquitto
   ansible.builtin.service:

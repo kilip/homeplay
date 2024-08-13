@@ -69,8 +69,7 @@ pihole: false
 pihole_version: 2024.07.0
 pihole_image: "pihole/pihole:{{ pihole_version }}"
 pihole_dir: "/srv/pihole"
-pihole_remote_cname_file: "/srv/pihole/dnsmasq.d/05-pihole-custom-cname.conf"
-pihole_cname_file: "/tmp/pihole-cname.conf"
+pihole_cname_file: "/srv/pihole/dnsmasq.d/05-pihole-custom-cname.conf"
 
 semaphore: false
 # renovate: datasource=docker depName=ghcr.io/kilip/semaphore

@@ -67,5 +67,5 @@
   ansible.builtin.include_tasks: pihole-cname.yml
   vars:
     cname_domain: "pihole.{{ traefik_domain }}"
-    cname_target: "{{ pihole_cname_target }}"
+    cname_target: "mars.lan"
   when: pihole
