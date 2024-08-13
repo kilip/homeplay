@@ -21,6 +21,7 @@ tasks:
     cmds:
       - brew install sops
       - brew install age
+      - brew install minio/stable/mc
 
   dev:converge:
     desc: molecule converge

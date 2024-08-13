@@ -44,9 +44,9 @@
           - name: "{{ docker_network_name }}"
         labels:
           traefik.enable: "true"
-          traefik.http.routers.minio.entrypoints: websecure
-          traefik.http.routers.minio.rule: "Host(`minio.{{ traefik_domain }}`)"
-          traefik.http.services.minio.loadbalancer.server.port: "9001"
+          traefik.http.routers.s3.entrypoints: websecure
+          traefik.http.routers.s3.rule: "Host(`s3.{{ traefik_domain }}`)"
+          traefik.http.services.s3.loadbalancer.server.port: "9000"
 
 - name: Ensure minio cname configured
   ansible.builtin.include_tasks: pihole-cname.yml

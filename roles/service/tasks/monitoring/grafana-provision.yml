@@ -21,6 +21,7 @@
     overwrite: true
     state: present
 
+
 - name: Ensure postgresql dashboard configured
   community.grafana.grafana_dashboard:
     grafana_url: https://grafana.itstoni.com

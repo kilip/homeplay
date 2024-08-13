@@ -3,7 +3,7 @@ grafana_db_user: ENC[AES256_GCM,data:E1/sjNiPgw==,iv:bwwCX1PO4Sc66LLjFXHZQHOZp0r
 grafana_db_pass: ENC[AES256_GCM,data:Rjr4jx8pbmAMtY2e5AgoE3WeQnAyN7k9YOGyRxmLfAJiKuYBhMQYc3VSJw==,iv:HNBueOQK5KabJxiOwVvFhsFTz8zwnLhWfVyJKCIFOqI=,tag:KMj8KcRS6rV1rFJ2wkE+wg==,type:str]
 grafana_db_name: ENC[AES256_GCM,data:hzEl5K9ppQ==,iv:y46o/ktDUNYex34BxflD22f75PhyCqlN2POtdEQps88=,tag:N4j81+dGtVv0pIoCFsRhmg==,type:str]
 grafana_db_host: ENC[AES256_GCM,data:ulYg9PT+sVpo,iv:hpj+58btfDszYrLbFuDg9+0lzw6eeJ+m8Olv/iCxPLc=,tag:1DCRCrVigAHHvQ9DrHjkJg==,type:str]
-#ENC[AES256_GCM,data:WqNrgjCI/WYQ0daaSie/E0gcfMcPhJYYyrvOnBzQq4Mf7zc3sjz8VsBNR3TITomMIKeKUvVxFOdSLYDGRIThSQ==,iv:4q/OtWSPz4DZek+UeqFh8lMtipgzEmDrZEdqXoXm0Co=,tag:dz5+niJnxbyAVD2Ub2iyBA==,type:comment]
+grafana_api_key: ENC[AES256_GCM,data:bgsDtoLfEJaFTLWxbBLmucJMk11RJ+NIQTWJhpeXo/nfa7HBtXtJ3tg9XcgJ3A==,iv:Jc44nrFI+3Y8ieIoQ5AeO2MxDbiYKNo4SxpmFIO6gBk=,tag:IVcUuqnA4vFZIUJnG0Nwkg==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -19,8 +19,8 @@ sops:
             N2pPTVNINTNTcWRMeGJmZ0xxS2h6bVEKlOG35r3uzHmEoPPe5Pvm25KqYod4hoDm
             LGwXmhe7LFjteZ64Mw6WXpoDqCF7vTFPRuLBZtO2EujkxCwKBhz26g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-12T17:56:47Z"
-    mac: ENC[AES256_GCM,data:fq050FJZ2Vt3QCAG1lexS9j4NfRxzdWFRfIrodTBfStpEXDyvfyWLTciS/jFKdQilIqe2K6UZRAvVu0oT2vPNmUxylQue0uGrKR8PYO3rwo40Ozrjw30jj/wXj4LtDs7Sm2qgoTfQIjIni2PYY0Gy7EiXAAc69M5bMvI0bu2Qt0=,iv:l82oUrIFqT9xk+4YHWgV1JfaLXSs0skhYIp8+nTgwhU=,tag:/PruOqK9f/rSbmNvW2iP3A==,type:str]
+    lastmodified: "2024-08-13T12:48:57Z"
+    mac: ENC[AES256_GCM,data:fNqePBXVDh7aO+YZyuEL4FP1YhaBiLuskLMFnQQcW941P+LAHWqn7YB3fy7gR25oiI268+iWLq/i58/CGLwYbzX+lI4RdKHT9D7gDCW54rGrRX2sYnsjnV8c8exTeagvB8lYGNXTEhs7OdXRPc/jmriKxhSh64UveIAXFT69nV0=,iv:gLSqw1FrqsUVd1JMgUNaS60BVfRoxGwpZ3T8j+3cpJk=,tag:1xCdTwa8JKsuHKWNKDqVVg==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0
