@@ -20,5 +20,8 @@
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
       "extractVersionTemplate": "{{#if versionTemplate}}{{{versionTemplate}}}{{else}}{{/if}}"
     }
-  ]
+  ],
+  "docker": {
+    "pinDigests": true
+  }
 }
