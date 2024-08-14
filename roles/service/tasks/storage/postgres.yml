@@ -1,4 +1,7 @@
 ---
+- name: Ensure postgres vars included
+  ansible.builtin.include_vars: postgres.yml
+
 - name: Ensure python postgres lib installed
   ansible.builtin.apt:
     name:
@@ -30,7 +33,6 @@
       - "{{ postgres_port }}"
     networks:
       - name: "{{ docker_network_name }}"
-  when: docker_network_exists
 
 - name: Ensure postgres metrics container created
   community.docker.docker_container:

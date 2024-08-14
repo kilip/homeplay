@@ -8,7 +8,6 @@ portainer_edition: ENC[AES256_GCM,data:0Os=,iv:DQnH7kosKZ/EveTTPb2ERlPCxKzWk7kZt
 mosquitto: ENC[AES256_GCM,data:nc4tWA==,iv:sX9qM3BYb7JfXzft1pLjN9EZgfanW9cs0neG3bVMXqU=,tag:1N92hLCeBdNJM5/UBpIPsQ==,type:bool]
 squid: ENC[AES256_GCM,data:W/yevA==,iv:6UYmpKoZ/w93UWrfIMTozuR/qkH/C5PvujzvQxKJ74Y=,tag:kARd+OCby/dZsDARMZUk4w==,type:bool]
 squid_cache_dir: ENC[AES256_GCM,data:VRbJZaGWob4TPg==,iv:iPfehUnY0DDqbHIqNe4IWIMaaZ5eq1S64SzqvTh9PrM=,tag:nCKhGZDDZt9r1Qi6x6AXsg==,type:str]
-postgres: ENC[AES256_GCM,data:bh3kQQ==,iv:6JQEtxoBdruaFzb2b6BSVpq3yqnpvYP319qWCngDf1A=,tag:z7vcRjV0SD2HfsCLomQeGQ==,type:bool]
 hass: ENC[AES256_GCM,data:XtH1Ug==,iv:5S0s0UZ+VGj3VbBYboYfkEyJ0+JlM5vXIZq/ohUgl7g=,tag:wJUb/0dC33dSXZ6bYn64cA==,type:bool]
 backup_hass: ENC[AES256_GCM,data:0zJrQQ==,iv:hnztHUEAdzhKHNzkg+UALI94vzlNt4NmtCx5LCSRIpg=,tag:EL0s7RWpGLexizxNPGSSaw==,type:bool]
 hass_restore:
@@ -31,8 +30,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-12T14:22:10Z"
-    mac: ENC[AES256_GCM,data:h043EgpNBNfFdszp54t6M1vuOLUT8hBfZ4mG9yIMdC0iqztp5n5iMpT9frmJghLKJ3wcNVxFW8ffQrVn7NgRW6rb+aFCaabmCDGw6K56X3KrlCmiIzzTOvZFe8JWacZUYZX6IOgoeKuTREYphDFhg77EmSasCqOPDmJ2qH69MCs=,iv:rMFUPU5WoHXE9WEj0oAflY+kGiAKXwbrkOgt5IV6b9U=,tag:wES72gBgRZvV6XKhqnpGaQ==,type:str]
+    lastmodified: "2024-08-14T00:54:12Z"
+    mac: ENC[AES256_GCM,data:C02932HwNziVgEA6uYt/E0qneVavQwljceIfWfynkDmhZlXbpiusDvXyewXRfRbs5KFMDEJyytweFWpM+hfy//ounYMPXkjZ4gDsTc7B052XVRQH4BFcNgZDoyvSvLiunv99qLNIWYpqbEnbbQyu28bKG1/6zMSwhIQ4yzAV++k=,iv:ImS67OlUH8jp7exZllHYeLLZJ9CDgO+3hqLbJlI33sI=,tag:BGL1QpTWC2KAJh1bVinwQA==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

@@ -55,3 +55,9 @@ hera
 [dragonfly]
 hera
 mars
+
+[nextcloud]
+hera
+
+[pgadmin]
+mars

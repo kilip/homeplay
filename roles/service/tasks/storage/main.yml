@@ -20,3 +20,17 @@
     apply:
       tags: dragonfly
   tags: dragonfly
+
+- name: Ensure nextcloud tasks included
+  ansible.builtin.include_tasks:
+    file: nextcloud.yml
+    apply:
+      tags: nextcloud
+  tags: nextcloud
+
+- name: Ensure pgadmin tasks included
+  ansible.builtin.include_tasks:
+    file: pgadmin.yml
+    apply:
+      tags: pgadmin
+  tags: pgadmin

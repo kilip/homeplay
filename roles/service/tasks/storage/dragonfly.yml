@@ -26,7 +26,21 @@
         name: dragonfly
         image: "{{ dragonfly_image }}"
         ulimits:
-          - memlock:1024:1024
+          - memlock:1024
         network_mode: host
+        restart_policy: always
         volumes:
           - '/srv/dragonfly:/data'
+
+- name: Ensure dragonfly cleaned up
+  when: not dragonfly
+  block:
+    - name: Ensure dragonfly container removed
+      community.docker.docker_container:
+        name: dragonfly
+        state: absent
+
+    - name: Ensure dragonfly persistent dir cleaned up
+      ansible.builtin.file:
+        path: '/srv/dragonfly'
+        state: absent

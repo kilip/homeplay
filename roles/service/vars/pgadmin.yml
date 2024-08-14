@@ -1,0 +1,4 @@
+---
+# renovate: datasource=docker depName=dpage/pgadmin4
+pgadmin_version: '8.10'
+pgadmin_image: "dpage/pgadmin4:{{ pgadmin_version }}"

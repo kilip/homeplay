@@ -1,0 +1,83 @@
+---
+- name: Ensure pgadmin vars included
+  ansible.builtin.include_vars: pgadmin.yml
+
+- name: Ensure pgadmin group configured
+  ansible.builtin.group:
+    name: pgadmin
+    gid: 5050
+    system: true
+    state: "{{ 'present' if pgadmin else 'absent' }}"
+
+- name: Ensure pgadmin user configured
+  ansible.builtin.user:
+    system: true
+    user: pgadmin
+    group: pgadmin
+    uid: 5050
+    state: "{{ 'present' if pgadmin else 'absent' }}"
+
+
+- name: Ensure pgadmin container configured
+  when: pgadmin
+  block:
+    - name: Ensure pgadmin image pulled
+      community.docker.docker_image:
+        name: "{{ pgadmin_image }}"
+        source: pull
+
+    - name: Ensure pgadmin dir exists
+      ansible.builtin.file:
+        path: "{{ pgadmin_dir }}"
+        state: directory
+        owner: "5050"
+        group: "5050"
+
+    - name: Ensure pgadmin container started
+      community.docker.docker_container:
+        state: started
+        image_name_mismatch: recreate
+        name: pgadmin
+        image: "{{ pgadmin_image }}"
+        volumes:
+          - "{{ pgadmin_dir }}:/var/lib/pgadmin"
+        env: "{{ pgadmin_env }}"
+        user: "5050:5050"
+        restart_policy: always
+        networks:
+          - name: "{{ docker_network_name }}"
+        labels:
+          traefik.enable: "true"
+          traefik.http.routers.pgadmin.entrypoints: websecure
+          traefik.http.routers.pgadmin.rule: "Host(`pgadmin.{{ traefik_domain }}`)"
+          traefik.http.services.pgadmin.loadbalancer.server.port: "80"
+
+- name: Ensure pgadmin cname configured
+  ansible.builtin.include_tasks: pihole-cname.yml
+  vars:
+    cname_domain: "pgadmin.{{ traefik_domain }}"
+    cname_target: "{{ full_hostname }}"
+    cname_state: "{{ 'present' if pgadmin else 'absent' }}"
+
+- name: Ensure pgadmin cname configured
+  ansible.builtin.include_tasks: pihole-cname.yml
+  vars:
+    cname_domain: "True.{{ traefik_domain }}"
+    cname_target: "{{ full_hostname }}"
+    cname_state: "absent"
+
+- name: Ensure pgadmin cleaned up
+  when: not pgadmin
+  block:
+    - name: Ensure pgadmin directory removed
+      ansible.builtin.file:
+        path: "{{ pgadmin_dir }}"
+        state: absent
+    - name: Ensure pgadmin container removed
+      community.docker.docker_container:
+        name: 'pgadmin'
+        state: absent
+    - name: Ensure pgadmin image removed
+      community.docker.docker_image:
+        name: pgadmin
+        state: absent

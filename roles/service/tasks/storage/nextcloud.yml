@@ -1,1 +1,62 @@
 ---
+- name: Ensure nextcloud vars included
+  ansible.builtin.include_vars: nextcloud.yml
+
+- name: Ensure nextcloud configured
+  when: nextcloud
+  block:
+    - name: Ensure nextcloud db configured
+      ansible.builtin.include_tasks: postgres-db.yml
+      vars:
+        db_user: "{{ nextcloud_env.POSTGRES_USER }}"
+        db_pass: "{{ nextcloud_env.POSTGRES_PASSWORD }}"
+        db_host: "{{ nextcloud_env.POSTGRES_HOST }}"
+        db_name: "{{ nextcloud_env.POSTGRES_DB }}"
+
+    - name: Ensure nextcloud config dir exists
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: "{{ homeplay_user }}"
+        group: "{{ homeplay_user }}"
+      with_items:
+        - "{{ nextcloud_config_dir }}"
+        - "{{ nextcloud_data_dir }}"
+
+    - name: Ensure nextcloud image pulled
+      community.docker.docker_image:
+        name: "{{ nextcloud_image }}"
+        source: pull
+
+    - name: Ensure nextcloud container started
+      community.docker.docker_container:
+        name: nextcloud
+        state: started
+        image_name_mismatch: recreate
+        image: "{{ nextcloud_image }}"
+        env: "{{ nextcloud_env }}"
+        volumes:
+          - "{{ nextcloud_config_dir }}:/config"
+          - "{{ nextcloud_data_dir }}:/data"
+        restart_policy: always
+        networks:
+          - name: "{{ docker_network_name }}"
+        labels:
+          traefik.enable: "true"
+          traefik.http.routers.nextcloud.entrypoints: websecure
+          traefik.http.routers.nextcloud.rule: "Host(`cloud.{{ traefik_domain }}`)"
+          traefik.http.services.nextcloud.loadbalancer.server.port: "80"
+
+- name: Ensure nextcloud cname configured
+  ansible.builtin.include_tasks: pihole-cname.yml
+  vars:
+    cname_domain: "cloud.{{ traefik_domain }}"
+    cname_target: "{{ full_hostname }}"
+    state: "{{ 'present' if nextcloud else 'absent' }}"
+
+- name: Ensure nextcloud cname configured
+  ansible.builtin.include_tasks: pihole-cname.yml
+  vars:
+    cname_domain: "nextcloud.{{ traefik_domain }}"
+    cname_target: "{{ full_hostname }}"
+    state: absent

@@ -1,0 +1,14 @@
+---
+# renovate: datasource=docker depName=postgres
+postgres_version: 16-alpine
+postgres_image: "postgres:{{ postgres_version }}"
+postgres_name: postgres
+postgres_user: homeplay
+postgres_password: homeplay
+postgres_db: homeplay
+postgres_data_dir: "/srv/postgres"
+
+# postgres exporter
+# renovate: datasource=docker depName=quay.io/prometheuscommunity/postgres-exporter
+postgres_exporter_version: v0.15.0
+postgres_exporter_image: "quay.io/prometheuscommunity/postgres-exporter:{{ postgres_exporter_version }}"

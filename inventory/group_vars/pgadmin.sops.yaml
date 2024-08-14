@@ -1,0 +1,25 @@
+pgadmin: ENC[AES256_GCM,data:10xt6w==,iv:aqyFNmA3aDm6cEITL4wZgT2uLwav89orfUrhyyTAk8s=,tag:+gMO9yG+whr0+xOzKa9/1w==,type:bool]
+pgadmin_dir: ENC[AES256_GCM,data:px74ph0jFzGTETQp,iv:AZrZpihIN6xaOSMf5AWFNWFsVy7Vlp2zYVTZseh3u4w=,tag:DnFnjMmuH6O4lazjFOJGIA==,type:str]
+pgadmin_env:
+    PGADMIN_DEFAULT_EMAIL: ENC[AES256_GCM,data:2qDEWg+N0n70Ec0AXlM=,iv:oopkAMTfV4Ak88v8aFF6sSX+4SPpu214giF54tJMMU8=,tag:KloPEPARi1w7nIi1KI2Ytg==,type:str]
+    PGADMIN_DEFAULT_PASSWORD: ENC[AES256_GCM,data:MmHx4DYAnEPYfgZgFq4=,iv:IyI7ygZ4z68peB9qnK+legMZ5/kJgsk0URWZGlBbaZ4=,tag:Oa4Y8j+5rJkwyZmCr6rFMA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age13n6rctev7vwr2vuds9uqdh6anhvdvl2zt8gu9jp6mmvw2wukuqmqxz9ghv
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBWQnMrUFVYbVM1VjRucjdV
+            bi9HYVFUd25SQllUcXlyN1FkQ1hRQi8yVFR3CmhkbnovQ0NXZzNwaWxaYitydXl1
+            bHMzY0Y0Skl3emZtaUFsRERLbDJPQzgKLS0tIGVIb3FpK2xmMWlwYzVlOXRVMElQ
+            cVRnNnc4dWJOS1RBa3Q0ZU1oYjgwbEkKKTYClFDKIH0Zy9dyUgd5A1R0KJx0Pb9X
+            aJ7mUX6QphI+ihttUW5ub+7Kdp5QMsX0veXKmf+UkDMWyTQxr41TTg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-08-14T00:22:43Z"
+    mac: ENC[AES256_GCM,data:4IJ8v41x68vZD7sJXHYKhAhZDwEGCM7U5GWTJW72B4SUqtdfH+zwQXEC24/c0i0shP2YBbWEE4dEiVUctMJF0JGa3oDrwpXqnEaTCIV1HrAwRTJCi/tCueau6Ff5TiHD4DryOVrr/kcJEfvjslmDzFTlKslSDJ8Eb/kkg5+N0HU=,iv:eKRqHAX1BOeSFk44okRVy8oGvMwwN+zg3oZEKGYwESY=,tag:Dt4oQsVxycrSDBiXcvffPA==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.9.0
