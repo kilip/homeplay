@@ -1,5 +1,5 @@
 ---
-- name: Ensure hass db user configured
+- name: Ensure db user configured
   community.postgresql.postgresql_user:
     user: "{{ db_user }}"
     password: "{{ db_pass }}"
@@ -9,7 +9,7 @@
     state: present
   when: not ansible_check_mode
 
-- name: Ensure hass database configured
+- name: Ensure database configured
   community.postgresql.postgresql_db:
     name: "{{ db_name }}"
     host: "{{ db_host }}"

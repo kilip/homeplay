@@ -109,6 +109,7 @@ portainer_agent_port: "9001"
 minio_env: {}
 minio_dir: '/srv/minio'
 
+nextcloud: false
 nextcloud_config_dir: "/srv/nextcloud/config"
 nextcloud_data_dir: "/srv/nextcloud/data"
 

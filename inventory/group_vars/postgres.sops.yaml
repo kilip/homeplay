@@ -1,6 +1,4 @@
 postgres: ENC[AES256_GCM,data:atxLAQ==,iv:erpDv40PZQWbYaWhL8waEOPxEWGFsPuXJIEzbAs7p7E=,tag:2GPtf034QNblXD/taYwo3w==,type:bool]
-postgres_user: ENC[AES256_GCM,data:FnVhM9aYNEg=,iv:UNvZ/5kUtkRkOmvFeSWF4SSRYkNryOH04PGjZd6vgHo=,tag:rZgWQLVMOu6AFTzGbsAq3A==,type:str]
-postgres_password: ENC[AES256_GCM,data:7px8Eyl15EaLVX40RwORzb5MTDGUAPWAZyMmZv9A4VE=,iv:HTNftstf9o1ti7SSCz3yORlCDiDRPXEBe93ebS+qzgI=,tag:CZh9H4SAu3tAXv3jUBu+hA==,type:str]
 postgres_db: ENC[AES256_GCM,data:7XGB2oh3HzE=,iv:pxDCXll6KF57U0bnB7e2PZk2LZNZBoUYceerLHyw1FY=,tag:5phfodF40NBG5mVRhKHHpg==,type:str]
 postgres_port: ENC[AES256_GCM,data:hAd+WDGCDEJ6,iv:WOfBOZ04KkRd5S3dfJZbiJ0J+Dygv7XT/G9XfKjBaFM=,tag:YwNbedzUa7EMRfNThUb+Rg==,type:str]
 postgres_data_dir: ENC[AES256_GCM,data:hLFkJGWPqC0G0wR3Lw==,iv:omjj9mgTorVuEEOYccezCkLTBziGj3CL0fzenwcI75w=,tag:GnYyLjiWdvFIVyEFTwjzJw==,type:str]
@@ -19,8 +17,8 @@ sops:
             UnRLYWF4ZDNnOFlSdmpMZ09GQXZPbGsKOU+JfVWsmp5i0XhAr5ruuaUAYlyXECHd
             yoAX2DKFapr49lAsjFbFgK+LyiIFoZZTdjgGnlOZ+X9wvTHg1g7ocw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-14T01:10:46Z"
-    mac: ENC[AES256_GCM,data:L8fv35mIfh4WdnW2qrRme5iGVvkABa6t2h2AqZsMS8s/m+PNhE2N0eSv+K1SrVNYJLCS4dWgaXAPXt0KCgdjuCEaBDzPPLoqNgr0kr8es18aIgzfzLrx6OAjb0AQd+HqtNwF+5n5N7Ud7JhRTrqR1lCV3Bz1AJBW6vNZFCN9V68=,iv:yVzGF1OsEAoTi9EP/KKiU6W+3b6BdxF7MEtq+kDNXWo=,tag:eYexgrp/gL3Gt873ky+byA==,type:str]
+    lastmodified: "2024-08-14T02:40:50Z"
+    mac: ENC[AES256_GCM,data:MkkM4MlqRAnEgLxdDpb63V8n+ajuO7lf1CpzaKQmSFxhIGlZMJosvLYXNeQVr4oWOXuHcJvKFbFfI872RMRxmwbRWXjIu3lkOJcnQhIhFesFJa0Pl9K0UpQ8uk85ENhS9z6+lVIno/Z4EGDf+NEhXkqI+GwV5J9LtWIkRJbJrI4=,iv:HMMoKrwY2CLbD5PyRUCmXjXsI+EEBliAzodTxbJI9bM=,tag:x3oMQk/nEOKDlJvlkLYSTw==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

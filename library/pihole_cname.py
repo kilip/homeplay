@@ -82,6 +82,7 @@ class PiholeCname(object):
             self.changed = True
             self.cnames.pop(self.domain)
 
+
     def write_cname_file(self):
         ordered = OrderedDict(sorted(self.cnames.items()))
         contents = []
@@ -97,6 +98,7 @@ class PiholeCname(object):
             f.write(text)
             f.close()
             self._vv('cname file updated')
+
 
     def read_cname_file(self):
         if None == self.cname_file:
@@ -116,6 +118,7 @@ class PiholeCname(object):
             key = split[0]
             value = split[1]
             self.cnames[key] = value
+
 
     def run(self):
         self.domain = self.module.params['domain']

@@ -20,9 +20,6 @@ http:
                 passHostHeader: ENC[AES256_GCM,data:wH9naQ==,iv:BrgrnksYNYvvYOsEe7wAODIvAX3/5cxdd+ReyGwGhF0=,tag:/Nv9qsxM0DAM7gBIQUtG+g==,type:bool]
                 servers:
                     - url: ENC[AES256_GCM,data:E9syIr4sdeY7iJ8D87SYBHhXxSY5,iv:XGRvfhs+lHl5zxGtuy6hv5eB0H6k+z1sD0HFj3mbrqA=,tag:dC8QLQK77ELZ0/7M0o4jOw==,type:str]
-#ENC[AES256_GCM,data:7PJ7x0MMhs63lASndSwwdmEqtwm1,iv:Yg+Tplnl4MCYAc6LUPCyxCUIeXK8gL/pbW5YUu1DUjk=,tag:w7Utubc5IJkbNA4G8iz+Jg==,type:comment]
-#ENC[AES256_GCM,data:v0deZz/34hN3jaBMs1u81jaQ,iv:CLUEhjeGY+cQ8Noc4f/pvPkyV8fg069MtcdVb8xNaG4=,tag:VYUtjz+sjJIz2I5SfVJJyA==,type:comment]
-#ENC[AES256_GCM,data:+K5otxahD4BlIf+k4GVWbMPuTB4AwAFv08Pf2n1xxG3lzePn,iv:b4i79N6hke0uY10E9t5DgY4exGrhWuvT09MwLcO5HlQ=,tag:DQnOkrZh94EapQpQfDOg+g==,type:comment]
 sops:
     kms: []
     gcp_kms: []
@@ -38,8 +35,8 @@ sops:
             ZEtVekJXTE9RZUFZa3FVQTNEeUZrd2cKYTn+vYnvu6RUrPKvQn0QE5PrCruSYCpD
             iANI8g7BmUG5mhpLwSmlJkiG5lrYtbGxIg/1tXuKcdRFUnqSxy5Y2g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-13T11:48:46Z"
-    mac: ENC[AES256_GCM,data:0/t9oE/LDb458xrrpCeaCzt+UbjjzYow4SiLQ1SScryG3gVu/7wiZYotqsE290B9rhshNzZbs69tpdn0MMD95w+lDOEdQHMtlvy+ZdJEPyp1ZpIbNJpAX3T8htHsWsppxYOPqmP7iJ/JHpGfNEG3s5uEnMIS7LNJuHGHEfPgEn4=,iv:mWXbAsnWX3zoaucATjYT1nhEqv/NrNcJjsEpVg6RbKE=,tag:dx7mddCqLf+SpYhK+DSXWA==,type:str]
+    lastmodified: "2024-08-14T07:21:53Z"
+    mac: ENC[AES256_GCM,data:v5cOQseuloyz6NHziXjVM/dtGfRx4kdsCBeDFsXZXAe+aZ2xgBBX7992WwXZriY3vme5u1rtoRe4jH0xFxVHknaxchs3aFo1ENt/4gD8x1fyNuTpFrX+IEKt12zfz0zsaLUqnVKd9YaS9/40yuGd8LhmqZ6C/qtDqppaNH5m3u4=,iv:KA+gWOWCbCYoJCqm9iz0Ad1cmoIsw5ARv2wg4mXVsSg=,tag:/hDK/rnYXfVldNkG3fi/Jg==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

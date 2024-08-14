@@ -34,8 +34,8 @@ zfs_datasets:
       properties:
         sharenfs: ENC[AES256_GCM,data:/XY2L8n3WOMftcd7esL35uQxeUStpEhkf7urp+27f4QclnO8QeQRWyej4BAvl8q2Gpp08oSF2OcmRRXL3WQfAd7Oj4I=,iv:hH+qaRN9LXZIPDQEeqYK6mCTuer4q/jMdJmXDUdgXSU=,tag:BvR3EcKv0HSM7IQ8n+BNvQ==,type:str]
 minio_dir: ENC[AES256_GCM,data:k57H5edI+zNqfKM=,iv:YZEOCmLY5BlxBXbQK/v/SmDTR1EVJlq4XdREPb5zXzQ=,tag:8DLN4sNbhcFPprX6sPvptw==,type:str]
-nextcloud_config_dir: ENC[AES256_GCM,data:ofSOQOI93T2qo42AduW0SjKS7g==,iv:wUPtdBtSMOsz6ncU0moK6LuksLVpFGXoU2JiSX+Kbus=,tag:jo0YXgxvI088pzpjVyTSmw==,type:str]
-nextcloud_data_dir: ENC[AES256_GCM,data:V2rFl9rn+2Zno+g=,iv:4F0lbr5IWdgKOAZEfWqeW542I0h4rKtsDKydMCahxoQ=,tag:PLD4eOq2T3qjomc+MnJqug==,type:str]
+nextcloud_config_dir: ENC[AES256_GCM,data:tRvlNIBE1rdB6EzlNXcb4Ppc,iv:xSeY7a5FG2SalCGqJ3LN8sk0769QzYzNKhoSQ23HL00=,tag:Al1kj8upsAqe12GMzssayQ==,type:str]
+nextcloud_data_dir: ENC[AES256_GCM,data:Vdq7Du+lKb/0czIrfmxDhg==,iv:P2xRt/6hGJkWWkzGqrq5PI1Pz+CjE228wmTDB6pxW1o=,tag:lVOSW3SyB7AAenPMjLu1Wg==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -51,8 +51,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-13T14:28:42Z"
-    mac: ENC[AES256_GCM,data:KuI7ucrhNzEsxgWImzB+p3GdtRp6q3ORWJOLXh3vTYH1KHe3cVD7xXHYHAvLzHq19TUxspRXxFffiQRsgnrkzWwkMMmyKwRF3sKDorqcXo2t16XcVpDf8mRS4I01olVlPHdlC8uIylCA4FsDoGsGPFSQv80l/HqxM0himTBwP/A=,iv:gou3oSxNVuhRLhcEoB2fHz0z1nWcKNWu40cnK8vbAAU=,tag:hUPnPAqw/JR60h0uegkgJw==,type:str]
+    lastmodified: "2024-08-14T05:19:03Z"
+    mac: ENC[AES256_GCM,data:o9pDaJFJdWxBgVhEbE1B3f2b+lCinJQbNBQfw40apOuo6ezHajeJC/R/rjE1CaAi9LciItNc/tz+eW7p0n9DTFphNrbscXhrItl2QWoSkQ7+w52H7jzLenYrXakLtTpILpKR3ktdKVowp/YB7K1Rm91DaTpe2nVIgpXnbz4AdIw=,iv:nbP+vpuCMWE9INB1sLLaVeNdTkyIdA7E2F3myRsxyXU=,tag:c0UlZLxgcI27QY6TzH9EWQ==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

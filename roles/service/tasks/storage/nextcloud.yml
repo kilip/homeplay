@@ -19,6 +19,7 @@
         state: directory
         owner: "{{ homeplay_user }}"
         group: "{{ homeplay_user }}"
+        mode: "770"
       with_items:
         - "{{ nextcloud_config_dir }}"
         - "{{ nextcloud_data_dir }}"
@@ -36,27 +37,51 @@
         image: "{{ nextcloud_image }}"
         env: "{{ nextcloud_env }}"
         volumes:
-          - "{{ nextcloud_config_dir }}:/config"
-          - "{{ nextcloud_data_dir }}:/data"
+          - "{{ nextcloud_config_dir }}:/config:rw"
+          - "{{ nextcloud_data_dir }}:/data:rw"
         restart_policy: always
         networks:
           - name: "{{ docker_network_name }}"
+        ports:
+          - 8443:443
+          - 8080:80
         labels:
           traefik.enable: "true"
           traefik.http.routers.nextcloud.entrypoints: websecure
           traefik.http.routers.nextcloud.rule: "Host(`cloud.{{ traefik_domain }}`)"
           traefik.http.services.nextcloud.loadbalancer.server.port: "80"
+          # traefik.http.routers.nextcloud.middlewares: 'nextcloud_redirectregex'
+          # traefik.http.middlewares.nextcloud_redirectregex.redirectregex.permanent: "true"
+          # traefik.http.middlewares.nextcloud_redirectregex.redirectregex.regex: 'https://(.*)/.well-known/(?:card|cal)dav'
+          # traefik.http.middlewares.nextcloud_redirectregex.redirectregex.replacement: 'https://$${1}/remote.php/dav'
 
 - name: Ensure nextcloud cname configured
   ansible.builtin.include_tasks: pihole-cname.yml
   vars:
     cname_domain: "cloud.{{ traefik_domain }}"
     cname_target: "{{ full_hostname }}"
-    state: "{{ 'present' if nextcloud else 'absent' }}"
+    state: "present"
+  when: nextcloud
 
-- name: Ensure nextcloud cname configured
-  ansible.builtin.include_tasks: pihole-cname.yml
-  vars:
-    cname_domain: "nextcloud.{{ traefik_domain }}"
-    cname_target: "{{ full_hostname }}"
-    state: absent
+- name: Ensure nextcloud cleaned up
+  when: not nextcloud
+  block:
+    - name: Ensure nextcloud container removed
+      community.docker.docker_container:
+        name: nextcloud
+        state: absent
+
+    - name: Ensure nextcloud image removed
+      community.docker.docker_image:
+        name: "{{ nextcloud_image }}"
+        state: absent
+
+    - name: Ensure nextcloud directory removed
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: absent
+        owner: "www-data"
+        group: "www-data"
+      with_items:
+        - "{{ nextcloud_config_dir }}"
+        - "{{ nextcloud_data_dir }}"
