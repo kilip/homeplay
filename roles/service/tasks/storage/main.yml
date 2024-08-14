@@ -21,6 +21,13 @@
       tags: dragonfly
   tags: dragonfly
 
+- name: Ensure redis tasks included
+  ansible.builtin.include_tasks:
+    file: redis.yml
+    apply:
+      tags: redis
+  tags: redis
+
 - name: Ensure nextcloud tasks included
   ansible.builtin.include_tasks:
     file: nextcloud.yml

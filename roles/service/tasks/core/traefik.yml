@@ -51,7 +51,7 @@
       - name: "{{ docker_network_name }}"
     # command:
     command: >
-      --log.level=DEBUG
+      --log.level=INFO
       --providers.docker=true
       --providers.docker.exposedbydefault=false
       --providers.file.filename=/custom.yml

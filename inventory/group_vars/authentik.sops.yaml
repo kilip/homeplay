@@ -1,0 +1,35 @@
+authentik: ENC[AES256_GCM,data:gHR/mQ==,iv:HgoVsjwgP6nL5Qfudc2n0c/12j//KJzKYMIcp+aAXBg=,tag:AKidnfALbJVHLURm3gB+hg==,type:bool]
+authentik_env:
+    AUTHENTIK_SECRET_KEY: ENC[AES256_GCM,data:/guB0b3T85y/RS5nqzMzWNGc3pP9UkYXB0AeP8Ajzsr6zM7h7f93n4nA2uxlrNlCeYlvIyk6qFKa7vOjvcGmd+3gYGMl/lih8pmN1f0sqfo=,iv:uocGhidYQdtm3gOmpgBfkPMz1pTH1qXhWREcCo27ILk=,tag:Hg6j6MQs3Wvwafb1dj3TXA==,type:str]
+    AUTHENTIK_REDIS__HOST: ENC[AES256_GCM,data:dCA/3LYppby+,iv:ESTjuQ1AIgzO4OZUCdS911c2qpDumbPPMC2uQNUGy28=,tag:DCQ2R2cByrzBSh8ulQE6kA==,type:str]
+    AUTHENTIK_POSTGRESQL__HOST: ENC[AES256_GCM,data:a8j1Qry0Ezs3,iv:naXXRUEb9Xej4YcYTMqdxjmKSXH65Lx6tsIadDAjcoQ=,tag:Q9uRd/zkDZrgf8BUJCeVoA==,type:str]
+    AUTHENTIK_POSTGRESQL__USER: ENC[AES256_GCM,data:C6AaLmUR3hmx,iv:eU6v3/wPLIxDbGjkltZKqm3T3uGlgOjzz9AibeA36UI=,tag:zSII8ShgIULcerSkbqErkA==,type:str]
+    AUTHENTIK_POSTGRESQL__NAME: ENC[AES256_GCM,data:c9NaDNkPxIou,iv:QhzDK/cYAmTsxyNl3nPZFxnzh5RmNzQ9Z8h0ueInwo0=,tag:JvpdC25kZjXqoB79riK82A==,type:str]
+    AUTHENTIK_POSTGRESQL__PASSWORD: ENC[AES256_GCM,data:l+DxLBS1DQpV8o4h8UWywaojz5D0pFg3sSxKGZnwLMo=,iv:EGiQe/Nud03IexRzba18g8p5RusqHr1LY+9Y3YablPk=,tag:rj0WUpS+JI3ibG/yT9QiWg==,type:str]
+    AUTHENTIK_EMAIL__HOST: ENC[AES256_GCM,data:5huH+bpQkeDSbtBsOLA=,iv:85b/s6jtpVxaaSFidgpki7TBJjrkSWwGu6Bk3CJDDPQ=,tag:gOcaCnZATEpP7b5hO7SSDw==,type:str]
+    AUTHENTIK_EMAIL__PORT: ENC[AES256_GCM,data:1jat,iv:75mDCKu+HyOkVv4CK+74TFOny5hvDNLUvppIWy0ea/w=,tag:9qu55V5fssgSZlkb2YaWTg==,type:str]
+    AUTHENTIK_EMAIL__USERNAME: ENC[AES256_GCM,data:61FEQ7I8qxVUnVVa+mw=,iv:n55C5UI5TGMTvnmOTPUe53DAFwbdRPdandX8gYjmrlQ=,tag:f8h9eXEgHYZMPHepISGuvw==,type:str]
+    AUTHENTIK_EMAIL__PASSWORD: ENC[AES256_GCM,data:J0Ft9CHxNEQJzEEI1zLOTA==,iv:XyIDZTvq2D7Z0tEZGeS5le64NA7Zw/tD30+89OE/Sm4=,tag:RTq90ZohP1TVALHkqJ7+oQ==,type:str]
+    AUTHENTIK_EMAIL__USE_TLS: ENC[AES256_GCM,data:knuydl8=,iv:d9rbeoUQl1JeE90U+GdUVEU2o7CGgLKsYJ8ZZcpZxuw=,tag:DqzeVBYGy1GjQv7WyFQEog==,type:str]
+    AUTHENTIK_EMAIL__USE_SSL: ENC[AES256_GCM,data:15U0Ig==,iv:xL6Ozm+SI+e1xk1WsYFOTfjmRhzrBjMrdxS/OuwZYXg=,tag:Rqs3FyR4H/juaiPcgf6E0Q==,type:str]
+    AUTHENTIK_EMAIL__FROM: ENC[AES256_GCM,data:0uOWTG96aRimT6E3MrXd,iv:Tkr6mKfDmFaeULSReqOMSGm8PcQ4V7a2mX4ewE/mAus=,tag:oetnsvMd3DInkUMBgMM3gw==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age13n6rctev7vwr2vuds9uqdh6anhvdvl2zt8gu9jp6mmvw2wukuqmqxz9ghv
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBLK3A3ZVN2NVo0Z0JtUWRz
+            Q1dzckpEMnM0bjIzZGVZV0NQbjFSNTY4NkZjClRuaEZRZFJDYmtxMnNkbW0vY2Jo
+            TVAvVVJvRVM0MG10bjd3TnlJWW9yeE0KLS0tIEZ5UWwvZ0RQS3ZQYnFQQ1FnOXYw
+            cUdoWHFTM3ZUYjdvYm9OVDlTYXBaeU0KLlFz+IGlbYUGLk2MctaJB0HXg1+/duI0
+            UmZs61BLhAUN93KInG5I8NhabhSKYpSe0UDbXD/0JK8AmX0sHDqCkQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-08-14T12:45:16Z"
+    mac: ENC[AES256_GCM,data:w8DdjORsk/x8QrIWjrtOe8Bq2k1sIWGSD8E6oLg5AD0a2Lt66gh36DYlMIZhlTHiMmQy8XG2Q5tgbrBNqBVkXcFbQ5/9ulm1hVGPW4V9BP/8cO1Ze/Z32FGNDuG1IPxCtb6K76o2jdEi4/NMsawn5lb2JYdfyCItBjhc3V5/Q9U=,iv:4RQv4no6j4v/FozxKPv+VgyLpVQtq+QlCVpICbQidXw=,tag:dm9SpoFq94MO0PBC6mRwJA==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.9.0

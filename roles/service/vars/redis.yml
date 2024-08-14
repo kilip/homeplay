@@ -1,0 +1,4 @@
+---
+# renovate: datasource=docker depName=redis
+redis_version: 7.4.0
+redis_image: "redis:{{ redis_version }}-alpine"

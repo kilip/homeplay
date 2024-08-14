@@ -40,6 +40,11 @@
         name: dragonfly
         state: absent
 
+    - name: Ensure dragonfly image removed
+      community.docker.docker_image:
+        name: "{{ dragonfly_image }}"
+        state: absent
+
     - name: Ensure dragonfly persistent dir cleaned up
       ansible.builtin.file:
         path: '/srv/dragonfly'

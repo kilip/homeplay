@@ -115,3 +115,6 @@ nextcloud_data_dir: "/srv/nextcloud/data"
 
 pgadmin: false
 pgadmin_dir: '/srv/pgadmin'
+
+authentik: false
+authentik_dir: '/srv/authentik'

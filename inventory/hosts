@@ -54,10 +54,15 @@ hera
 
 [dragonfly]
 hera
-mars
 
 [nextcloud]
 hera
 
 [pgadmin]
+mars
+
+[authentik]
+mars
+
+[redis]
 mars

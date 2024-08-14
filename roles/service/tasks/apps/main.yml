@@ -19,3 +19,10 @@
     apply:
       tags: music-assistant
   tags: music-assistant
+
+- name: Ensure authentik tasks included
+  ansible.builtin.include_tasks:
+    file: authentik.yml
+    apply:
+      tags: authentik
+  tags: authentik
