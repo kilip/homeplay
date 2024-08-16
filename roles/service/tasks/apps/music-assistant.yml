@@ -28,15 +28,10 @@
     privileged: true
     volumes:
       - /srv/music-assistant:/data
-    # labels:
+    labels:
+      dockerdns.pihole.cname.domain: "music.{{ traefik_domain }}"
+      dockerdns.pihole.cname.target: "{{ full_hostname }}"
     #  traefik.enable: "true"
     #  traefik.http.routers.music.entrypoints: websecure
     #  traefik.http.routers.music.rule: "Host(`music.{{ traefik_domain }}`)"
     #  traefik.http.services.music.loadbalancer.server.port: "8095"
-
-- name: Ensure music assistant cname configured
-  ansible.builtin.include_tasks: pihole-cname.yml
-  vars:
-    cname_domain: "music.{{ traefik_domain }}"
-    cname_target: "{{ full_hostname }}"
-  when: music_assistant

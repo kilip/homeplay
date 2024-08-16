@@ -34,10 +34,5 @@
           traefik.http.routers.jellyfin.entrypoints: websecure
           traefik.http.routers.jellyfin.rule: "Host(`jellyfin.{{ traefik_domain }}`)"
           traefik.http.services.jellyfin.loadbalancer.server.port: "8096"
-
-- name: Ensure jellyfin cname configured
-  ansible.builtin.include_tasks: pihole-cname.yml
-  vars:
-    cname_domain: "jellyfin.{{ traefik_domain }}"
-    cname_target: "{{ full_hostname }}"
-  when: jellyfin
+          dockerdns.pihole.cname.domain: "jellyfin.{{ traefik_domain }}"
+          dockerdns.pihole.cname.target: "{{ full_hostname }}"

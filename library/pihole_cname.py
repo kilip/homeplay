@@ -159,7 +159,6 @@ def main():
     )
 
     cname = PiholeCname(module)
-
     result = cname.run()
 
     module.exit_json(**result)

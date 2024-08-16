@@ -1,17 +1,18 @@
 ---
 - name: Installs and configure nodes
   gather_facts: true
-  hosts: pihole
+  hosts: hera
   become: true
   become_user: root
   tasks:
-    - name: Test cname
-      pihole_cname:
-        domain: test.itstoni.com
-        target: service.lan
-      delegate_to: mars
-    - name: Test cname
-      pihole_cname:
-        domain: prometheus.itstoni.com
-        target: service.lan
-      delegate_to: mars
+    - name: Ensure python docker sdk installed
+      ansible.builtin.apt:
+        package:
+          - python3-docker
+          - python3-distutils-extra
+        state: present
+
+    - name: Ensure pihole cname configured
+      pihole:
+        url: http://10.0.0.11
+        token: "{{ lookup('env', 'MARS_PIHOLE_TOKEN') }}"

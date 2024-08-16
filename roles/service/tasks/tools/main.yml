@@ -34,3 +34,10 @@
     apply:
       tags: pyload
   tags: pyload
+
+- name: Ensure teleport task included
+  ansible.builtin.include_tasks:
+    file: teleport.yml
+    apply:
+      tags: teleport
+  tags: teleport

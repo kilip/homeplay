@@ -5,7 +5,8 @@
     "./files/**/*.sops.ini": "ini",
     "*.yml": "ansible",
     "*/**/*.yml": "ansible",
-    "*.json5": "jsonc"
+    "*.json5": "jsonc",
+    "*.sops.yaml": "yaml"
   },
   "sops.defaults.ageKeyFile": "age.key",
   "ansible.python.interpreterPath": "/home/toni/code/homeplay/.venv/bin/python"

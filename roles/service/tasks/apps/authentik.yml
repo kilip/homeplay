@@ -52,6 +52,8 @@
           traefik.http.routers.authentik.entrypoints: websecure
           traefik.http.routers.authentik.rule: "Host(`sso.{{ traefik_domain }}`)"
           traefik.http.services.authentik.loadbalancer.server.port: "9000"
+          dockerdns.pihole.cname.domain: "sso.{{ traefik_domain }}"
+          dockerdns.pihole.cname.target: "{{ full_hostname }}"
 
     - name: Ensure authentik worker container configured
       community.docker.docker_container:
@@ -70,20 +72,6 @@
         restart_policy: always
         networks:
           - name: "{{ docker_network_name }}"
-
-- name: Ensure authentik cname configured
-  ansible.builtin.include_tasks: pihole-cname.yml
-  vars:
-    cname_domain: "sso.{{ traefik_domain }}"
-    cname_target: "{{ full_hostname }}"
-    cname_state: "{{ 'present' if authentik else 'absent' }}"
-
-- name: Ensure authentik cname configured
-  ansible.builtin.include_tasks: pihole-cname.yml
-  vars:
-    cname_domain: "authentik.{{ traefik_domain }}"
-    cname_target: "{{ full_hostname }}"
-    cname_state: "absent"
 
 - name: Ensure authentik cleaned up
   when: not authentik

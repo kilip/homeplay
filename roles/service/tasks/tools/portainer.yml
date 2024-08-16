@@ -48,10 +48,5 @@
       traefik.http.routers.portainer.entrypoints: websecure
       traefik.http.routers.portainer.rule: "Host(`{{ portainer_hostname }}.{{ traefik_domain }}`)"
       traefik.http.services.portainer.loadbalancer.server.port: "9000"
-
-- name: Ensure portainer cname configured
-  ansible.builtin.include_tasks: pihole-cname.yml
-  vars:
-    cname_domain: "portainer.{{ traefik_domain }}"
-    cname_target: "{{ full_hostname }}"
-  when: portainer
+      dockerdns.pihole.cname.domain: "portainer.{{ traefik_domain }}"
+      dockerdns.pihole.cname.target: "{{ full_hostname }}"

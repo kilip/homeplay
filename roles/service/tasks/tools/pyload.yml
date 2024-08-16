@@ -51,16 +51,5 @@
           traefik.http.routers.pyload.entrypoints: websecure
           traefik.http.routers.pyload.rule: "Host(`pyload.{{ traefik_domain }}`)"
           traefik.http.services.pyload.loadbalancer.server.port: "8000"
-
-    - name: Ensure pyload cname configured
-      ansible.builtin.include_tasks: pihole-cname.yml
-      vars:
-        cname_domain: "pyload.{{ traefik_domain }}"
-        cname_target: "{{ full_hostname }}"
-
-    - name: Ensure test cname configured
-      ansible.builtin.include_tasks: pihole-cname.yml
-      vars:
-        cname_domain: "test.{{ traefik_domain }}"
-        cname_target: "{{ full_hostname }}"
-        cname_state: absent
+          dockerdns.pihole.cname.domain: "pyload.{{ traefik_domain }}"
+          dockerdns.pihole.cname.target: "{{ full_hostname }}"

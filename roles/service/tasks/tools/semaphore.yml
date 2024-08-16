@@ -69,11 +69,5 @@
       traefik.http.routers.semaphore.entrypoints: websecure
       traefik.http.routers.semaphore.rule: "Host(`semaphore.{{ traefik_domain }}`)"
       traefik.http.services.semaphore.loadbalancer.server.port: "3000"
-  when: docker_network_exists
-
-- name: Ensure semaphore cname configured
-  ansible.builtin.include_tasks: pihole-cname.yml
-  vars:
-    cname_domain: "semaphore.{{ traefik_domain }}"
-    cname_target: "{{ full_hostname }}"
-  when: semaphore
+      dockerdns.pihole.cname.domain: "semaphore.{{ traefik_domain }}"
+      dockerdns.pihole.cname.target: "{{ full_hostname }}"

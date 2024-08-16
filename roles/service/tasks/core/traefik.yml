@@ -49,7 +49,6 @@
       - "{{ traefik_dir }}/traefik.yml:/custom.yml"
     networks:
       - name: "{{ docker_network_name }}"
-    # command:
     command: >
       --log.level=INFO
       --providers.docker=true
@@ -86,16 +85,11 @@
       traefik.http.routers.traefik.service: api@internal
       traefik.http.routers.traefik.tls.certresolver: letsencrypt
       traefik.http.services.traefik.loadbalancer.server.port: "8080"
+      dockerdns.pihole.cname.domain: "{{ inventory_hostname }}.{{ traefik_domain }}"
+      dockerdns.pihole.cname.target: "{{ full_hostname  }}"
 
 - name: Ensure traefik container removed
   community.docker.docker_container:
     name: traefik
     state: absent
   when: not traefik
-
-- name: Ensure traefik cname configured
-  ansible.builtin.include_tasks: pihole-cname.yml
-  vars:
-    cname_domain: "{{ inventory_hostname }}.{{ traefik_domain }}"
-    cname_target: "{{ full_hostname }}"
-  when: traefik

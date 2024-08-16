@@ -1,0 +1,45 @@
+---
+- name: Ensure teleport vars configured
+  ansible.builtin.include_vars: teleport.yml
+
+- name: Ensure teleport service configured
+  when: teleport
+  block:
+    - name: Ensure teleport image pulled
+      community.docker.docker_image:
+        name: "{{ teleport_image }}"
+        source: pull
+
+    - name: Ensure teleport persistence dir exists
+      ansible.builtin.file:
+        path: "/srv/teleport/{{ item }}"
+        state: directory
+      with_items:
+        - config
+        - data
+
+    - name: Ensure teleport configuration copied
+      ansible.builtin.copy:
+        content: "{{ lookup('community.sops.sops', 'teleport.yaml.sops') }}"
+        dest: "{{ teleport_dir }}/config/teleport.yaml"
+        mode: 'u=rw,g=r,o=r'
+    - name: Ensure teleport container configured
+      community.docker.docker_container:
+        state: started
+        image_name_mismatch: recreate
+        name: teleport
+        image: "{{ teleport_image }}"
+        restart_policy: always
+        networks:
+          - name: "{{ docker_network_name }}"
+        volumes:
+          - "{{ teleport_dir }}/config:/etc/teleport"
+          - "{{ teleport_dir }}/data:/var/lib/teleport"
+        labels:
+          traefik.enable: "true"
+          traefik.http.routers.teleport.entrypoints: websecure
+          traefik.http.routers.teleport.rule: "Host(`teleport.{{ traefik_domain }}`)"
+          traefik.http.services.teleport.loadbalancer.server.port: "3080"
+          traefik.http.services.teleport.loadbalancer.server.scheme: "https"
+          dockerdns.pihole.cname.domain: "teleport.{{ traefik_domain }}"
+          dockerdns.pihole.cname.target: "{{ full_hostname }}"

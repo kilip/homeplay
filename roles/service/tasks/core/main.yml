@@ -53,3 +53,10 @@
       tags: tunnel
   tags: tunnel
   when: tunnel
+
+- name: Ensure dockerdns tasks included
+  ansible.builtin.include_tasks:
+    file: dockerdns.yml
+    apply:
+      tags: dockerdns
+  tags: dockerdns

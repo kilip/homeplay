@@ -56,16 +56,11 @@
       traefik.http.routers.hass.entrypoints: websecure
       traefik.http.routers.hass.rule: "Host(`hass.{{ traefik_domain }}`)"
       traefik.http.services.hass.loadbalancer.server.port: "8123"
+      dockerdns.pihole.cname.domain: "hass.{{ traefik_domain }}"
+      dockerdns.pihole.cname.target: "{{ full_hostname }}"
 
 - name: Ensure hass container removed
   when: not hass
   community.docker.docker_container:
     name: hass
     state: absent
-
-- name: Ensure hass cname configured
-  ansible.builtin.include_tasks: pihole-cname.yml
-  vars:
-    cname_domain: "hass.{{ traefik_domain }}"
-    cname_target: "{{ full_hostname }}"
-  when: hass

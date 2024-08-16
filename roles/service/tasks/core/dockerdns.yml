@@ -1,0 +1,36 @@
+---
+- name: Ensure dockerdns vars configured
+  ansible.builtin.include_vars: dockerdns.yml
+
+- name: Ensure dockerdns facts configured
+  ansible.builtin.set_fact:
+    dockerdns: "{{ true if docker else false }}"
+
+- name: Ensure dockerdns service configured
+  when: dockerdns
+  block:
+    - name: Ensure dockerdns image pulled
+      community.docker.docker_image:
+        name: "{{ dockerdns_image }}"
+        source: pull
+
+    - name: Ensure dockerdns persistence dir exists
+      ansible.builtin.file:
+        path: "/srv/dockerdns/{{ item }}"
+        state: directory
+      with_items:
+        - var
+
+    - name: Ensure dockerdns container configured
+      community.docker.docker_container:
+        state: started
+        image_name_mismatch: recreate
+        name: dockerdns
+        image: "{{ dockerdns_image }}"
+        restart_policy: always
+        networks:
+          - name: "{{ docker_network_name }}"
+        volumes:
+          - /srv/dockerdns/var:/app/var
+          - /var/run/docker.sock:/var/run/docker.sock:ro
+        env: "{{ dockerdns_env }}"

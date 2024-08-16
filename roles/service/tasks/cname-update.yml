@@ -1,7 +1,0 @@
----
-- name: Ensure cname file copied
-  ansible.builtin.copy:
-    src: "{{ pihole_cname_file }}"
-    dest: "{{ pihole_remote_cname_file }}"
-    mode: u=rw,g=rw,o=r
-  notify: Restart pihole dns

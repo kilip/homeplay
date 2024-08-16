@@ -10,6 +10,12 @@ hera
 iris
 eros
 
+[docker]
+mars
+hera
+iris
+eros
+
 [semaphore]
 mars
 
@@ -27,6 +33,7 @@ mars
 [traefik]
 mars
 hera
+eros
 
 [postgres]
 mars
@@ -65,4 +72,7 @@ mars
 mars
 
 [redis]
+mars
+
+[teleport]
 mars

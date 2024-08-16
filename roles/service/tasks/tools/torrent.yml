@@ -52,9 +52,5 @@
           traefik.http.routers.qbittorrent.entrypoints: websecure
           traefik.http.routers.qbittorrent.rule: "Host(`torrent.{{ traefik_domain }}`)"
           traefik.http.services.qbittorrent.loadbalancer.server.port: "8080"
-
-    - name: Ensure qbittorrent cname configured
-      ansible.builtin.include_tasks: pihole-cname.yml
-      vars:
-        cname_domain: "torrent.{{ traefik_domain }}"
-        cname_target: "{{ full_hostname }}"
+          dockerdns.pihole.cname.domain: "torrent.{{ traefik_domain }}"
+          dockerdns.pihole.cname.target: "{{ full_hostname }}"

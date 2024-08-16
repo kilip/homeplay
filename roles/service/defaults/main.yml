@@ -118,3 +118,6 @@ pgadmin_dir: '/srv/pgadmin'
 
 authentik: false
 authentik_dir: '/srv/authentik'
+
+teleport: false
+teleport_dir: '/srv/teleport'

@@ -5,3 +5,4 @@ molecule-docker
 #bitwarden-sdk
 psycopg2-binary
 #packaging
+docker
