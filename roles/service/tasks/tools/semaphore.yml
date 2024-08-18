@@ -27,7 +27,7 @@
   ansible.builtin.copy:
     src: requirements.txt
     dest: /srv/semaphore/config/requirements.txt
-    owner: 1000
+    owner: 1001
     group: root
     mode: "0644"
 

@@ -1,0 +1,51 @@
+---
+- name: Ensure mass vars included
+  ansible.builtin.include_vars: mass.yml
+
+- name: Ensure mass service configured
+  when: mass
+  block:
+    - name: Ensure mass image pulled
+      community.docker.docker_image:
+        name: "{{ mass_image }}"
+        source: pull
+
+    - name: Ensure mass data dir configured
+      ansible.builtin.file:
+        path: "/srv/mass/data"
+        state: directory
+
+    - name: Ensure mass container configured
+      community.docker.docker_container:
+        state: "started"
+        image_name_mismatch: recreate
+        name: mass
+        image: "{{ mass_image }}"
+        restart_policy: always
+        volumes: "{{ mass_volumes }}"
+        network_mode: host
+        privileged: true
+        ports:
+          - 8095:8095
+          - 8097:8097
+        labels:
+          dockerdns.pihole.cname.domain: "music.{{ traefik_domain }}"
+          dockerdns.pihole.cname.target: "{{ full_hostname }}"
+
+- name: Ensure music asssistant servic uninstalled
+  when: not mass
+  block:
+    - name: Ensure mass container removed
+      community.docker.docker_container:
+        name: mass
+        state: absent
+
+    - name: Ensure mass image removed
+      community.docker.docker_image:
+        name: "{{ mass_image }}"
+        state: absent
+
+    - name: Ensure mass directory removed
+      ansible.builtin.file:
+        path: "/srv/mass"
+        state: absent

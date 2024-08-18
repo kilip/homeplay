@@ -1,4 +1,6 @@
-music_assistant: ENC[AES256_GCM,data:TDj19w==,iv:ZObEcVgK04K6gX6xQIknmSgdYwPmIE4ZBKsEFRmBIgQ=,tag:v/KO/uXoBe/9r9DCfXYPeA==,type:bool]
+mass: ENC[AES256_GCM,data:hQWgTg==,iv:PH27+SqTNEQHqPm4PP14RwFOeWfF0iOk/xF79xTphaI=,tag:T0ZSy/p/db/USaW/Rlm7hA==,type:bool]
+mass_volumes:
+    - ENC[AES256_GCM,data:kAx8BfInw+qcF9N83aKb,iv:6x2A2Fxeutjn6i20y+TiPQFxeNU7AjIf5/kNpGvtLjk=,tag:ri+hHEL7Vf+eRzYjCroBPA==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -14,8 +16,8 @@ sops:
             NjhsNUh2ODA1aEpWdGtXZDVWTXdoWE0KPrqMR3h2M9oQyoDN009XPNTMHvmfe6oa
             QsN6uPy+YKkBo8Ru0DqIx1Bf11H5cnWYuiUWO+3vgQb1ZGbWqU6ARQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-11T16:49:59Z"
-    mac: ENC[AES256_GCM,data:97h7QavGrxCG3wK/PGMxBSRpE2koPeKdIPsfhzljZ41klWGprKVx+Fq2spvQz0Wuv1nVfoT0sihRwF6189T4yGWkcsWVFbSyhfX90gg3bL0Mp1i6/n9Gwz0Z9dZjgf70zziQmTX671l0GimSGp8YKZTwjn8baqm12n0MIgc7a6Q=,iv:0Z4Ngi/tVeFkt7ROINqUFHuvumm1SGfnWAJHOmY00H8=,tag:aY3HUBB0qKHmmmVny4dvKA==,type:str]
+    lastmodified: "2024-08-18T03:15:47Z"
+    mac: ENC[AES256_GCM,data:BoT9rCZlylI9cVLTOB4So8et4vvplVjU7rBL7JTvduY6sAoXIbR2+FyCkvcxd47oXgA9JeNIcIXk27BpH8WyNvGFLstjuTgWBcjpb+WjO3aaIkNQCt9UuPDyv7jKJpyxv3RjR4/TBNrFn4Ych4T/Wv+1FIpSIy57Dg3gOfgyFrI=,iv:Ay6uxImK2i7K79WWDRaQH8R1GMlMGCbXwYlC3MOqIsM=,tag:lVImIIycZzfc5M/QbClNVg==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

@@ -28,3 +28,8 @@
   community.docker.docker_container:
     name: prometheus
     restart: true
+
+- name: Restart teleport
+  community.docker.docker_container:
+    name: teleport
+    restart: true

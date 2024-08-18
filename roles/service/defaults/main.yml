@@ -91,7 +91,9 @@ tunnel_version: 2024.8.2
 tunnel_image: "cloudflare/cloudflared:{{ tunnel_version }}"
 
 jellyfin: false
-music_assistant: false
+mass: false
+mass_volumes:
+  - "/srv/mass/data:/data"
 
 prometheus: false
 # renovate: datasource=docker depName=prom/prometheus

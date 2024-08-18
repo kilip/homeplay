@@ -7,6 +7,7 @@
     "*/**/*.yml": "ansible",
     "*.json5": "jsonc",
     "*.sops.yaml": "yaml",
+    "*.yaml.sops": "yaml",
     "*.conf.sops": "toml"
   },
   "sops.defaults.ageKeyFile": "age.key",

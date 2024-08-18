@@ -1,0 +1,22 @@
+version: v3
+teleport:
+  nodename: teleport.itstoni.com
+  data_dir: /var/lib/teleport
+  log:
+    output: stderr
+    severity: INFO
+    format:
+      output: text
+auth_service:
+  enabled: "yes"
+  listen_addr: 0.0.0.0:3025
+  proxy_listener_mode: multiplex
+  cluster_name: teleport.itstoni.com
+ssh_service:
+  enabled: "no"
+proxy_service:
+  enabled: "yes"
+  web_listen_addr: 0.0.0.0:3080
+  public_addr: teleport.itstoni.com:443
+  https_keypairs: []
+  acme: {}

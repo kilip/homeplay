@@ -13,12 +13,12 @@
       tags: jellyfin
   tags: jellyfin
 
-- name: Ensure music assistant task included
+- name: Ensure mass task included
   ansible.builtin.include_tasks:
-    file: music-assistant.yml
+    file: mass.yml
     apply:
-      tags: music-assistant
-  tags: music-assistant
+      tags: mass
+  tags: mass
 
 - name: Ensure authentik tasks included
   ansible.builtin.include_tasks:
