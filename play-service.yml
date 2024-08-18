@@ -9,3 +9,11 @@
       ansible.builtin.include_role:
         name: service
       tags: always
+    - name: Ensure unused docker resources pruned
+      community.docker.docker_prune:
+        containers: true
+        images: true
+        networks: true
+        volumes: true
+        builder_cache: true
+      tags: prune
