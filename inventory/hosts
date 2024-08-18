@@ -76,3 +76,6 @@ mars
 
 [teleport]
 mars
+
+[influxdb]
+mars

@@ -42,8 +42,6 @@ backup_node: ENC[AES256_GCM,data:q3HcbA==,iv:WCpQdkSxNK7VvBob52FIjAjs/vDUGG88NOw
 backup_rsync_dest: ENC[AES256_GCM,data:dbFfC7C/Ku06qmp6ilmk8d+/IKzMSQ==,iv:fKq2U0SBGcxF2IndxXdJKJq318iC5ax+sQcDu0tXlbc=,tag:cSA25XXP9b1i9nIRJasGJA==,type:str]
 backup_dir: ENC[AES256_GCM,data:rjuYekk0r6hY1v41r5XKDCapfQmGCOXGbBAqEoHaSq0Q+qWTTQ==,iv:yh4MhGUE+OfsfzwWbBVWaAjt65brHpMvjU2atMT97K4=,tag:liFsueuRZZA2n6Ka+DRsGg==,type:str]
 pihole_cname_target: ENC[AES256_GCM,data:5BJUeFHr9nE=,iv:m3wMi9uogjXt5j8eeJGt8MPPLtld0YlLhfWWfg35d1s=,tag:t8N4wQxd7FPU0Scf9JAkVw==,type:str]
-postgres_user: ENC[AES256_GCM,data:5vIitdEFuTI=,iv:cmLOvvERoKN7GwOt17JCWB2bN9dfWJzxKDlooh5DI7I=,tag:xz4ciR9PBBhCV9KBbxcpQQ==,type:str]
-postgres_password: ENC[AES256_GCM,data:Ot9u2TEtrb/4WeTqO3/x+9hw5JMIj4QPC9kaGzX7+4s=,iv:2H/0SY84ynM8FOOOUbKKzVjulYKhtWfUeBfjzSXy/tc=,tag:ORdWSA93wo107z2rAkPiHw==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -59,8 +57,8 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-16T11:52:01Z"
-    mac: ENC[AES256_GCM,data:UrwKOHBv58e65Cl1UTGcTlj0Z026ZVziHF+BWaQ4GFKxXeRrwWLfqCCUJ6kCRaWSxCeSt3zdC970CYoGtEx3QdlXpsbQJXKi0U+I8uvN/NBDu76JFfGWKyxei98Gu/R55YyCXl89+eHGD2kK470VUcKz0L6wtH+H/p1vHyDMJfo=,iv:nMuyYujlO/LvYSQng6KiiuwdTGm/ZmsWznyS8HPbCmk=,tag:DZM0kiujWIBv57S7JhJywA==,type:str]
+    lastmodified: "2024-08-17T15:43:53Z"
+    mac: ENC[AES256_GCM,data:aGRs1ONnDfIZqC6Mltumms4qO+Gg0t1I0FpZCRSDhBme6DBQ0fJ1/O2N47iblZfkUZpjafsncW6Z82jNvXmOwRVbhjom/2Pgl1pOb+32bnh1mdhSSrazrJF0IFPgIkk9qLnFZZ3KTZ9fxti6tpE43CaOU2pcbxHz6eh0+uPQJJw=,iv:2uwmn5mrYbB8VlIpZqNat18U2DIFXveiyvm66o2AHrc=,tag:T+DxR/SLZTvrokF3V1sN+g==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0

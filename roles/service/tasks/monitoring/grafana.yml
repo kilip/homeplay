@@ -50,6 +50,8 @@
       traefik.http.routers.grafana.entrypoints: websecure
       traefik.http.routers.grafana.rule: "Host(`grafana.{{ traefik_domain }}`)"
       traefik.http.services.grafana.loadbalancer.server.port: "3000"
+      dockerdns.pihole.cname.domain: "grafana.{{ traefik_domain }}"
+      dockerdns.pihole.cname.target: "{{ full_hostname }}"
     env:
       GF_PATHS_CONFIG: /config/grafana.ini
       GF_DATE_FORMATS_USE_BROWSER_LOCALE: "true"
@@ -60,11 +62,3 @@
       GF_DATABASE_NAME: "{{ grafana_db_name }}"
       GF_DATABASE_USER: "{{ grafana_db_user }}"
       GF_DATABASE_PASSWORD: "{{ grafana_db_pass }}"
-
-- name: Ensure grafana cname configured
-  ansible.builtin.include_tasks:
-    file: pihole-cname.yml
-  vars:
-    cname_domain: "grafana.{{ traefik_domain }}"
-    cname_target: "{{ full_hostname }}"
-  when: grafana

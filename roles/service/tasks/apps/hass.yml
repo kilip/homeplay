@@ -18,7 +18,7 @@
     - hass_config_repo
     - hass
 
-- name: Ensure hass db tasks configured
+- name: Ensure hass postgres database configured
   ansible.builtin.include_tasks: postgres-db.yml
   vars:
     db_user: "{{ hass_db_user }}"

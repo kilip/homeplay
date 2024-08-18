@@ -1,0 +1,36 @@
+---
+- name: Ensure telegraf vars included
+  ansible.builtin.include_vars: telegraf.yml
+
+- name: Ensure telegraf container configured
+  when: influxdb
+  block:
+    - name: Ensure telegraf image pulled
+      community.docker.docker_image:
+        name: "{{ telegraf_image }}"
+        source: pull
+
+    - name: Ensure telegraf dir exists
+      ansible.builtin.file:
+        path: "{{ telegraf_dir }}"
+        state: directory
+        owner: "{{ homeplay_user }}"
+        group: "{{ homeplay_user }}"
+
+    - name: Ensure telegraf config copied
+      ansible.builtin.copy:
+        content: "{{ lookup('community.sops.sops', 'storage/telegraf.conf.sops') }}"
+        dest: "{{ telegraf_dir }}/telegraf.conf"
+
+    - name: Ensure telegraf container started
+      community.docker.docker_container:
+        state: started
+        image_name_mismatch: recreate
+        name: telegraf
+        image: "{{ telegraf_image }}"
+        volumes:
+          - "{{ telegraf_dir }}/telegraf.conf:/etc/telegraf/telegraf.conf:ro"
+        env: "{{ influxdb_env }}"
+        restart_policy: always
+        networks:
+          - name: "{{ docker_network_name }}"

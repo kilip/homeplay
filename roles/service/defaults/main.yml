@@ -3,6 +3,11 @@ squid: false
 squid_cache_dir_config: cache_dir aufs /var/spool/squid 20000 24 256
 
 postgres: false
+postgres_name: postgres
+postgres_user: homeplay
+postgres_password: homeplay
+postgres_db: homeplay
+postgres_data_dir: "/srv/postgres"
 
 docker: false
 docker_network_name: homeplay
@@ -121,3 +126,9 @@ authentik_dir: '/srv/authentik'
 
 teleport: false
 teleport_dir: '/srv/teleport'
+
+influxdb: false
+influxdb_dir: /srv/influxdb
+
+telegraf: false
+telegraf_dir: /srv/telegraf

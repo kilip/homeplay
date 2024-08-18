@@ -47,11 +47,5 @@
       traefik.http.routers.prometheus.entrypoints: websecure
       traefik.http.routers.prometheus.rule: "Host(`prometheus.{{ traefik_domain }}`)"
       traefik.http.services.prometheus.loadbalancer.server.port: "9090"
-
-- name: Ensure prometheus cname configured
-  ansible.builtin.include_tasks:
-    file: pihole-cname.yml
-  vars:
-    cname_domain: "prometheus.{{ traefik_domain }}"
-    cname_target: "{{ full_hostname }}"
-  when: prometheus
+      dockerdns.pihole.cname.domain: "prometheus.{{ traefik_domain }}"
+      dockerdns.pihole.cname.target: "{{ full_hostname }}"

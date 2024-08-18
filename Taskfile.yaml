@@ -50,12 +50,13 @@ tasks:
 
   play:
     desc: Run ansible playbook
-    cmd: "{{.PLAYBOOK_BIN}} -i {{.INVENTORY}} {{.playbook}}{{.host}}{{.tags}}{{.check}}{{.args}}"
+    cmd: "{{.PLAYBOOK_BIN}} -i {{.INVENTORY}} {{.playbook}}{{.host}}{{.tags}}{{.skip}}{{.check}}{{.args}}"
     vars:
       host: "{{if .host}} -l {{.host}}{{end}}"
       check: "{{if .check}} --check{{end}}"
       tags: "{{if .tags}} --tags {{.tags}}{{end}}"
       args: "{{if .CLI_ARGS}} {{.CLI_ARGS}}{{end}}"
+      skip: "{{if .skip}} --skip-tags {{.skip}}{{end}}"
 
   preflight:
     desc: Converge semaphore hosts

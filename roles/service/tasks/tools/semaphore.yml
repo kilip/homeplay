@@ -31,22 +31,14 @@
     group: root
     mode: "0644"
 
-- name: Ensure semaphore db user configured
-  community.postgresql.postgresql_user:
-    user: "{{ semaphore_db_user }}"
-    password: "{{ semaphore_db_pass }}"
-    host: "{{ semaphore_db_host }}"
-    login_user: "{{ postgres_user }}"
-    login_password: "{{ postgres_password }}"
-    state: present
-
-- name: Ensure semaphore database configured
-  community.postgresql.postgresql_db:
-    name: "{{ semaphore_db_name }}"
-    host: "{{ semaphore_db_host }}"
-    owner: "{{ semaphore_db_user }}"
-    login_user: "{{ postgres_user }}"
-    login_password: "{{ postgres_password }}"
+- name: Ensure semaphore postgres database configured
+  ansible.builtin.include_tasks: postgres-db.yml
+  vars:
+    db_user: "{{ semaphore_db_user }}"
+    db_pass: "{{ semaphore_db_pass }}"
+    db_host: "{{ semaphore_db_host }}"
+    db_name: "{{ semaphore_db_name }}"
+  when: hass
 
 - name: Ensure semaphore container configured
   community.docker.docker_container:

@@ -1,0 +1,42 @@
+---
+- name: Ensure influxdb vars included
+  ansible.builtin.include_vars: influxdb.yml
+
+- name: Ensure influxdb container configured
+  when: influxdb
+  block:
+    - name: Ensure influxdb image pulled
+      community.docker.docker_image:
+        name: "{{ influxdb_image }}"
+        source: pull
+
+    - name: Ensure influxdb dir exists
+      ansible.builtin.file:
+        path: "{{ influxdb_dir }}/{{ item }}"
+        state: directory
+        owner: "{{ homeplay_user }}"
+        group: "{{ homeplay_user }}"
+      with_items:
+        - config
+        - data
+
+    - name: Ensure influxdb container started
+      community.docker.docker_container:
+        state: started
+        image_name_mismatch: recreate
+        name: influxdb
+        image: "{{ influxdb_image }}"
+        volumes:
+          - "{{ influxdb_dir }}/data:/var/lib/influxdb2"
+          - "{{ influxdb_dir }}/config:/etc/influxdb2"
+        env: "{{ influxdb_env }}"
+        restart_policy: always
+        networks:
+          - name: "{{ docker_network_name }}"
+        labels:
+          traefik.enable: "true"
+          traefik.http.routers.influxdb.entrypoints: websecure
+          traefik.http.routers.influxdb.rule: "Host(`influxdb.{{ traefik_domain }}`)"
+          traefik.http.services.influxdb.loadbalancer.server.port: "8086"
+          dockerdns.pihole.cname.domain: "influxdb.{{ traefik_domain }}"
+          dockerdns.pihole.cname.target: "{{ full_hostname }}"
