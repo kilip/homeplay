@@ -1,3 +1,3 @@
 # renovate: datasource=docker depName=influxdb
 influxdb_version: 2.7.10
-influxdb_image: "influxdb:{{ influxdb_version }}"
+influxdb_image: "influxdb:{{ influxdb_version }}-alpine"
