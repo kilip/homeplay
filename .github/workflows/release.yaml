@@ -1,5 +1,4 @@
 ---
-# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 name: "Release"
 
 on:
@@ -9,15 +8,18 @@ on:
 
 jobs:
   release:
-    if: ${{ github.repository == 'kilip/homeplay' }}
     name: Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Create Release
+      - name: Setup workflow variables
         shell: bash
+        id: vars
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         run: |
@@ -36,9 +38,37 @@ jobs:
               echo "Month release does not exist for year, setting patch number to 0"
               next_patch="0"
           fi
+
           # Create release
           release_tag="${next_major_minor}.${next_patch}"
-          gh release create "${release_tag}" \
+          echo "release_tag=${release_tag}" >> $GITHUB_OUTPUT
+          echo "previous_tag=${previous_tag}" >> $GITHUB_OUTPUT
+
+
+      - name: Create Release
+        shell: bash
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          RELEASE_TAG: "${{ steps.vars.outputs.release_tag }}"
+        run: |
+            gh release create "${RELEASE_TAG}" \
               --repo="${GITHUB_REPOSITORY}" \
-              --title="${release_tag}" \
-              --generate-notes
+              --title="${RELEASE_TAG}"
+
+      - name: Create changelog
+        id: changelog
+        uses: requarks/changelog-action@v1
+        with:
+          token: ${{ github.token }}
+          toTag: ${{ steps.vars.outputs.previous_tag }}
+          fromTag: ${{ steps.vars.outputs.release_tag }}
+
+      - name: Update release changelog
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          RELEASE_TAG: "${{ steps.vars.outputs.release_tag }}"
+        run: |
+            gh release edit \
+              --repo="${GITHUB_REPOSITORY}" \
+              ${RELEASE_TAG} \
+              --notes-file CHANGELOG.md

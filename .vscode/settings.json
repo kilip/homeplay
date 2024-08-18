@@ -11,5 +11,8 @@
     "*.conf.sops": "toml"
   },
   "sops.defaults.ageKeyFile": "age.key",
-  "ansible.python.interpreterPath": "/home/toni/code/homeplay/.venv/bin/python"
+  "ansible.python.interpreterPath": "/home/toni/code/homeplay/.venv/bin/python",
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "file:///home/toni/code/homeplay/.github/workflows/release.yaml"
+  }
 }
