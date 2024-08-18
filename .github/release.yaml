@@ -1,4 +1,10 @@
 changelog:
   exclude:
-    authors:
-      - renovate
+    authors: []
+  categories:
+    - title: 🏕 Features
+      labels:
+        - '*'
+      exclude:
+        labels:
+          - dependencies
