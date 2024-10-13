@@ -11,12 +11,6 @@
     "github>kilip/homeplay//.github/renovate/labels.json5"
   ],
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
-  "lockFileMaintenance": {
-    "enabled": true,
-    "automerge": true,
-    "automergeType": "branch",
-    "autoMergeStrategy": "rebase"
-  },
   "regexManagers": [
     {
       "description": ["Process various dependencies in YAML files"],
@@ -41,5 +35,12 @@
       "matchPackagePatterns": ["qbittorrent"],
       "allowedVersions": "<14.0.0"
     }
-  ]
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 5am on monday"],
+    "automerge": true,
+    "automergeType": "branch",
+    "automergeStrategy": "rebase"
+  }
 }
