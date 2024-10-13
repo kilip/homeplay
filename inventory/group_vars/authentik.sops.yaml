@@ -1,4 +1,4 @@
-authentik: ENC[AES256_GCM,data:gHR/mQ==,iv:HgoVsjwgP6nL5Qfudc2n0c/12j//KJzKYMIcp+aAXBg=,tag:AKidnfALbJVHLURm3gB+hg==,type:bool]
+authentik: ENC[AES256_GCM,data:qaeSsZs=,iv:kCqItTW5AW46sBsGbG9iESnjV2qx4bORRKeANmHetLQ=,tag:fN//+2VBE4yRb+uKhnMyJw==,type:bool]
 authentik_env:
     AUTHENTIK_SECRET_KEY: ENC[AES256_GCM,data:/guB0b3T85y/RS5nqzMzWNGc3pP9UkYXB0AeP8Ajzsr6zM7h7f93n4nA2uxlrNlCeYlvIyk6qFKa7vOjvcGmd+3gYGMl/lih8pmN1f0sqfo=,iv:uocGhidYQdtm3gOmpgBfkPMz1pTH1qXhWREcCo27ILk=,tag:Hg6j6MQs3Wvwafb1dj3TXA==,type:str]
     AUTHENTIK_REDIS__HOST: ENC[AES256_GCM,data:dCA/3LYppby+,iv:ESTjuQ1AIgzO4OZUCdS911c2qpDumbPPMC2uQNUGy28=,tag:DCQ2R2cByrzBSh8ulQE6kA==,type:str]
@@ -28,8 +28,8 @@ sops:
             cUdoWHFTM3ZUYjdvYm9OVDlTYXBaeU0KLlFz+IGlbYUGLk2MctaJB0HXg1+/duI0
             UmZs61BLhAUN93KInG5I8NhabhSKYpSe0UDbXD/0JK8AmX0sHDqCkQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-14T12:45:16Z"
-    mac: ENC[AES256_GCM,data:w8DdjORsk/x8QrIWjrtOe8Bq2k1sIWGSD8E6oLg5AD0a2Lt66gh36DYlMIZhlTHiMmQy8XG2Q5tgbrBNqBVkXcFbQ5/9ulm1hVGPW4V9BP/8cO1Ze/Z32FGNDuG1IPxCtb6K76o2jdEi4/NMsawn5lb2JYdfyCItBjhc3V5/Q9U=,iv:4RQv4no6j4v/FozxKPv+VgyLpVQtq+QlCVpICbQidXw=,tag:dm9SpoFq94MO0PBC6mRwJA==,type:str]
+    lastmodified: "2024-10-13T12:58:53Z"
+    mac: ENC[AES256_GCM,data:F3AeEikkrODCL1wFM9lGEXw4StbqG+NkrSIwlzrA8BwbIxA3Bv0EDCwDxrNS1dB85K0t4GTlA9bSoMoJKeNgifbYmf24s0ntBu9nxh281Gp086lb2NMhMeoLrTgs5JApZhruexrN2XVs080lq83J4AnveRdcABQ4Ig4GXsgzf6o=,iv:uO7Hg3lPQuYHirUhq7D48AwmxjzSQPWCAFMVxeFNAT4=,tag:BRF8QSTzqcJ52rFBJrlMRQ==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
-    version: 3.9.0
+    version: 3.9.1
