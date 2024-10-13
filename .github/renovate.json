@@ -11,6 +11,12 @@
     "github>kilip/homeplay//.github/renovate/labels.json5"
   ],
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true,
+    "automergeType": "branch",
+    "autoMergeStrategy": "rebase"
+  },
   "regexManagers": [
     {
       "description": ["Process various dependencies in YAML files"],
