@@ -1,4 +1,4 @@
 ---
 # renovate: datasource=docker depName=docker.dragonflydb.io/dragonflydb/dragonfly
-dragonfly_version: v1.21.2
+dragonfly_version: v1.23.2
 dragonfly_image: "docker.dragonflydb.io/dragonflydb/dragonfly:{{ dragonfly_version }}"
