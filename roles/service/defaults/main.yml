@@ -87,7 +87,7 @@ mosquitto: false
 tunnel: false
 tunnel_env: {}
 # renovate: datasource=docker depName=cloudflare/cloudflared
-tunnel_version: 2024.10.0
+tunnel_version: 2024.10.1
 tunnel_image: "cloudflare/cloudflared:{{ tunnel_version }}"
 
 jellyfin: false
