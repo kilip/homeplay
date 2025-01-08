@@ -11,10 +11,15 @@
     "github>kilip/homeplay//.github/renovate/labels.json5"
   ],
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
-  "regexManagers": [
+  "customManagers": [
     {
-      "description": ["Process various dependencies in YAML files"],
-      "fileMatch": [".+\\.ya?ml$"],
+      "customType": "regex",
+      "description": [
+        "Process various dependencies in YAML files"
+      ],
+      "fileMatch": [
+        ".+\\.ya?ml$"
+      ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*=?))?( versionTemplate=(?<versionTemplate>.*=?))?\\n.*: ?(\"?(?<currentValue>[^\"\\n]+=?)\"?)"
       ],
@@ -24,21 +29,35 @@
   ],
   "packageRules": [
     {
-      "description": ["Custom versioning for minio"],
-      "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["minio"],
-      "versioning": "regex:^RELEASE\\.(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T.*Z$"
+      "description": [
+        "Custom versioning for minio"
+      ],
+      "matchDatasources": [
+        "docker"
+      ],
+      "versioning": "regex:^RELEASE\\.(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T.*Z$",
+      "matchPackageNames": [
+        "/minio/"
+      ]
     },
     {
-      "description": ["Custom versioning for qbittorrent"],
-      "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["qbittorrent"],
-      "allowedVersions": "<14.0.0"
+      "description": [
+        "Custom versioning for qbittorrent"
+      ],
+      "matchDatasources": [
+        "docker"
+      ],
+      "allowedVersions": "<14.0.0",
+      "matchPackageNames": [
+        "/qbittorrent/"
+      ]
     }
   ],
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": ["before 5am on monday"],
+    "schedule": [
+      "before 5am on monday"
+    ],
     "automerge": true,
     "automergeType": "branch",
     "automergeStrategy": "rebase"
