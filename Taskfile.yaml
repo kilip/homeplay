@@ -121,3 +121,10 @@ tasks:
       - task: play
         vars:
           playbook: play-restore.yml
+
+  upgrade:
+    desc: Runs upgrade
+    cmds:
+      - task: play
+        vars:
+          playbook: play-upgrade.yml

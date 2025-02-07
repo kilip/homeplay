@@ -1,0 +1,14 @@
+---
+- name: Upgrade Debian
+  hosts: ubuntu
+  become: true
+  become_user: root
+  gather_facts: true
+  tasks:
+    - name: Ensure apt upgrade
+      ansible.builtin.apt:
+        update_cache: true
+        autoclean: true
+        autoremove: true
+        upgrade: dist
+        force: true

@@ -48,10 +48,10 @@ hera
 hera
 
 [grafana]
-mars
+# mars
 
 [prometheus]
-mars
+# mars
 
 [torrent]
 hera
@@ -81,3 +81,8 @@ mars
 
 [pkrbt]
 mars
+
+[ubuntu]
+mars
+hera
+iris

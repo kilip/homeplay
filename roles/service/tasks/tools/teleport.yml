@@ -3,17 +3,17 @@
   ansible.builtin.include_vars: teleport.yml
 
 - name: Ensure teleport service configured
-  when: teleport
   block:
     - name: Ensure teleport image pulled
       community.docker.docker_image:
         name: "{{ teleport_image }}"
         source: pull
+        state: "{{ 'present' if teleport else 'absent' }}"
 
     - name: Ensure teleport persistence dir exists
       ansible.builtin.file:
         path: "/srv/teleport/{{ item }}"
-        state: directory
+        state: "{{ 'directory' if teleport else 'absent' }}"
       with_items:
         - config
         - data
@@ -22,12 +22,13 @@
       ansible.builtin.copy:
         src: "tools/teleport.yaml"
         dest: "{{ teleport_dir }}/config/teleport.yaml"
-        mode: 'u=rw,g=r,o=r'
+        mode: "u=rw,g=r,o=r"
       notify: Restart teleport
+      when: teleport
 
     - name: Ensure teleport container configured
       community.docker.docker_container:
-        state: started
+        state: "{{ 'started' if prometheus else 'absent' }}"
         image_name_mismatch: recreate
         name: teleport
         image: "{{ teleport_image }}"
