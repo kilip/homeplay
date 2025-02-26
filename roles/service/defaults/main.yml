@@ -97,7 +97,7 @@ mass_volumes:
 
 prometheus: false
 # renovate: datasource=docker depName=prom/prometheus
-prometheus_version: v3.1.0
+prometheus_version: v3.2.1
 prometheus_image: "prom/prometheus:{{ prometheus_version }}"
 
 grafana: false
