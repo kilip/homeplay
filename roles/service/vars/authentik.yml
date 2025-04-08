@@ -1,4 +1,4 @@
 ---
 # renovate: datasource=docker depName=ghcr.io/goauthentik/server
-authentik_version: 2025.2.2
+authentik_version: 2025.2.4
 authentik_image: "ghcr.io/goauthentik/server:{{ authentik_version }}"
