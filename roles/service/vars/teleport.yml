@@ -1,3 +1,3 @@
 # renovate: datasource=docker depName=public.ecr.aws/gravitational/teleport-distroless
-teleport_version: 17.4.5
+teleport_version: 17.4.6
 teleport_image: "public.ecr.aws/gravitational/teleport-distroless:{{ teleport_version }}"
