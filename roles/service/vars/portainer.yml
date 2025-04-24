@@ -1,5 +1,5 @@
 # renovate: datasource=docker depName=portainer/portainer-ee
-portainer_ee_version: 2.29.0
+portainer_ee_version: 2.29.2
 portainer_ee_image: "portainer/portainer-ee:{{ portainer_ee_version }}"
 # renovate: datasource=docker depName=portainer/portainer-ce
 portainer_ce_version: 2.29.2
