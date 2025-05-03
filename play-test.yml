@@ -1,18 +1,8 @@
 ---
 - name: Installs and configure nodes
   gather_facts: true
-  hosts: hera
+  hosts: server
   become: true
   become_user: root
   tasks:
-    - name: Ensure python docker sdk installed
-      ansible.builtin.apt:
-        package:
-          - python3-docker
-          - python3-distutils-extra
-        state: present
-
-    - name: Ensure pihole cname configured
-      pihole:
-        url: http://10.0.0.11
-        token: "{{ lookup('env', 'MARS_PIHOLE_TOKEN') }}"
+    - debug: var=semaphore

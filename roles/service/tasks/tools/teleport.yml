@@ -23,12 +23,19 @@
         src: "tools/teleport.yaml"
         dest: "{{ teleport_dir }}/config/teleport.yaml"
         mode: "u=rw,g=r,o=r"
+        state:
       notify: Restart teleport
       when: teleport
 
+    - name: Ensure teleport config removed
+      ansible.builtin.file:
+        path: "tools/teleport.yaml"
+        state: "absent"
+        when: not teleport
+
     - name: Ensure teleport container configured
       community.docker.docker_container:
-        state: "{{ 'started' if prometheus else 'absent' }}"
+        state: "{{ 'started' if teleport else 'absent' }}"
         image_name_mismatch: recreate
         name: teleport
         image: "{{ teleport_image }}"

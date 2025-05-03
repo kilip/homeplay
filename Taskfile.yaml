@@ -10,11 +10,11 @@ tasks:
     desc: installs project dependencies
     cmds:
       - pass hp/age-key > age.key
-      - task: deps:brew
       - pip install --upgrade pip
       - pip install -r requirements.txt
       - ansible-galaxy collection install -r collections/requirements.yml
       - ansible-galaxy role install -r roles/requirements.yml
+      - task: deps:brew
 
   deps:brew:
     desc: install brew dependencies
