@@ -31,7 +31,7 @@
       ansible.builtin.file:
         path: "tools/teleport.yaml"
         state: "absent"
-        when: not teleport
+      when: not teleport
 
     - name: Ensure teleport container configured
       community.docker.docker_container:
