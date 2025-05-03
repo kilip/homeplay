@@ -42,6 +42,9 @@ backup_node: ENC[AES256_GCM,data:q3HcbA==,iv:WCpQdkSxNK7VvBob52FIjAjs/vDUGG88NOw
 backup_rsync_dest: ENC[AES256_GCM,data:dbFfC7C/Ku06qmp6ilmk8d+/IKzMSQ==,iv:fKq2U0SBGcxF2IndxXdJKJq318iC5ax+sQcDu0tXlbc=,tag:cSA25XXP9b1i9nIRJasGJA==,type:str]
 backup_dir: ENC[AES256_GCM,data:rjuYekk0r6hY1v41r5XKDCapfQmGCOXGbBAqEoHaSq0Q+qWTTQ==,iv:yh4MhGUE+OfsfzwWbBVWaAjt65brHpMvjU2atMT97K4=,tag:liFsueuRZZA2n6Ka+DRsGg==,type:str]
 pihole_cname_target: ENC[AES256_GCM,data:5BJUeFHr9nE=,iv:m3wMi9uogjXt5j8eeJGt8MPPLtld0YlLhfWWfg35d1s=,tag:t8N4wQxd7FPU0Scf9JAkVw==,type:str]
+newrelic_api_key: ENC[AES256_GCM,data:7u4rbXaOBXOHb9COmDYYz6xK6xxO6NslAZ636tJ+Xc0=,iv:vk5QKmTlqPylhoZbgVx1LmUcNzA3AvPWa0OHZLobdGg=,tag:XSu1PTek9jEX8V2YzQiOMQ==,type:str]
+newrelic_account_id: ENC[AES256_GCM,data:RMoRhG2zIg==,iv:tPQGfkAlOkcw6+x9kv3ABT10BnWTgCXRoOXbOYGl6Wk=,tag:ny/F8OYrKIZBP17upblAHg==,type:int]
+newrelic_region: ENC[AES256_GCM,data:bnw=,iv:Oe2dNVOk2dS9lHN770YtO6FZvCwNJeVQp8vVy3+ROsc=,tag:fldy5xoPMIRQXgB4Fx7KRQ==,type:str]
 authentik: ENC[AES256_GCM,data:XytQbeA=,iv:BaU76kZsGAQ5SsDEmTNIWkuV3UjnsiQjAOHfccO+tU4=,tag:PSgW1AC6Cl0lWcnLa/9x+w==,type:bool]
 grafana: ENC[AES256_GCM,data:c4ZYIa4=,iv:c0U3sZxYEWxfjJIakPdUnHKkOPaleQkCRCFsuq5jb78=,tag:rBj2SLfkiro0swbMpja1Dg==,type:bool]
 influxdb: ENC[AES256_GCM,data:mlMy51A=,iv:lVOYRg+YdJd9wv9zPngeoiNLwrXfoYGflDSf28b6dkA=,tag:gZIqyv+MRsdIMJlCRmMrsQ==,type:bool]
@@ -49,6 +52,7 @@ jellyfin: ENC[AES256_GCM,data:nTHugMw=,iv:KHd5hlofSkLKpxIpbwMgrsmiCd5TBZOw9bSNKG
 mass: ENC[AES256_GCM,data:hDmgJZM=,iv:EaowrbXDSsOptlYgeey3hJZDVZpcL4pSmfcIH5SO1Pw=,tag:IWgbNaQXCsTkLxLrjk/DfA==,type:bool]
 minio: ENC[AES256_GCM,data:pi4xCG0=,iv:ZHvt6NhNn+TgayRT+aoc1CnUoJJGzL/Uci+g/3jG5Dw=,tag:Vmn/cJzUBgQvhvQz1HPm/A==,type:bool]
 nextcloud: ENC[AES256_GCM,data:B/ePzzM=,iv:D5Jdo+C8yMrFP2mVinWDHgeeglTREoHPBn6FYnjPpa4=,tag:dtkAFSYc/IyVpmUmoBYEcw==,type:bool]
+newrelic: ENC[AES256_GCM,data:RNp6KEQ=,iv:3fIpb+76A0UgTzMuo5LujH/6jB2qNCkCV+Vdehuy8Xg=,tag:AGKTVMzd9Y5p7d3v90SCSQ==,type:bool]
 pgadmin: ENC[AES256_GCM,data:ytSMLXs=,iv:d81PSuYyZV6i7moyxJ0DzlbYdUdZwehz6e+6u0R9jyE=,tag:az/vjsy5qgZDC7hgPmw3EA==,type:bool]
 pihole: ENC[AES256_GCM,data:vDW887k=,iv:uT2II7cbmn+P5eqS2KGFAAtGZoHYou5V2ahDXEGsmpk=,tag:s78vGEI/ZUcZcihS7t04SA==,type:bool]
 postgres: ENC[AES256_GCM,data:p2ZlaNo=,iv:ap9UJ/fpHOYyMa6chGZnAaQ4QVHpjticWp/1gmtHoFc=,tag:8K0FzgTCUxtpDxc6wSmn2A==,type:bool]
@@ -67,7 +71,7 @@ sops:
             TVU3M2RpbVgvNFJoWXA0MURuU3hJZWMKOOJvuAydZAso2TvBgC2TmZVyCf9wPNiJ
             YfTPOncFn6d8HJEtSgZpREhsxI25YnhfhCcYSuZA9OohQ6j79c0v+g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-05-03T05:52:43Z"
-    mac: ENC[AES256_GCM,data:pRhYmYPs3UsAigHPWsJsm4/nWzDgjcrak+KNLt951tWIVAAzDWqGG1QOq4MIKt22LAbFL1bcAoeFRTlyQAvHCaKCYDuYjTkLWYoEvgk7Pb2Vc38BtXUxU7ViQDfE8/gxmbSMgdf9Y2NuYPdVo8blbr88ZjsVyA1QGbsMvABlDrE=,iv:Xd+WmyMxwDoVy4RNWaFRWgBwq+5jsj3I0+Xdbo9Iblk=,tag:omavW2YdQL+p7zEPPZjQ+g==,type:str]
+    lastmodified: "2025-05-03T06:56:32Z"
+    mac: ENC[AES256_GCM,data:lZlbqznyAhUtbrNHhqnQC1fIXX4l1YiEMA7nZov9+UUtFRVdSxvY04spGh5KdGjtbGZZgf5xRx4xTDCu14IhRtn5aMu6N97xBwNRuWJgFFTUGVukqB5yWtpbUzZEXUQE4zXTUGHYylSgF6vxa4qvI8BTpkhrKr8P/8wj/K+s0xA=,iv:xUElNeXNPmnI/czhP1UuB0TS3oCSbzqN/B4Wnm/R1Rs=,tag:/7cbQECoZAfrW42427FUeg==,type:str]
     unencrypted_suffix: _unencrypted
     version: 3.10.2

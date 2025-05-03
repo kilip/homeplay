@@ -3,6 +3,10 @@
   hosts: all
   become: true
   become_user: root
+  environment:
+    NEW_RELIC_API_KEY: "{{ newrelic_api_key }}"
+    NEW_RELIC_ACCOUNT_ID: "{{ newrelic_account_id }}"
+    NEW_RELIC_REGION: "{{ newrelic_region }}"
   tasks:
     - name: Include preflight role
       ansible.builtin.include_role:

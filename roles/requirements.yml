@@ -2,5 +2,6 @@
 roles:
   - name: geerlingguy.docker
   - name: geerlingguy.nfs
+  - name: newrelic.newrelic_install
   - name: kilip.regolith
   - name: kilip.gpg

@@ -47,6 +47,7 @@ tasks:
       - task: play
         vars:
           CLI_ARGS: "--check {{.CLI_ARGS}}"
+          playbook: play-deploy.yml
 
   play:
     desc: Run ansible playbook

@@ -1,0 +1,16 @@
+newrelic: ENC[AES256_GCM,data:e6qnfw==,iv:P/kILms+A2esHxA/N/vzAfNU63HoEhUF7q+gXkFBhkI=,tag:I94RmiIGaBR497eLfDooAQ==,type:bool]
+sops:
+    age:
+        - recipient: age13n6rctev7vwr2vuds9uqdh6anhvdvl2zt8gu9jp6mmvw2wukuqmqxz9ghv
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAybWw2blhmdlAxMFBMVFhE
+            Q3kxTG9sbkVMZitRbVBJYlNCZjBOU3BBM0FzCjkrRHZqcW4zR3VvWXU4VklHUDFW
+            cXVsNEVDbFNLeGQwVk81cy9oSFEyY2MKLS0tIGp1aExKR2tZN2tBUG05QTRQRVRL
+            NzVzYThsOFRtMzlXdU43L0RtQlk5eHcKy7TjUBP7VwKkF6pphENQBcACtajPD76q
+            +zU1dpEe8Mvd/7Cazs5V0W1kmvZk7YlPJG4kGZepRm/XP31aPK+F8w==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-05-03T06:45:25Z"
+    mac: ENC[AES256_GCM,data:Nt02TvLGeet9mXlhYI1DXtFZ0uz5h8b9VzVzE+SV9HDEqoWcdY5AGTeAmIH5n8CFts/JpVzAQe+GzSa67SbCp2hYkcj6GGWF+feC/rG1n6FEN3KB3ardOlrkcjMgRgJp9+ZfRYNVjpVzkKKCsHIzSeGVZEcyzxzWcPGbiObjSZI=,iv:kww4Es9ILZ0jutKDH34Pc0eJ0XmwWjRfnANZjP9J168=,tag:2CJH/njtO2OpMLhFWo8OYg==,type:str]
+    unencrypted_suffix: _unencrypted
+    version: 3.10.2
