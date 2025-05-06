@@ -1,13 +1,13 @@
 ---
 - name: Ensure apt key installed
   ansible.builtin.apt_key:
-    url: https://regolith-desktop.org/regolith.key
+    url: https://archive.regolith-desktop.com/regolith.key
     state: present
     keyring: /usr/share/keyrings/regolith-archive-keyring.gpg
 
 - name: Ensure apt source configured
   ansible.builtin.apt_repository:
-    repo: deb [arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] https://regolith-desktop.org/testing-ubuntu-noble-amd64 noble main
+    repo: deb [arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] https://archive.regolith-desktop.com/ubuntu/stable noble v3.2
     state: present
     filename: regolith.list
 
