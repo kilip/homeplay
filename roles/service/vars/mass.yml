@@ -1,3 +1,3 @@
 # renovate: datasource=docker depName=ghcr.io/music-assistant/server
-mass_version: 2.5.4
+mass_version: 2.5.5
 mass_image: "ghcr.io/music-assistant/server:{{ mass_version }}"
