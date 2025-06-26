@@ -20,7 +20,7 @@ portainer_agent: false
 
 traefik: false
 # renovate: datasource=docker depName=traefik
-traefik_version: v3.4.1
+traefik_version: v3.4.3
 traefik_image: "traefik:{{ traefik_version }}"
 traefik_dir: /srv/traefik
 traefik_domain: itstoni.com
