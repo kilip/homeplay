@@ -37,7 +37,7 @@ cloudflare_token: replace_with_your_cloudflare_token
 
 hass: false
 # renovate: datasource=docker depName=linuxserver/homeassistant
-hass_version: 2025.7.1
+hass_version: 2025.7.2
 hass_image: "linuxserver/homeassistant:{{ hass_version }}"
 hass_config_local_dir: /srv/hass
 hass_config_branch: main
