@@ -54,11 +54,10 @@ hass_devices: []
 # nfs server section
 nfs_server: false
 
-
 # pihole section
 pihole: false
 # renovate: datasource=docker depName=pihole/pihole
-pihole_version: 2024.07.0
+pihole_version: 2025.07.1
 pihole_image: "pihole/pihole:{{ pihole_version }}"
 pihole_dir: "/srv/pihole"
 pihole_cname_file: "/srv/pihole/dnsmasq.d/05-pihole-custom-cname.conf"
@@ -80,7 +79,7 @@ semaphore_email_host: smtp.example.com
 semaphore_email_port: 547
 semaphore_email_username: admin@example.com
 semaphore_email_password: password
-semaphore_email_secure: 'true'
+semaphore_email_secure: "true"
 
 mosquitto: false
 
@@ -114,20 +113,20 @@ grafana_api_key: false
 
 portainer_agent_port: "9001"
 minio_env: {}
-minio_dir: '/srv/minio'
+minio_dir: "/srv/minio"
 
 nextcloud: false
 nextcloud_config_dir: "/srv/nextcloud/config"
 nextcloud_data_dir: "/srv/nextcloud/data"
 
 pgadmin: false
-pgadmin_dir: '/srv/pgadmin'
+pgadmin_dir: "/srv/pgadmin"
 
 authentik: false
-authentik_dir: '/srv/authentik'
+authentik_dir: "/srv/authentik"
 
 teleport: false
-teleport_dir: '/srv/teleport'
+teleport_dir: "/srv/teleport"
 
 influxdb: false
 influxdb_dir: /srv/influxdb

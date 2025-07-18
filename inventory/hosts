@@ -6,14 +6,14 @@ eros
 
 [server]
 mars
-hera
-iris
+#hera
+#iris
 eros
 
 [docker]
 mars
-hera
-iris
+#hera
+#iris
 eros
 
 [semaphore]
@@ -31,7 +31,7 @@ mars
 
 [traefik]
 mars
-hera
+#hera
 eros
 
 [postgres]
@@ -83,11 +83,11 @@ mars
 
 [ubuntu]
 mars
-hera
-iris
+#hera
+#iris
 
 [newrelic]
 mars
-hera
-iris
+#hera
+#iris
 eros
