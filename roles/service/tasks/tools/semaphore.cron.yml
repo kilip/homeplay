@@ -1,0 +1,10 @@
+---
+- name: Ensure semaphore upgraded everyweek at 10.00 am
+  ansible.builtin.cron:
+    name: "semaphore upgrade tasks"
+    weekday: 1
+    hour: 10
+    minute: 0
+    job: "cd {{ homeplay_user_home }}/code/homeplay && direnv allow && task semaphore"
+    user: "{{ homeplay_user }}"
+    state: present

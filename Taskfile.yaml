@@ -58,6 +58,7 @@ tasks:
       tags: "{{if .tags}} --tags {{.tags}}{{end}}"
       args: "{{if .CLI_ARGS}} {{.CLI_ARGS}}{{end}}"
       skip: "{{if .skip}} --skip-tags {{.skip}}{{end}}"
+      playbook: play-service.yml
 
   preflight:
     desc: Converge semaphore hosts
@@ -73,6 +74,7 @@ tasks:
         vars:
           host: semaphore
           tags: docker,semaphore
+          playbook: play-service.yml
 
   workstation:
     desc: Play workstation tasks

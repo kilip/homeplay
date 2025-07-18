@@ -21,6 +21,14 @@
   when: semaphore
   tags: semaphore
 
+- name: Ensure semaphore cron task included
+  ansible.builtin.include_tasks:
+    file: semaphore.cron.yml
+    apply:
+      tags: semaphore,cron
+  when: semaphore
+  tags: semaphore,cron
+
 - name: Ensure torrent task included
   ansible.builtin.include_tasks:
     file: torrent.yml
