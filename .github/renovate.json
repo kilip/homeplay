@@ -39,7 +39,7 @@
   ],
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": ["before 5am on monday"],
+    "schedule": ["59 23 * * *"],
     "automerge": true,
     "automergeType": "branch",
     "automergeStrategy": "rebase"
