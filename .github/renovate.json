@@ -61,5 +61,6 @@
     "automergeType": "branch",
     "automergeStrategy": "rebase",
     "ignoreTests": true
-  }
+  },
+  "automergeSchedule": ["* 23 * * *"]
 }
