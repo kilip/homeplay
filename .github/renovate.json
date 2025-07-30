@@ -28,13 +28,30 @@
       "description": ["Custom versioning for minio"],
       "matchDatasources": ["docker"],
       "versioning": "regex:^RELEASE\\.(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T.*Z$",
-      "matchPackageNames": ["/minio/"]
+      "matchPackageNames": ["/minio/"],
+      "automerge": true,
+      "automergeType": "branch",
+      "automergeStrategy": "rebase",
+      "ignoreTests": "true"
     },
     {
       "description": ["Custom versioning for qbittorrent"],
       "matchDatasources": ["docker"],
       "allowedVersions": "<14.0.0",
-      "matchPackageNames": ["/qbittorrent/"]
+      "matchPackageNames": ["/qbittorrent/"],
+      "automerge": true,
+      "automergeType": "branch",
+      "automergeStrategy": "rebase",
+      "ignoreTests": "true"
+    },
+    {
+      "description": "Auto-merge trusted container digests",
+      "matchDatasources": ["docker"],
+      "automerge": true,
+      "automergeType": "branch",
+      "matchUpdateTypes": ["digest"],
+      "automergeStrategy": "rebase",
+      "ignoreTests": true
     }
   ],
   "lockFileMaintenance": {
@@ -42,6 +59,7 @@
     "schedule": ["* 23 * * *"],
     "automerge": true,
     "automergeType": "branch",
-    "automergeStrategy": "rebase"
+    "automergeStrategy": "rebase",
+    "ignoreTests": true
   }
 }
