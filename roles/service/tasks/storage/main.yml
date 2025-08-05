@@ -42,16 +42,9 @@
       tags: pgadmin
   tags: pgadmin
 
-- name: Ensure influxdb tasks included
+- name: Ensure mysql tasks included
   ansible.builtin.include_tasks:
-    file: influxdb.yml
+    file: mysql.yml
     apply:
-      tags: influxdb
-  tags: influxdb
-
-- name: Ensure telegraf tasks included
-  ansible.builtin.include_tasks:
-    file: telegraf.yml
-    apply:
-      tags: telegraf
-  tags: telegraf
+      tags: mysql
+  tags: mysql

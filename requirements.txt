@@ -6,3 +6,4 @@ molecule-docker
 psycopg2-binary
 #packaging
 docker
+pymysql

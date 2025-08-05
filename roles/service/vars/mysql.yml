@@ -1,0 +1,4 @@
+---
+# renovate: datasource=docker depName=mysql
+mysql_version: 8.4.6
+mysql_image: "mysql:{{ mysql_version }}"

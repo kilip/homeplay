@@ -1,4 +1,28 @@
 ---
+- name: Ensure newrelic provisioned
+  when: newrelic
+  ansible.builtin.include_tasks:
+    file: "newrelic.yml"
+    apply:
+      tags: newrelic
+  tags: newrelic
+
+- name: Ensure newrelic infra bundle configured
+  community.docker.docker_container:
+    name: newrelic.infra_bundle
+    image: newrelic/infrastructure-bundle:latest
+    state: started
+    image_name_mismatch: recreate
+    restart: "always"
+    pid_mode: host
+    detach: true
+    volumes:
+      - "/:/host:ro"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/srv/newrelic-infra:/etc/newrelic-infra"
+    env:
+      NRIA_LICENSE_KEY: "{{ newrelic_license_key }}"
+
 - name: Ensure mosquitto tasks included
   ansible.builtin.include_tasks:
     file: mosquitto.yml

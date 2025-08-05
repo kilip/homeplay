@@ -133,3 +133,12 @@ influxdb_dir: /srv/influxdb
 
 telegraf: false
 telegraf_dir: /srv/telegraf
+
+mysql: false
+mysql_infra_user: none
+mysql_infra_pass: none
+mysql_infra_host: localhost
+mysql_root_pass: none
+mysql_db: homeplay
+mysql_user: homeplay
+mysql_pass: aw@h4]yWV2P`UG![t./o

@@ -20,11 +20,3 @@
     apply:
       tags: grafana
   tags: grafana
-
-- name: Ensure newrelic provisioned
-  when: newrelic
-  ansible.builtin.include_tasks:
-    file: "newrelic.yml"
-    apply:
-      tags: newrelic
-  tags: newrelic

@@ -4,6 +4,11 @@
     file: core/main.yml
   tags: always
 
+# - name: Ensure monitoring service tasks included
+#  ansible.builtin.include_tasks:`
+#    file: monitoring/main.yml
+#  tags: always
+
 - name: Ensure tools service tasks included
   ansible.builtin.include_tasks:
     file: storage/main.yml
@@ -17,9 +22,4 @@
 - name: Ensure apps service tasks included
   ansible.builtin.include_tasks:
     file: apps/main.yml
-  tags: always
-
-- name: Ensure monitoring service tasks included
-  ansible.builtin.include_tasks:
-    file: monitoring/main.yml
   tags: always

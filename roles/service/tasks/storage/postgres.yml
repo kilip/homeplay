@@ -33,19 +33,3 @@
       - "{{ postgres_port }}"
     networks:
       - name: "{{ docker_network_name }}"
-
-- name: Ensure postgres metrics container created
-  community.docker.docker_container:
-    state: started
-    image_name_mismatch: recreate
-    name: "postgres-exporter"
-    image: "{{ postgres_exporter_image }}"
-    restart_policy: always
-    env:
-      DATA_SOURCE_URI: "localhost:5432"
-      DATA_SOURCE_USER: "{{ postgres_user }}"
-      DATA_SOURCE_PASSWORD: "{{ postgres_password }}"
-    ports:
-      - 9187:9187
-    networks:
-      - name: "{{ docker_network_name }}"

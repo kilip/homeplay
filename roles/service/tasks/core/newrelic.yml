@@ -1,4 +1,9 @@
 ---
+- name: Check newrelic service
+  ansible.builtin.stat:
+    path: /usr/local/bin/newrelic
+  register: newrelic_stat
+
 - name: Ensure newrelic installed
   ansible.builtin.include_role:
     name: newrelic.newrelic_install
@@ -8,3 +13,4 @@
       - logs
     install_timeout_seconds: 1000
     verbosity: debug
+  when: not newrelic_stat.stat.exists

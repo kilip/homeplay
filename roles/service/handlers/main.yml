@@ -33,3 +33,13 @@
   community.docker.docker_container:
     name: teleport
     restart: true
+
+- name: Restart newrelic
+  ansible.builtin.service:
+    name: newrelic-infra
+    state: restarted
+
+- name: Restart newrelic infra bundle
+  community.docker.docker_container:
+    name: newrelic.infra_bundle
+    restart: true

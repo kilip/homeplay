@@ -1,0 +1,73 @@
+---
+- name: Ensure mysql vars included
+  ansible.builtin.include_vars: mysql.yml
+
+- name: Ensure mysql installed
+  block:
+    - name: Ensure mysql image pulled
+      community.docker.docker_image:
+        name: "{{ mysql_image }}"
+        source: pull
+
+    - name: Ensure mysql conf.d dir exits
+      ansible.builtin.file:
+        owner: root
+        group: root
+        path: "/srv/mysql/conf.d"
+        state: directory
+
+    - name: Ensure mysql configured
+      ansible.builtin.template:
+        src: "mysql.cnf.j2"
+        dest: "/srv/mysql/conf.d/mysql.cnf"
+
+    - name: Ensure mysql container created
+      community.docker.docker_container:
+        state: started
+        image_name_mismatch: recreate
+        name: "mysql"
+        image: "{{ mysql_image }}"
+        restart_policy: always
+        env:
+          MYSQL_USER: "{{ mysql_user }}"
+          MYSQL_PASSWORD: "{{ mysql_pass }}"
+          MYSQL_DATABASE: "{{ mysql_db }}"
+          MYSQL_ROOT_PASSWORD: "{{ mysql_root_pass }}"
+        volumes:
+          - "/srv/mysql/data:/var/lib/mysql"
+          - "/srv/mysql/conf.d:/etc/mysql/conf.d"
+          - "/srv/mysql/logs:/var/log/mysql"
+        ports:
+          - "3306:3306"
+        networks:
+          - name: "{{ docker_network_name }}"
+
+    - name: Get info on container
+      community.docker.docker_container_info:
+        name: mysql # Replace with the actual container name
+      register: mysql_info
+
+    - name: Ensure mysql python installed
+      ansible.builtin.apt:
+        name: python3-pymysql
+        state: present
+
+    - name: Ensure mysql infra user configured
+      community.mysql.mysql_user:
+        name: "{{ mysql_infra_user }}"
+        password: "{{ mysql_infra_pass }}"
+        login_user: "root"
+        login_password: "{{ mysql_root_pass }}"
+        host: "%"
+        priv: "*.*:ALL"
+        state: present
+      when: mysql_info.exists
+
+    - name: Ensure mysql monitored
+      ansible.builtin.template:
+        owner: root
+        group: root
+        src: mysql-infra.yml.j2
+        dest: "/etc/newrelic-infra/integrations.d/mysql-config.yml"
+      when: mysql_info.exists
+      notify: Restart newrelic infra bundle
