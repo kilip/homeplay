@@ -1,0 +1,3 @@
+---
+# renovate: datasource=docker depName=newrelic/php-daemon
+phpdaemon_version: 11.10.0
