@@ -57,7 +57,7 @@ nfs_server: false
 # pihole section
 pihole: false
 # renovate: datasource=docker depName=pihole/pihole
-pihole_version: 2025.07.1
+pihole_version: 2025.08.0
 pihole_image: "pihole/pihole:{{ pihole_version }}"
 pihole_dir: "/srv/pihole"
 pihole_cname_file: "/srv/pihole/dnsmasq.d/05-pihole-custom-cname.conf"
